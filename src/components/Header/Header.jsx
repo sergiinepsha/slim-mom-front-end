@@ -1,19 +1,30 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-// import logoImg from '../../../public/logo.png';
-import styles from './Header.module.css';
+import Navigation from '../views/Navigation';
+import { userSelector } from '../../redux/auth';
+
+import UserMenu from './UserMenu/UserMenu';
+import AuthNav from './AuthNav/AuthNav';
 import Logo from './Logo/Logo';
 
-const Header = () => {
-  return (
-    <nav className={styles.nav}>
-      <Logo />
-      <ul>
-        <li> </li>
-        <li></li>
-      </ul>
-    </nav>
-  );
-};
+import styles from './Header.module.css';
 
-export default Header;
+class App extends Component {
+  render() {
+    const { isAuth } = this.props;
+    return (
+      <header className={styles.nav}>
+        <Logo />
+        <Navigation />
+        {isAuth ? <UserMenu /> : <AuthNav />}
+      </header>
+    );
+  }
+}
+
+const mapStateToProps = state => ({
+  isAuth: userSelector.isAuth(state),
+});
+
+export default connect(mapStateToProps)(App);
