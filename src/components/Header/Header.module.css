@@ -1,20 +1,44 @@
-.nav {
+.header,
+.info,
+.nav,
+.logo {
    display: flex;
    flex-direction: row;
+   justify-content: space-around;
+}
+
+.header {
+   width: 100%;
    margin-left: 15px;
    margin-top: 18px;
 }
 
+.nav {
+   order: 1;
+}
+.info {
+   order: 2;
+}
+
 @media screen and (min-width: 768px) and (max-width: 1024px) {
-   .nav {
+   .header {
       margin-left: 69px;
       margin-top: 17px;
+      border-bottom: 2px solid #e0e0e0;
+      justify-content: space-between;
+   }
+   .nav {
+      order: 2;
+   }
+   .info {
+      order: 1;
    }
 }
 
 @media screen and (min-width: 1024.1px) {
-   .nav {
-      margin-left: 90px;
+   .header {
+      margin: 0 auto;
       margin-top: 82px;
+      justify-content: center;
    }
 }
