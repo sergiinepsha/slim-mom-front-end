@@ -19,6 +19,9 @@ const DailyCaloriesForm = () => {
   const [desiredWeight, setDesiredWeight] = useState("");
   const onDesiredWeightChange = ({ value }) => setDesiredWeight(value);
 
+  const [bloodGroup, setBloodGroup] = useState("1");
+  const onBloodGroupChange = ({ value }) => setBloodGroup(value);
+
   const handlerSubmit = (evt) => {
     evt.preventDefault();
 
@@ -32,6 +35,7 @@ const DailyCaloriesForm = () => {
     setAge("");
     setCurrentWeight("");
     setDesiredWeight("");
+    setBloodGroup("1");
   };
 
   return (
@@ -62,7 +66,7 @@ const DailyCaloriesForm = () => {
           onChange={onDesiredWeightChange}
         />
 
-        <BloodGroup />
+        <BloodGroup bloodGroup={bloodGroup} onChange={onBloodGroupChange} />
       </div>
 
       <div className={s.btn_wrapper}>

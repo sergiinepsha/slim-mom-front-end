@@ -1,11 +1,6 @@
-import React, { useState } from "react";
-
 import s from "./BloodGroup.module.css";
 
-const BloodGroup = () => {
-  const [bloodGroup, setBloodGroup] = useState("1");
-  const onBloodGroupChange = ({ value }) => setBloodGroup(value);
-
+const BloodGroup = ({ bloodGroup, onChange }) => {
   return (
     <div className={s.wrapper}>
       <label className={s.label_radio_boxes}>Группа крови *</label>
@@ -15,7 +10,7 @@ const BloodGroup = () => {
             type="radio"
             checked={bloodGroup === "1"}
             value="1"
-            onChange={({ target }) => onBloodGroupChange(target)}
+            onChange={({ target }) => onChange(target)}
           />
           1
         </label>
@@ -24,7 +19,7 @@ const BloodGroup = () => {
             type="radio"
             checked={bloodGroup === "2"}
             value="2"
-            onChange={({ target }) => onBloodGroupChange(target)}
+            onChange={({ target }) => onChange(target)}
           />
           2
         </label>
@@ -33,7 +28,7 @@ const BloodGroup = () => {
             type="radio"
             checked={bloodGroup === "3"}
             value="3"
-            onChange={({ target }) => onBloodGroupChange(target)}
+            onChange={({ target }) => onChange(target)}
           />
           3
         </label>
@@ -42,7 +37,7 @@ const BloodGroup = () => {
             type="radio"
             checked={bloodGroup === "4"}
             value="4"
-            onChange={({ target }) => onBloodGroupChange(target)}
+            onChange={({ target }) => onChange(target)}
           />
           4
         </label>
