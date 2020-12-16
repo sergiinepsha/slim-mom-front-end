@@ -1,7 +1,12 @@
 import React from "react";
+import UserInfo from "../components/common/UserInfo/UserInfo";
 
 const App = () => {
-  return <></>;
+  return (
+    <>
+      <UserInfo />
+    </>
+  );
 };
 
 export default App;
