@@ -1,7 +1,11 @@
 import React from "react";
-
+import Logo from "./Header/Logo";
 const App = () => {
-  return <></>;
+  return (
+    <>
+      <Logo></Logo>
+    </>
+  );
 };
 
 export default App;
