@@ -1,41 +1,42 @@
-.link {
-   color: black;
-}
-.activeLink {
-   color: green;
+.nav,
+.navBar {
+   display: flex;
+   flex-direction: row;
+   width: 100%;
 }
 
 .nav {
-   display: flex;
-   flex-direction: row;
    justify-content: flex-start;
    align-items: flex-end;
 }
 .navBar {
-   display: flex;
-   flex-direction: row;
-   justify-content: space-between;
+   justify-content: flex-end;
    align-items: baseline;
 }
 
 @media screen and (max-width: 767.9px) {
-   .nav {
-   }
-   .navBar {
-   }
 }
 
+/*table*/
 @media screen and (min-width: 768px) and (max-width: 1024px) {
    .nav {
+      justify-content: flex-start;
+      align-items: flex-end;
    }
    .navBar {
+      justify-content: flex-end;
+      align-items: baseline;
    }
 }
 
 /*desktop*/
 @media screen and (min-width: 1024.1px) {
    .nav {
+      justify-content: flex-start;
+      align-items: flex-end;
    }
    .navBar {
+      justify-content: flex-start;
+      align-items: baseline;
    }
 }
