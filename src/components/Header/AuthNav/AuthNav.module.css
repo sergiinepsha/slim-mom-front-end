@@ -1,0 +1,17 @@
+.item {
+}
+
+.link {
+   font-family: Gotham Pro;
+   font-style: normal;
+   font-weight: bold;
+   font-size: 14px;
+   line-height: 13px;
+   letter-spacing: 0.04em;
+   text-transform: uppercase;
+
+   color: #9b9faa;
+}
+.activeLink {
+   color: #212121;
+}
