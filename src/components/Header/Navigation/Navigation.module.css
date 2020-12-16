@@ -1,0 +1,41 @@
+.link {
+   color: black;
+}
+.activeLink {
+   color: green;
+}
+
+.nav {
+   display: flex;
+   flex-direction: row;
+   justify-content: flex-start;
+   align-items: flex-end;
+}
+.navBar {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   align-items: baseline;
+}
+
+@media screen and (max-width: 767.9px) {
+   .nav {
+   }
+   .navBar {
+   }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+   .nav {
+   }
+   .navBar {
+   }
+}
+
+/*desktop*/
+@media screen and (min-width: 1024.1px) {
+   .nav {
+   }
+   .navBar {
+   }
+}
