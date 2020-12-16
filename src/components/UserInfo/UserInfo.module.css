@@ -131,6 +131,7 @@
 @media (min-width: 1280px) {
    .container {
       width: 1281px;
+      height: 850px;
       display: flex;
    }
    .calcPlace {
@@ -147,7 +148,6 @@
       padding-right: 115px;
    }
    .userInfoMenu {
-      height: 850px;
       display: block;
       background: none;
    }
