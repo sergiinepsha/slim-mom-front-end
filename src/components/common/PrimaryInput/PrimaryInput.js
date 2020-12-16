@@ -3,10 +3,11 @@ import PropTypes from "prop-types";
 
 import s from "./PrimaryInput.module.css";
 
-const PrimaryInput = ({ value, type, placeholder, onChange }) => {
+const PrimaryInput = ({ name, value, type, placeholder, onChange }) => {
   return (
     <input
       className={s.primary_input}
+      name={name}
       type={type}
       placeholder={placeholder}
       required
