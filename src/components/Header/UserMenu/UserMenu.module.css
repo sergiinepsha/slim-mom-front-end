@@ -1,7 +1,10 @@
 .item {
    display: flex;
    justify-content: flex-end;
-   align-items: flex-end;
+   align-items: center;
+
+   width: 100%;
+
    background-color: #f0f1f3;
 }
 .name,
@@ -32,12 +35,20 @@
 }
 
 @media screen and (max-width: 767.9px) {
+   .item {
+      height: 40px;
+      margin-right: 5%;
+   }
+   .name,
+   .button {
+      line-height: 2;
+   }
 }
 
 /*table*/
 @media screen and (min-width: 768px) and (max-width: 1024px) {
    .item {
-      justify-content: center;
+      justify-content: flex-end;
       align-items: center;
       background-color: #ffffff;
    }
@@ -48,9 +59,8 @@
    .item {
       justify-content: flex-end;
       align-items: flex-end;
-      width: 535px;
    }
    .button {
-      margin-right: 115px;
+      margin-right: 10%;
    }
 }
