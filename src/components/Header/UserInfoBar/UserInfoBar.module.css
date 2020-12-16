@@ -1,0 +1,56 @@
+.item {
+   display: flex;
+   justify-content: flex-end;
+   align-items: flex-end;
+   background-color: #f0f1f3;
+}
+.name,
+.button {
+   font-family: Gotham Pro;
+   font-style: normal;
+   font-weight: 700;
+   font-size: 14px;
+   line-height: 1.5;
+   letter-spacing: 0.04em;
+}
+.button,
+.button:focus,
+.button:active {
+   color: #9b9faa;
+   border: none;
+   background: none;
+   outline: none;
+   padding-left: 21.59px;
+   cursor: pointer;
+   text-transform: uppercase;
+}
+.name {
+   padding-right: 21.59px;
+   border-right: 2px solid#e0e0e0;
+   color: #212121;
+   text-transform: capitalize;
+}
+
+@media screen and (max-width: 767.9px) {
+}
+
+/*table*/
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+   .item {
+      justify-content: center;
+      align-items: center;
+      background-color: #ffffff;
+   }
+}
+
+/*desktop*/
+@media screen and (min-width: 1024.1px) {
+   .item {
+      justify-content: flex-end;
+      align-items: flex-end;
+      width: 535px;
+   }
+   .button {
+      margin-right: 115px;
+   }
+}

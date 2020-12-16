@@ -1,6 +1,6 @@
 import React from 'react';
 
-import AuthNav from '../AuthNav/AuthNav';
+import AuthNav from './AuthNav';
 
 import { nav, navBar } from './Navigation.module.css';
 
