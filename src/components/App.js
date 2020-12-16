@@ -1,7 +1,13 @@
 import React from "react";
 
+import DailyCaloriesForm from "./DailyCaloriesForm/DailyCaloriesForm";
+
 const App = () => {
-  return <></>;
+  return (
+    <>
+      <DailyCaloriesForm />
+    </>
+  );
 };
 
 export default App;
