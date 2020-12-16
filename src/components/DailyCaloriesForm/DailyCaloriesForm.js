@@ -25,7 +25,7 @@ const DailyCaloriesForm = () => {
    const handlerSubmit = evt => {
       evt.preventDefault();
 
-      // TODO: dailyRate.Oparation...
+      // TODO: dailyRateOparation...
 
       clearForm();
    };
