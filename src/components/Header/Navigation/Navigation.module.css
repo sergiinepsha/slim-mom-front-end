@@ -2,12 +2,11 @@
 .navBar {
    display: flex;
    flex-direction: row;
-   width: 100%;
 }
 
 .nav {
    justify-content: flex-start;
-   align-items: flex-end;
+   align-items: center;
 }
 .navBar {
    justify-content: flex-end;
@@ -21,7 +20,7 @@
 @media screen and (min-width: 768px) and (max-width: 1024px) {
    .nav {
       justify-content: flex-start;
-      align-items: flex-end;
+      align-items: center;
    }
    .navBar {
       justify-content: flex-end;
@@ -34,6 +33,7 @@
    .nav {
       justify-content: flex-start;
       align-items: flex-end;
+      width: 465px;
    }
    .navBar {
       justify-content: flex-start;
