@@ -1,43 +1,43 @@
 .wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-start;
 }
 
 .label_radio_boxes {
-  font-family: Verdana;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 14px;
-  line-height: 17px;
-  letter-spacing: 0.04em;
-  color: #9b9faa;
-  margin-bottom: 10px;
+   font-family: Verdana;
+   font-style: normal;
+   font-weight: bold;
+   font-size: 14px;
+   line-height: 17px;
+   letter-spacing: 0.04em;
+   color: #9b9faa;
+   margin-bottom: 10px;
 }
 
 .radio_boxes {
-  display: flex;
-  justify-content: space-between;
-  width: 239px;
+   display: flex;
+   justify-content: space-between;
+   width: 239px;
 }
 
 .label_radio {
-  font-family: Verdana;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 14px;
-  line-height: 17px;
-  letter-spacing: 0.04em;
-  color: #9b9faa;
+   font-family: Verdana;
+   font-style: normal;
+   font-weight: bold;
+   font-size: 14px;
+   line-height: 17px;
+   letter-spacing: 0.04em;
+   color: #9b9faa;
 }
 
 .label_radio input {
-  margin: 0;
-  margin-right: 6px;
+   margin: 0;
+   margin-right: 6px;
 }
 
 .label_radio:active,
 .label_radio:checked,
 .label_radio:focus {
-  color: #fc842d;
+   color: #fc842d;
 }
