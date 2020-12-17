@@ -7,26 +7,17 @@ import { PrivateRoute, PublicRoute } from '../components/Routes';
 import { userOperations } from '../redux/auth';
 
 import Header from './Header';
+// import MainPage from './views/MainPage/MainPage';
+// import RegisterPage from './views/RegisterPage/RegisterPage';
+// import LoginPage from './views/LoginPage/LoginPage';
 
 const App = () => {
    return (
       <>
-         {' '}
-         <Router>
-            <Header />
-
-            <Suspense fallback={<span>Loading</span>}>
-               <Switch>
-                  {routes.map(route =>
-                     route.private ? (
-                        <PrivateRoute key={route.path} {...route} />
-                     ) : (
-                        <PublicRoute key={route.path} {...route} />
-                     ),
-                  )}
-               </Switch>
-            </Suspense>
-         </Router>
+         <Header />
+         {/* <MainPage /> */}
+         {/* <RegisterPage /> */}
+         {/* <LoginPage /> */}
       </>
    );
 };
