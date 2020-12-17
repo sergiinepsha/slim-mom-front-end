@@ -1,6 +1,6 @@
 .container {
    margin: 0 auto;
-   padding-top: 110px;
+   padding-top: 120px;
    display: flex;
    justify-content: center;
    width: 100vw;
@@ -8,7 +8,7 @@
 
 @media screen and (min-width: 768.1px) {
    .container {
-      padding-top: 180px;
+      padding-top: 236px;
       padding-left: 86px;
       justify-content: start;
    }
@@ -16,7 +16,7 @@
 
 @media screen and (min-width: 1024.1px) {
    .container {
-      padding-top: 292px;
+      padding-top: 244px;
       padding-left: 114px;
    }
 }
