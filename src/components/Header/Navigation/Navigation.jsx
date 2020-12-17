@@ -1,15 +1,24 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import AuthNav from './AuthNav';
 import UserNav from './UserNav';
 
-import { nav, navBar } from './Navigation.module.css';
+import s from './Navigation.module.css';
 
 const Navigation = ({ isAuth }) => {
+   const [bars, setBars] = useState(false);
+
+   function handlerButton() {
+      setBars(!bars);
+   }
+
    return (
-      <nav className={nav}>
-         <ul className={navBar}>{!isAuth ? <UserNav /> : <AuthNav />}</ul>
-      </nav>
+      <>
+         <nav className={s.nav}>
+            <button onClick={() => handlerButton()} className={s.button} />
+            <ul className={s.navBar}>{!isAuth ? <UserNav /> : <AuthNav />}</ul>
+         </nav>
+      </>
    );
 };
 
