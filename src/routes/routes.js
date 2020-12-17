@@ -3,5 +3,6 @@ export default {
    mainPage: '/',
    loginPage: '/login',
    registerPage: '/register',
+   diary: '/diary',
    calculatorPage: '/calculator',
 };
