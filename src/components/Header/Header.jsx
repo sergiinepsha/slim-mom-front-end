@@ -2,7 +2,7 @@ import React from 'react';
 
 import Logo from './Logo/Logo';
 import Navigation from './Navigation';
-import UserInfoBar from './UserInfoBar';
+import UserMenu from './UserMenu';
 
 import s from './Header.module.css';
 
@@ -16,7 +16,7 @@ function Header() {
             <Navigation />
          </div>
          <div className={s.info}>
-            <UserInfoBar />
+            <UserMenu />
          </div>
       </header>
    );

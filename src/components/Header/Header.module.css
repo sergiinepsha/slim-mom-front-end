@@ -4,19 +4,24 @@
 .logo {
    display: flex;
    flex-direction: row;
-   justify-content: space-around;
+   justify-content: center;
 }
 
 .header {
    width: 100%;
    margin-left: 15px;
    margin-top: 18px;
+   margin-right: 15px;
+   flex-wrap: wrap;
 }
 
 .nav {
+   width: 80%;
+
    order: 1;
 }
 .info {
+   width: 100%;
    order: 2;
 }
 
@@ -27,10 +32,13 @@
       border-bottom: 2px solid #e0e0e0;
       justify-content: space-between;
    }
+
    .nav {
+      flex: 1 0 40px;
       order: 2;
    }
    .info {
+      flex: 4 0 230px;
       order: 1;
    }
 }
@@ -40,5 +48,16 @@
       margin: 0 auto;
       margin-top: 82px;
       justify-content: center;
+   }
+   .logo {
+      margin-left: 92px;
+   }
+   .nav {
+      flex: 1 0 300px;
+      order: 1;
+   }
+   .info {
+      flex: 1 0 220px;
+      order: 2;
    }
 }
