@@ -85,6 +85,7 @@
    letter-spacing: 0.04em;
    color: #9b9faa;
    margin-bottom: 40px;
+   list-style-type: decimal;
 }
 .NotRecProduct_list_item {
    margin-bottom: 15px;
