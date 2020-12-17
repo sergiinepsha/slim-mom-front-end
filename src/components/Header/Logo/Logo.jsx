@@ -1,17 +1,17 @@
-import React from "react";
+import React from 'react';
 
-import { logo, icon, logoMom, logoContainer } from "./Logo.module.css";
+import s from './Logo.module.css';
 
 const Logo = () => {
-  return (
-    <div className={logoContainer}>
-      <img src="/images/logo.png" alt="logo" className={icon} />
-      <h1 className={logo} value="slim">
-        slim
-        <span className={logoMom}> mom </span>
-      </h1>
-    </div>
-  );
+   return (
+      <div className={s.logoContainer}>
+         <img src="/images/logo.png" alt="logo" className={s.icon} />
+         <h1 className={s.logo} value="slim">
+            slim
+            <span className={s.logoMom}> mom </span>
+         </h1>
+      </div>
+   );
 };
 
 export default Logo;
