@@ -14,7 +14,7 @@ export default [
       label: 'Home',
       exact: true,
       component: lazy(() =>
-         import('../components/views/HomePage/HomePage.jsx' /* webpackChunkName: "home-page" */),
+         import('../components/views/MainPage/MainPage' /* webpackChunkName: "home-page" */),
       ),
       private: false,
       restricted: false,
