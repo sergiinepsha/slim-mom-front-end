@@ -17,11 +17,11 @@ body {
 a,
 img,
 main,
-input,
 ::after,
 ::before {
    display: block;
 }
+
 body,
 div,
 header,
@@ -35,8 +35,6 @@ h3,
 p,
 a,
 ul,
-ol,
-li,
 address,
 img,
 form,

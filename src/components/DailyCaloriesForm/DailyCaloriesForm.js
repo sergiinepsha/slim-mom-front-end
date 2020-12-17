@@ -6,7 +6,7 @@ import BloodGroup from './BloodGroup/BloodGroup';
 
 import s from './DailyCaloriesForm.module.css';
 
-const DailyCaloriesForm = () => {
+const DailyCaloriesForm = ({ title }) => {
    const [height, setHeight] = useState('');
    const onHeightChange = ({ value }) => setHeight(value);
 
@@ -39,40 +39,43 @@ const DailyCaloriesForm = () => {
    };
 
    return (
-      <form className={s.form} onSubmit={handlerSubmit}>
-         <div className={s.container}>
-            <PrimaryInput
-               value={height}
-               type="number"
-               placeholder="Рост *"
-               onChange={onHeightChange}
-            />
-            <PrimaryInput
-               value={age}
-               type="number"
-               placeholder="Возраст *"
-               onChange={onAgeChange}
-            />
-            <PrimaryInput
-               value={currentWeight}
-               type="number"
-               placeholder="Текущий вес *"
-               onChange={onCurrentWeightChange}
-            />
-            <PrimaryInput
-               value={desiredWeight}
-               type="number"
-               placeholder="Желаемый вес *"
-               onChange={onDesiredWeightChange}
-            />
+      <div className={s.container}>
+         <h2 className={s.title}>{title}</h2>
+         <form className={s.form} onSubmit={handlerSubmit}>
+            <div className={s.inp_wrapper}>
+               <PrimaryInput
+                  value={height}
+                  type="number"
+                  placeholder="Рост *"
+                  onChange={onHeightChange}
+               />
+               <PrimaryInput
+                  value={age}
+                  type="number"
+                  placeholder="Возраст *"
+                  onChange={onAgeChange}
+               />
+               <PrimaryInput
+                  value={currentWeight}
+                  type="number"
+                  placeholder="Текущий вес *"
+                  onChange={onCurrentWeightChange}
+               />
+               <PrimaryInput
+                  value={desiredWeight}
+                  type="number"
+                  placeholder="Желаемый вес *"
+                  onChange={onDesiredWeightChange}
+               />
 
-            <BloodGroup bloodGroup={bloodGroup} onChange={onBloodGroupChange} />
-         </div>
+               <BloodGroup bloodGroup={bloodGroup} onChange={onBloodGroupChange} />
+            </div>
 
-         <div className={s.btn_wrapper}>
-            <BasicButton name="Похудеть" type="submit" />
-         </div>
-      </form>
+            <div className={s.btn_wrapper}>
+               <BasicButton name="Похудеть" type="submit" />
+            </div>
+         </form>
+      </div>
    );
 };
 
