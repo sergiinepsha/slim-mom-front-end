@@ -1,11 +1,3 @@
-/* eslint-disable import/no-anonymous-default-export */
-// export default {
-//    mainPage: '/',
-//    loginPage: '/login',
-//    registerPage: '/register',
-//    diary: '/diary',
-//    calculatorPage: '/calculator',
-// };
 import { lazy } from 'react';
 
 export default [
@@ -14,7 +6,7 @@ export default [
       label: 'Home',
       exact: true,
       component: lazy(() =>
-         import('../components/views/MainPage/MainPage' /* webpackChunkName: "home-page" */),
+         import('../components/views/MainPage/MainPage.js' /* webpackChunkName: "home-page" */),
       ),
       private: false,
       restricted: false,
@@ -29,30 +21,29 @@ export default [
    //    private: false,
    //    restricted: false,
    // },
-   // {
-   //   path: '/login',
-   //   label: 'Login',
-   //   exact: true,
-   //    component: lazy(() =>
-   //     import(
-   //       './components/Auth/Login/LoginView' /* webpackChunkName: "login" */
-   //      ),
-   //    ),
-   //   private: false,
-   //   restricted: false,
-   // },
-   // {
-   //   path: '/register',
-   //   label: 'Register',
-   //   exact: true,
-   //   component: lazy(() =>
-   //     import(
-   //       './components/Auth/Register/RegisterView' /* webpackChunkName: "register" */
-   //   //   ),
-   //   // ),
-   //   private: false,
-   //   restricted: false,
-   // },
+   {
+      path: '/login',
+      label: 'Login',
+      exact: true,
+      component: lazy(() =>
+         import('../components/views/LoginPage/LoginPage.js' /* webpackChunkName: "login" */),
+      ),
+      private: false,
+      restricted: false,
+   },
+   {
+      path: '/register',
+      label: 'Register',
+      exact: true,
+      component: lazy(() =>
+         import(
+            '../components/views/RegisterPage/RegisterPage.js'
+            /* webpackChunkName: "register" */
+         ),
+      ),
+      private: false,
+      restricted: false,
+   },
    // {
    //   path: '/calculator',
    //   label: 'Calculator',
@@ -65,4 +56,9 @@ export default [
    //   private: false,
    //   restricted: false,
    // },
+   //   homePage: '/',
+   //   loginPage: '/login',
+   //   registerPage: '/register',
+   //   calculatorPage: '/calculator',
+   // };
 ];

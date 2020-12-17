@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
 
+import { userSelector } from '../../../redux/auth';
 import AuthNav from './AuthNav';
 import UserNav from './UserNav';
 
@@ -21,5 +23,8 @@ const Navigation = ({ isAuth }) => {
       </>
    );
 };
+const mapStateToProps = state => ({
+   isAuth: userSelector.isAuth(state),
+});
 
-export default Navigation;
+export default connect(mapStateToProps)(Navigation);

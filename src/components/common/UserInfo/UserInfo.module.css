@@ -1,0 +1,171 @@
+.container {
+   width: 320px;
+   margin: 0 auto;
+}
+.userNic_Button_Exit {
+   margin: 0;
+   padding: 0;
+   display: flex;
+   justify-content: flex-end;
+   align-items: center;
+   background-color: rgba(239, 241, 243, 1);
+   height: 40px;
+   margin-bottom: 544px;
+}
+.nicName {
+   margin: 0;
+   padding: 0;
+   font-family: Gotham Pro;
+   font-style: normal;
+   font-weight: bold;
+   font-size: 14px;
+   line-height: 13px;
+   text-align: right;
+   letter-spacing: 0.04em;
+   color: rgb(33, 33, 33);
+}
+.lineVertical {
+   margin: 0 15px 0 15px;
+   width: 2px;
+   height: 32px;
+   background-color: rgb(224, 224, 224);
+}
+
+.buttonExit {
+   margin: 0;
+   padding: 0;
+   border: none;
+   font-family: Gotham Pro;
+   font-style: normal;
+   font-weight: bold;
+   font-size: 14px;
+   line-height: 13px;
+   letter-spacing: 0.04em;
+   color: rgb(155, 159, 170);
+   padding-right: 15px;
+}
+.userInfoMenu {
+   height: 360px;
+   background: rgba(240, 241, 243, 1);
+}
+.summary {
+   padding: 40px 0 0 15px;
+}
+.titleThisTime {
+   margin: 0;
+   padding: 0;
+   font-family: Verdana;
+   font-style: normal;
+   font-weight: bold;
+   font-size: 14px;
+   line-height: 17px;
+   letter-spacing: 0.04em;
+   color: rgb(33, 33, 33);
+   padding-bottom: 20px;
+}
+.listCcal {
+   margin: 0;
+   padding: 0;
+   list-style: none;
+   height: 112px;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   margin-bottom: 40px;
+}
+
+.cCalItem {
+   width: 290px;
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   font-family: Verdana;
+   font-style: normal;
+   font-weight: normal;
+   font-size: 14px;
+   line-height: 17px;
+   letter-spacing: 0.04em;
+   color: rgb(155, 159, 170);
+}
+.notRecomendedProduct {
+   composes: titleThisTime;
+}
+.yourDiet {
+   width: 270px;
+   height: 64px;
+   font-family: Verdana;
+   font-style: normal;
+   font-weight: normal;
+   font-size: 14px;
+   line-height: 17px;
+   letter-spacing: 0.04em;
+   color: rgb(155, 159, 170);
+}
+
+@media (min-width: 768px) {
+   .container {
+      width: 768px;
+   }
+   .userNic_Button_Exit {
+      background-color: rgb(255, 255, 255);
+   }
+   .buttonExit {
+      background-color: rgb(255, 255, 255);
+   }
+   .userInfoMenu {
+      height: 350px;
+      display: flex;
+      justify-content: space-between;
+      background-image: url('./images/fone_userInfo.png');
+      background-size: 80% auto;
+      background-position: 399px 0px;
+      background-repeat: no-repeat;
+   }
+   .summary {
+      padding: 91px 0 0 87px;
+   }
+   .deprecated_Products {
+      padding: 91px 87px 0 0;
+   }
+}
+@media (min-width: 1280px) {
+   .container {
+      width: 1281px;
+      display: flex;
+   }
+   .calcPlace {
+      width: calc(100% - 535px);
+   }
+   .userNic_Button_Exit {
+      margin: 0;
+      padding-bottom: 146px;
+      padding-top: 134px;
+      background: none;
+   }
+   .buttonExit {
+      background-color: rgba(239, 241, 243, 1);
+      padding-right: 115px;
+   }
+   .userInfoMenu {
+      height: 850px;
+      display: block;
+      background: none;
+   }
+   .userInfo_1280 {
+      width: 535px;
+      background-color: rgba(239, 241, 243, 1);
+      background-image: url('./images/fone_base.png');
+      background-size: 170% 100%;
+      background-position: -127px -100px;
+      background-repeat: no-repeat;
+   }
+   .listCcal {
+      margin-bottom: 60px;
+   }
+   .summary {
+      padding: 0 0 0 87px;
+   }
+   .deprecated_Products {
+      padding: 0 0 0 87px;
+   }
+}
