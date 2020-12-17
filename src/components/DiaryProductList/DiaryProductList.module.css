@@ -1,0 +1,37 @@
+.container{
+    width: 320px;
+    margin: 0 auto;
+}
+
+.list_products{
+    margin: 0;
+    padding: 0;
+    padding-left: 10px;
+    list-style: none;
+    height: 200px;
+    overflow-y: scroll;
+    margin-bottom: 60px;
+    position: relative;
+}
+.list_products::-webkit-scrollbar {
+    width: 6px;
+    background: #F0F1F3;
+    height: 240px;
+} 
+
+.list_products::-webkit-scrollbar-thumb {
+    background: #264061;
+    height: 40px;
+}
+
+@media (min-width: 768px) {
+    .container{
+        width: 585px;
+    }
+    .list_products{
+        height: 240px;
+    }
+}
+@media (min-width: 1280px) {
+    
+}
