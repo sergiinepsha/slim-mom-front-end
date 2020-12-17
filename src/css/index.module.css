@@ -17,7 +17,6 @@ body {
 a,
 img,
 main,
-input,
 ::after,
 ::before {
    display: block;
