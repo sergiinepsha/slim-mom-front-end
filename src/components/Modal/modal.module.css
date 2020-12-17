@@ -114,65 +114,66 @@
 }
 
 @media (min-width: 768px) {
-   .container {
-      width: 594px;
-      height: 580px;
-      position: relative;
-   }
-   .backButton {
-      display: none;
-   }
-   .closeButton {
-      display: block;
-      margin: 0;
-      padding: 0;
-      background: none;
-      font-size: 50px;
-      border: none;
-      text-align: end;
-      padding-right: 24px;
-      position: absolute;
-      right: 0;
-   }
+    .container{
+        width: 594px;
+        height: 580px;
+        position: relative;
+       
+    }
+    .backButton{
+        display: none;
+    }
+    .closeButton{
+        display: block;
+        margin: 0;
+        padding: 0;
+        background: none;
+        font-size: 50px;
+        border: none;
+        text-align: end;
+        padding-right: 24px;
+        position: absolute;
+        right: 0;
 
-   .closeButton::before {
-      content: '\00D7';
-      cursor: pointer;
-   }
+    }
 
-   .yourNormalCcal {
-      padding-top: 64px;
-      width: 509px;
-      text-align: center;
-      font-size: 26px;
-      line-height: 32px;
-   }
-   .line {
-      width: 330px;
-   }
-   .NotRecProduct_title {
-      margin: 0 auto;
-      width: 330px;
-      margin-bottom: 22px;
-   }
-   .NotRecProduct_list {
-      width: 222px;
-      padding: 0;
-      padding-right: 50px;
-      margin-bottom: 40px;
-   }
-   .buttonGo {
-      margin: 0 calc((594px - 176px) / 2);
-      margin-bottom: 68px;
-   }
-   .overlay {
-      margin: 0 auto;
-      height: 1024px;
-      width: 768px;
-      background: rgba(33, 33, 33, 0.12);
-      display: flex;
-      align-items: center;
-   }
+    .closeButton::before{
+       content: "\00D7";
+       cursor: pointer;
+    }
+    .yourNormalCcal{
+        padding-top: 64px;
+        width: 509px;
+        text-align: center;
+        font-size: 26px;
+        line-height: 32px;
+    }
+    .line{
+        width: 330px;
+    }
+    .NotRecProduct_title{
+        margin: 0 auto;
+        width: 330px;
+        margin-bottom: 22px;
+    }
+    .NotRecProduct_list{
+        width: 222px;
+        padding: 0;
+        padding-right: 50px;
+        margin-bottom: 40px;
+    }
+    .buttonGo{
+        margin: 0 calc((594px - 176px)/2) ;
+        margin-bottom: 68px;
+    }
+    .overlay{
+        margin: 0 auto;
+        height: 1024px;
+        width: 768px;
+        background: rgba(33, 33, 33, 0.12);
+        display: flex;
+        align-items: center;
+    }
 }
 
 @media (min-width: 1280px) {
