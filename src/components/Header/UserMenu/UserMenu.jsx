@@ -1,6 +1,6 @@
 import React from 'react';
 
-import s from './UserInfoBar.module.css';
+import s from './UserMenu.module.css';
 
 const AuthNav = ({ isAuth }) => {
    return (

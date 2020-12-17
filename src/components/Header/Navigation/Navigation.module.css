@@ -7,10 +7,12 @@
 .nav {
    justify-content: flex-start;
    align-items: center;
+   width: 100%;
 }
 .navBar {
    justify-content: flex-end;
    align-items: baseline;
+   width: 100%;
 }
 
 @media screen and (max-width: 767.9px) {
@@ -33,7 +35,6 @@
    .nav {
       justify-content: flex-start;
       align-items: flex-end;
-      width: 465px;
    }
    .navBar {
       justify-content: flex-start;
