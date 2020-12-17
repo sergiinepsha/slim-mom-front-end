@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ItemBar from '../Item/Item';
+import Item from '../Item/Item';
 
 const UserNav = ({ routers }) => {
    return (
@@ -8,8 +8,8 @@ const UserNav = ({ routers }) => {
          {/* {routers &&
             routers.map(({ page, namePage }) => <ItemBar key={page} to={page} name={namePage} />)} */}
 
-         <ItemBar to={'/diary'} name={'Дневник'} />
-         <ItemBar to={'/calculator'} name={'Калькулятор'} />
+         <Item to={'/diary'} name={'Дневник'} />
+         <Item to={'/calculator'} name={'Калькулятор'} />
       </>
    );
 };

@@ -1,7 +1,7 @@
 .nav,
 .navBar {
    display: flex;
-   flex-direction: row;
+   flex-direction: column;
 }
 
 .nav {
@@ -10,33 +10,95 @@
    width: 100%;
 }
 .navBar {
-   justify-content: flex-end;
-   align-items: baseline;
+   justify-content: flex-start;
+   align-items: center;
    width: 100%;
 }
 
 @media screen and (max-width: 767.9px) {
+   .nav {
+      position: fixed;
+      width: 300px;
+      height: 100%;
+      right: 10px;
+      overflow: hidden;
+      background-color: #add8e6;
+
+      transition: 0.4s;
+      -webkit-transition: 0.4s;
+      -moz-transition: 0.4s;
+      -ms-transition: 0.4s;
+      -o-transition: 0.4s;
+   }
+   .nav ul {
+      position: absolute;
+      top: 20px;
+   }
+
+   .nav ul li:hover {
+      animation: hover 0.6s;
+      -webkit-animation: hover 0.6s;
+   }
+   @keyframes hover {
+      50% {
+         transform: scale(1.2);
+         -webkit-transform: scale(1.2);
+         -moz-transform: scale(1.2);
+         -ms-transform: scale(1.2);
+         -o-transform: scale(1.2);
+      }
+   }
 }
 
 /*table*/
 @media screen and (min-width: 768px) and (max-width: 1024px) {
    .nav {
-      justify-content: flex-start;
-      align-items: center;
+      position: fixed;
+      width: 300px;
+      height: 100%;
+      right: 10px;
+      overflow: hidden;
+      background-color: #add8e6;
+
+      transition: 0.4s;
+      -webkit-transition: 0.4s;
+      -moz-transition: 0.4s;
+      -ms-transition: 0.4s;
+      -o-transition: 0.4s;
    }
-   .navBar {
-      justify-content: flex-end;
-      align-items: baseline;
+
+   .nav ul {
+      position: absolute;
+      top: 20px;
+   }
+
+   .nav ul li:hover {
+      animation: hover 0.6s;
+      -webkit-animation: hover 0.6s;
+   }
+   @keyframes hover {
+      50% {
+         transform: scale(1.2);
+         -webkit-transform: scale(1.2);
+         -moz-transform: scale(1.2);
+         -ms-transform: scale(1.2);
+         -o-transform: scale(1.2);
+      }
    }
 }
 
 /*desktop*/
 @media screen and (min-width: 1024.1px) {
+   .button {
+      display: none;
+   }
    .nav {
+      flex-direction: row;
       justify-content: flex-start;
       align-items: flex-end;
    }
    .navBar {
+      flex-direction: row;
       justify-content: flex-start;
       align-items: baseline;
    }
