@@ -3,7 +3,7 @@ import { userActions } from './';
 
 import fetchDB, { tokenToHeader } from '../../services/fetchDB';
 
-const registerUser = credentials => async dispatch => {
+const registerUser = async (credentials, dispatch) => {
    dispatch(userActions.registerUserRequest());
 
    try {
@@ -14,6 +14,7 @@ const registerUser = credentials => async dispatch => {
 
       dispatch(userActions.registerUserSuccess(data));
    } catch (error) {
+      console.error(error);
       dispatch(userActions.registerUserError(error.message));
    }
 };
