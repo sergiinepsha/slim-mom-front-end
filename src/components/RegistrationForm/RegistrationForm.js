@@ -30,11 +30,13 @@ const RegistrationForm = () => {
          // TODO: error
          return;
       }
-      //TODO:
+
       userOperations.registerUser({ username, email, password }, dispatch);
 
       clearForm();
    };
+
+   const handlerClickLoginButton = () => {};
 
    const clearForm = () => {
       setUsername('');
@@ -74,7 +76,7 @@ const RegistrationForm = () => {
                />
             </div>
             <div className={s.btn_wrapper}>
-               <BasicButton name="Вход" type="button" />
+               <BasicButton name="Вход" type="button" onClick={handlerClickLoginButton} />
                <BasicButton name="Регистрация" type="submit" />
             </div>
          </form>

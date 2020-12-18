@@ -4,11 +4,17 @@ import userAction from './userActions';
 
 const initialStateUser = {
    email: null,
-   name: null,
+   username: null,
+   id: null,
+};
+
+const initialStateToken = {
+   accessToken: null,
+   refreshToken: null,
 };
 
 const user = createReducer(initialStateUser, {
-   [userAction.registerSuccess]: (_, { payload }) => payload.user,
+   [userAction.registerUserSuccess]: (_, { payload }) => payload,
    [userAction.loginUserSuccess]: (_, { payload }) => payload.user,
    [userAction.currentUserSuccess]: (_, { payload }) => payload,
    [userAction.logoutUserSuccess]: () => initialStateUser,
