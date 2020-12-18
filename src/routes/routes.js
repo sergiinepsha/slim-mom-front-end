@@ -12,16 +12,16 @@ export default [
       private: false,
       restricted: false,
    },
-   // {
-   //    path: '/diary',
-   //    label: 'Diary',
-   //    exact: true,
-   //    component: lazy(() =>
-   //       import('../components/views/Diary/DiaryView.jsx' /* webpackChunkName: "home-page" */),
-   //    ),
-   //    private: false,
-   //    restricted: false,
-   // },
+   {
+      path: '/diary',
+      label: 'Diary',
+      exact: true,
+      component: lazy(() =>
+         import('../components/views/DiaryPage/DiaryPage.js' /* webpackChunkName: "diary-page" */),
+      ),
+      private: true,
+      restricted: false,
+   },
    {
       path: '/login',
       label: 'Login',

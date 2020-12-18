@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 .container{
     width: 320px;
 padding-top: 40px;
@@ -61,54 +60,6 @@ padding-top: 40px;
         margin: 0;
     }
    
-=======
-.container {
-   width: 320px;
-   /* background-color: firebrick; */
-}
-
-.date {
-   font-family: Verdana;
-   font-style: normal;
-   font-weight: bold;
-   font-size: 18px;
-   line-height: 22px;
-   display: flex;
-   align-items: center;
-   color: #212121;
-   position: relative;
-   margin-bottom: 20px;
-}
-.calendar {
-   width: 320px;
-}
-.buttonCalendar {
-   border: none;
-   background: none;
-   width: 18px;
-   height: 20px;
-   display: block;
-   background-image: url('./images/calendar.png');
-   background-repeat: no-repeat;
-   background-size: contain;
-   cursor: pointer;
-   position: absolute;
-   top: 0;
-   left: 140px;
-}
-
-@media (min-width: 768px) {
-   .container {
-      width: 585px;
-   }
-   .date {
-      font-size: 34px;
-   }
-   .buttonCalendar {
-      top: 5px;
-      left: 240px;
-   }
->>>>>>> dev
 }
 @media (min-width: 1280px) {
 }

@@ -10,12 +10,8 @@
 .header {
    position: fixed;
    width: 100%;
-<<<<<<< HEAD
  
    
-=======
-   top: 18px;
->>>>>>> dev
    flex-wrap: wrap;
 }
 .logo {

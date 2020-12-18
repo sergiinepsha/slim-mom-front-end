@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 
 .product_Item{
@@ -28,24 +27,6 @@
     line-height: 17px;
     letter-spacing: 0.04em;
     color: #212121;
-=======
-.product_Item {
-   display: flex;
-   width: 300px;
-   justify-content: space-between;
-   margin-bottom: 20px;
-}
-.product_name {
-   width: 150px;
-   border-bottom: 1px solid #e0e0e0;
-   font-family: Verdana;
-   font-style: normal;
-   font-weight: normal;
-   font-size: 14px;
-   line-height: 17px;
-   letter-spacing: 0.04em;
-   color: #212121;
->>>>>>> dev
 }
 .product_weight {
    composes: product_name;
@@ -87,12 +68,8 @@
    }
 }
 @media (min-width: 1280px) {
-<<<<<<< HEAD
     .product_Item{
         width: 600px;
        
     }
 }
-=======
-}
->>>>>>> dev
