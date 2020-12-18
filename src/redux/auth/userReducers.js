@@ -8,10 +8,10 @@ const initialStateUser = {
    id: null,
 };
 
-const initialStateToken = {
-   accessToken: null,
-   refreshToken: null,
-};
+// const initialStateToken = {
+//    accessToken: null,
+//    refreshToken: null,
+// };
 
 const user = createReducer(initialStateUser, {
    [userAction.registerUserSuccess]: (_, { payload }) => payload,

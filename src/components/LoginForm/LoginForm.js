@@ -20,7 +20,7 @@ const LoginForm = () => {
    const handlerSubmit = evt => {
       evt.preventDefault();
 
-      console.log({ email, password });
+      console.log(email, password);
       userOperations.loginUser({ email, password }, dispatch);
 
       clearForm();
@@ -39,7 +39,7 @@ const LoginForm = () => {
                <PrimaryInput
                   value={email}
                   type="email"
-                  placeholder="Логин *"
+                  placeholder="E-mail *"
                   onChange={changeEmail}
                />
                <PrimaryInput

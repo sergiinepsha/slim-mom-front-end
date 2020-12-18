@@ -28,6 +28,7 @@ export default function DiaryProductsList() {
                <DiaryProductListItem key={id} name={name} weight={weight} cCal={cCal} />
             ))}
          </ul>
+         <div className={s.linearBack}></div>
       </div>
    );
 }
