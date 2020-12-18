@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+// import { Route, Redirect } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 import PrimaryInput from '../common/PrimaryInput/PrimaryInput';
@@ -30,11 +31,14 @@ const RegistrationForm = () => {
          // TODO: error
          return;
       }
-      //TODO:
+
       userOperations.registerUser({ username, email, password }, dispatch);
 
       clearForm();
    };
+
+   // TODO:
+   // const handleClick = () => history.push('/login');
 
    const clearForm = () => {
       setUsername('');
@@ -74,7 +78,7 @@ const RegistrationForm = () => {
                />
             </div>
             <div className={s.btn_wrapper}>
-               <BasicButton name="Вход" type="button" />
+               <BasicButton name="Вход" type="button" onClick={() => {}} />
                <BasicButton name="Регистрация" type="submit" />
             </div>
          </form>

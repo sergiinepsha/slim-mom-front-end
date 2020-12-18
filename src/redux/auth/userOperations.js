@@ -10,25 +10,25 @@ const registerUser = async (credentials, dispatch) => {
       const data = await fetchDB.post(`/auth/register`, credentials);
       console.log(data); ///
 
-      tokenToHeader.set(data.token);
-
       dispatch(userActions.registerUserSuccess(data));
    } catch (error) {
-      console.error(error);
+      console.error(error); ///
       dispatch(userActions.registerUserError(error.message));
    }
 };
 
-const loginUser = credentials => async dispatch => {
+const loginUser = async (credentials, dispatch) => {
    dispatch(userActions.loginUserRequest());
 
    try {
       const data = await fetchDB.post(`/auth/login`, credentials);
+      console.log(data); ///
 
-      tokenToHeader.set(data.token);
+      tokenToHeader.set(data.accessToken);
 
       dispatch(userActions.loginUserSuccess(data));
    } catch (error) {
+      console.error(error); ///
       dispatch(userActions.loginUserError(error.message));
    }
 };

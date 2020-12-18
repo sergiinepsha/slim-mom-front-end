@@ -48,7 +48,6 @@
 }
 .notRecomendedProduct {
    composes: titleThisTime;
-   
 }
 .yourDiet {
    width: 270px;
@@ -59,36 +58,33 @@
    line-height: 17px;
    letter-spacing: 0.04em;
    color: rgb(155, 159, 170);
-  
 }
 
 @media (min-width: 768px) {
    .container {
       width: 768px;
-      margin: 0
+      margin: 0;
    }
- 
+
    .userInfoMenu {
       display: flex;
       justify-content: space-around;
       background-image: url('./images/fone_userInfo.png');
       background-size: 80% auto;
-      background-position: 410px -115px;;
+      background-position: 410px -115px;
       background-repeat: no-repeat;
       padding: 0;
       padding-top: 91px;
       margin: 0 auto;
-
    }
-  
 }
 @media (min-width: 1280px) {
    .container {
       width: 535px;
-  
+
       margin: 0;
    }
-   
+
    .userInfoMenu {
       display: block;
       background: none;
@@ -99,17 +95,13 @@
       background-size: 170% 100%;
       background-position: -127px -100px;
       background-repeat: no-repeat;
-      
    }
    .listCcal {
       margin-bottom: 60px;
    }
-   .notRecomendedProduct{
+   .notRecomendedProduct {
       margin-bottom: 22px;
    }
-   .yourDiet{
-      
+   .yourDiet {
    }
-  
-  
 }
