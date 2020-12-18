@@ -1,22 +1,12 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 
-import { link, activeLink, item } from './AuthNav.module.css';
+import ItemBar from '../Item/Item';
 
 const AuthNav = () => {
    return (
       <>
-         <li className={item}>
-            <NavLink exact to={`/login`} className={link} activeClassName={activeLink}>
-               Вход
-            </NavLink>
-         </li>
-
-         <li className={item}>
-            <NavLink exact to={`/register`} className={link} activeClassName={activeLink}>
-               Регистрация
-            </NavLink>
-         </li>
+         <ItemBar to={'/login'} name={'Вход'} />
+         <ItemBar to={'/register'} name={'Регистрация'} />
       </>
    );
 };

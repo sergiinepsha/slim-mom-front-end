@@ -8,15 +8,21 @@
 }
 
 .header {
+   position: fixed;
    width: 100%;
+<<<<<<< HEAD
  
    
+=======
+   top: 18px;
+>>>>>>> dev
    flex-wrap: wrap;
 }
-
+.logo {
+   padding-left: 15px;
+}
 .nav {
    width: 80%;
-
    order: 1;
 }
 .info {
@@ -26,12 +32,13 @@
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
    .header {
-      margin-left: 69px;
-      margin-top: 17px;
+      top: 17px;
       border-bottom: 2px solid #e0e0e0;
       justify-content: space-between;
    }
-
+   .logo {
+      padding-left: 69px;
+   }
    .nav {
       flex: 1 0 40px;
       order: 2;
@@ -44,12 +51,11 @@
 
 @media screen and (min-width: 1024.1px) {
    .header {
-      margin: 0 auto;
-      margin-top: 82px;
+      top: 82px;
       justify-content: center;
    }
    .logo {
-      margin-left: 92px;
+      padding-left: 92px;
    }
    .nav {
       flex: 1 0 300px;
