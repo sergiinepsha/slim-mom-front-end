@@ -5,6 +5,7 @@ import DiaryDateCalendar from '../../DiaryDateCalendar/DiaryDateCalendar';
 import DiaryAddProductForm from '../../DiaryAddProductForm/DiaryAddProductForm';
 import UserInfo from '../../UserInfo/UserInfo';
 import AddButton from '../../common/AddButton/AddButton';
+import fetchDB from '../../../services/fetchDB';
 
 export default function DiaryPage() {
    const [isClick, setClick] = useState(false);

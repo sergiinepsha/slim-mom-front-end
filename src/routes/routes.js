@@ -17,9 +17,9 @@ export default [
       label: 'Diary',
       exact: true,
       component: lazy(() =>
-         import('../components/views/DiaryPage/DiaryPage.js' /* webpackChunkName: "diary-page" */),
+         import('../components/views/DiaryPage/DiaryPage.js' /* webpackChunkName: "diary" */),
       ),
-      private: true,
+      private: false,
       restricted: false,
    },
    {

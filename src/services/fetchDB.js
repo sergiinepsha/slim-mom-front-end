@@ -26,7 +26,6 @@ const post = async (url, item = null) => {
 const get = async url => {
    try {
       const { data } = await axios.get(url);
-
       return data;
    } catch (error) {
       throw error;
