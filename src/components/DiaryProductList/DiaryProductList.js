@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
 import s from './DiaryProductList.module.css';
 import DiaryProductListItem from './DiaryProductsListItem/DiaryProductListItem';
 
@@ -11,15 +12,21 @@ const List_products = [
 
 const cCal = 300;
 
-export default function DiaryProductsList() {
+function DiaryProductsList({ products }) {
+   // const [products, setProducts] = useState([]);
    return (
       <div className={s.container}>
          <ul className={s.list_products}>
-            {List_products.map(({ id, name, weight }) => (
-               <DiaryProductListItem key={id} name={name} weight={weight} cCal={cCal} />
+            {products.map(({ id, productName, weight }) => (
+               <DiaryProductListItem key={id} name={productName} weight={weight} cCal={cCal} />
             ))}
          </ul>
          <div className={s.linearBack}></div>
       </div>
    );
 }
+
+const mapStateToProps = state => ({
+   products: state.products.products,
+});
+export default connect(mapStateToProps, null)(DiaryProductsList);

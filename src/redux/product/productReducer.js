@@ -6,7 +6,7 @@ import productAction from './productActions';
 const onAddProduct = (state, { payload }) => [payload, ...state];
 const onRemoveProduct = (state, { payload }) => state.filter(({ id }) => id !== payload);
 
-const items = createReducer([], {
+const products = createReducer([], {
    [productAction.fetchProductSuccess]: (_, { payload }) => payload,
    [productAction.addProductSuccess]: onAddProduct,
    [productAction.removeProductSuccess]: onRemoveProduct,
@@ -25,6 +25,6 @@ const loading = createReducer(false, {
 });
 
 export default combineReducers({
-   items,
+   products,
    loading,
 });
