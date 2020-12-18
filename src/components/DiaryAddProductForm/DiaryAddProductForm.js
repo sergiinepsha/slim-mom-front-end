@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+
+import productOperation from '../../redux/product/productOperations';
 
 import PrimaryInput from '../common/PrimaryInput/PrimaryInput';
 import BasicButton from '../common/BasicButton/BasicButton';
@@ -12,10 +15,13 @@ const DiaryAddProductForm = () => {
    const [weight, setWeight] = useState('');
    const changeWeight = ({ value }) => setWeight(value);
 
+   const dispatch = useDispatch();
+
    const handlerSubmit = evt => {
       evt.preventDefault();
 
-      //TODO: productOperation...
+      console.log(productName, weight);
+      productOperation.addProduct({ productName, weight }, dispatch);
 
       clearForm();
    };

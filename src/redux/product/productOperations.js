@@ -1,36 +1,30 @@
-import axios from "axios";
-import contactAction from "../redux/contacts/contactAction";
+import productActions from './productActions';
+import fetchDB from '../../services/fetchDB';
 
-axios.defaults.baseURL = "https://goit-phonebook-api.herokuapp.com";
+const addProduct = async ({ productName, weight }, dispatch) => {
+   dispatch(productActions.addProductRequest());
+   try {
+      const data = await fetchDB.post(`/day`, { productName, weight });
+      console.log(data);
 
-const fetchContacts = () => async (dispatch) => {
-  dispatch(contactAction.fetchContactsRequest());
-  await axios
-    .get("/contacts")
-    .then((res) => {
-      dispatch(contactAction.fetchContactsSuccess(res.data));
-    })
-    .catch((error) => dispatch(contactAction.fetchContactsError(error)));
+      dispatch(productActions.addProductSuccess(data));
+   } catch (error) {
+      console.log(error);
+      dispatch(productActions.addProductError(error.message));
+   }
 };
 
-const addContact = ({ name, number }) => async (dispatch) => {
-  dispatch(contactAction.addContactsRequest());
-  await axios
-    .post("/contacts", { name, number })
-    .then(({ data }) => dispatch(contactAction.addContactsSuccess(data)))
-    .catch((error) => dispatch(contactAction.addContactsError(error)));
-};
-
-const removeContacts = (id) => async (dispatch) => {
-  dispatch(contactAction.removeContactsRequest());
-  await axios
-    .delete(`/contacts/${id}`)
-    .then(() => dispatch(contactAction.removeContactsSuccess(id)))
-    .catch((error) => dispatch(contactAction.removeContactsError(error)));
+const removeProduct = id => async dispatch => {
+   dispatch(productActions.removeProductRequest());
+   try {
+      await fetchDB.delete(`/product/${id}`);
+      dispatch(productActions.removeProductSuccess(id));
+   } catch (error) {
+      dispatch(productActions.removeProductError(error.message));
+   }
 };
 
 export default {
-  fetchContacts,
-  addContact,
-  removeContacts,
+   addProduct,
+   removeProduct,
 };
