@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 const isAuth = state => state.authUser.token;
 const getUserName = state => state.authUser.user.name;
 const isloading = state => state.authUser.loading;
