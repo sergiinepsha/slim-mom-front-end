@@ -1,27 +1,33 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 
 import PrimaryInput from '../common/PrimaryInput/PrimaryInput';
 import BasicButton from '../common/BasicButton/BasicButton';
 
+import { userOperations } from '../../redux/auth';
+
 import s from './LoginForm.module.css';
 
 const LoginForm = () => {
-   const [login, setLogin] = useState('');
-   const changeLogin = ({ value }) => setLogin(value);
+   const [email, setEmail] = useState('');
+   const changeEmail = ({ value }) => setEmail(value);
 
    const [password, setPassword] = useState('');
    const changePassword = ({ value }) => setPassword(value);
 
+   const dispatch = useDispatch();
+
    const handlerSubmit = evt => {
       evt.preventDefault();
 
-      //TODO: authOperation...
+      console.log(email, password);
+      userOperations.loginUser({ email, password }, dispatch);
 
       clearForm();
    };
 
    const clearForm = () => {
-      setLogin('');
+      setEmail('');
       setPassword('');
    };
 
@@ -31,10 +37,10 @@ const LoginForm = () => {
          <form className={s.form} onSubmit={handlerSubmit}>
             <div className={s.container}>
                <PrimaryInput
-                  value={login}
-                  type="text"
-                  placeholder="Логин *"
-                  onChange={changeLogin}
+                  value={email}
+                  type="email"
+                  placeholder="E-mail *"
+                  onChange={changeEmail}
                />
                <PrimaryInput
                   value={password}

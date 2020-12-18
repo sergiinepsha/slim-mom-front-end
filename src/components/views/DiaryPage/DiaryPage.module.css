@@ -1,29 +1,25 @@
-.container{
+.container {
    margin: 0 auto;
    width: 320px;
-   
 }
 
- 
-@media  (min-width: 768.1px) {
+@media (min-width: 768.1px) {
    .container {
-         width: 768px;
-     }
-     .diary{
+      width: 768px;
+   }
+   .diary {
       margin: 0 auto;
-  }
- }
- 
- @media (min-width: 1280px) {
+   }
+}
+
+@media (min-width: 1280px) {
    .container {
       width: 1280px;
-     
-  }
- 
-  .container_flex1280{
-     display: flex;
-     justify-content: space-between;
-     align-items: stretch;
-  }
- }
- 
+   }
+
+   .container_flex1280 {
+      display: flex;
+      justify-content: space-between;
+      align-items: stretch;
+   }
+}
