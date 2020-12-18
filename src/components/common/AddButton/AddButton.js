@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 
 import s from './AddButton.module.css';
 
-const AddButton = ({ type }) => {
+const AddButton = ({ type, openMenuAdd }) => {
    return (
-      <button className={s.button} type={type}>
+      <button className={s.button} type={type} onClick={openMenuAdd}>
          +
       </button>
    );

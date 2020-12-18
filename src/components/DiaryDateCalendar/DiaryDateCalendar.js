@@ -19,8 +19,10 @@ export default function DiaryDateCalendar() {
    return (
       <>
          <div className={s.container}>
-            <div className={s.date}> {value.toLocaleDateString()} </div>
-            <button className={s.buttonCalendar} type="button" onClick={openCalendar}></button>
+            <div className={s.calendarMenu}>
+               <div className={s.date}> {value.toLocaleDateString()} </div>
+               <button className={s.buttonCalendar} type="button" onClick={openCalendar}></button>
+            </div>
             {isClick && (
                <div className={s.calendar}>
                   <Calendar onChange={e => onChange(e)} value={value} />
