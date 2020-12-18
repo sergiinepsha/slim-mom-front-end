@@ -1,6 +1,13 @@
 .container{
     width: 320px;
-    /* background-color: firebrick; */
+padding-top: 40px;
+
+}
+.calendarMenu{
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    
 }
 
 .date{
@@ -13,38 +20,44 @@
     align-items: center;
     color: #212121;
     position: relative;
-    margin-bottom: 20px;
+    margin-right: 20px;
+   
+    
 }
 .calendar{
     width: 320px;
-    
+    background-color: rgba(128, 128, 128);
+    position: absolute;
+    z-index: 10;
 }
 .buttonCalendar{
     border: none;
     background: none;
-    width: 18px;
-    height: 20px;
+    width: 15px;
+    height: 18px;
     display: block;
     background-image: url('./images/calendar.png');
     background-repeat: no-repeat;
     background-size: contain;
     cursor: pointer;
-    position: absolute;
-    top: 0;
-    left: 140px
 }
-
 
 @media (min-width: 768px) {
     .container{
-        width: 585px;
+        margin: 0;
+        
     }
-    .date{
+   
+
+   .date{
         font-size: 34px;
     }
     .buttonCalendar{
-        top: 5px;
-        left: 240px
+        width: 25px;
+        height: 30px;
+    }
+    .calendarMenu{
+        margin: 0;
     }
    
 }
