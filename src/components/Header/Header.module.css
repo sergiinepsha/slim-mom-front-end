@@ -11,6 +11,7 @@
    position: fixed;
    width: 100%;
    padding-top: 18px;
+
    flex-wrap: wrap;
 }
 .logo {

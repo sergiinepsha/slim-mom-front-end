@@ -1,16 +1,20 @@
 import React, { useState } from 'react';
+// import { Route, Redirect } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 
 import PrimaryInput from '../common/PrimaryInput/PrimaryInput';
 import BasicButton from '../common/BasicButton/BasicButton';
 
+import { userOperations } from '../../redux/auth';
+
 import s from './RegistrationForm.module.css';
 
 const RegistrationForm = () => {
-   const [name, setName] = useState('');
-   const changeName = ({ value }) => setName(value);
+   const [username, setUsername] = useState('');
+   const changeUsername = ({ value }) => setUsername(value);
 
-   const [login, setLogin] = useState('');
-   const changeLogin = ({ value }) => setLogin(value);
+   const [email, setEmail] = useState('');
+   const changeEmail = ({ value }) => setEmail(value);
 
    const [password, setPassword] = useState('');
    const changePassword = ({ value }) => setPassword(value);
@@ -18,17 +22,27 @@ const RegistrationForm = () => {
    const [passwordDuplicate, setPasswordDuplicate] = useState('');
    const changePasswordDuplicate = ({ value }) => setPasswordDuplicate(value);
 
+   const dispatch = useDispatch();
+
    const handlerSubmit = evt => {
       evt.preventDefault();
 
-      //TODO: authOperation...
+      if (password !== passwordDuplicate) {
+         // TODO: error
+         return;
+      }
+
+      userOperations.registerUser({ username, email, password }, dispatch);
 
       clearForm();
    };
 
+   // TODO:
+   // const handleClick = () => history.push('/login');
+
    const clearForm = () => {
-      setName('');
-      setLogin('');
+      setUsername('');
+      setEmail('');
       setPassword('');
       setPasswordDuplicate('');
    };
@@ -38,12 +52,17 @@ const RegistrationForm = () => {
          <h2 className={s.title}>Регистрация</h2>
          <form className={s.form} onSubmit={handlerSubmit}>
             <div className={s.container}>
-               <PrimaryInput value={name} type="text" placeholder="Имя *" onChange={changeName} />
                <PrimaryInput
-                  value={login}
+                  value={username}
                   type="text"
-                  placeholder="Логин *"
-                  onChange={changeLogin}
+                  placeholder="Имя *"
+                  onChange={changeUsername}
+               />
+               <PrimaryInput
+                  value={email}
+                  type="email"
+                  placeholder="E-mail *"
+                  onChange={changeEmail}
                />
                <PrimaryInput
                   value={password}
@@ -59,7 +78,7 @@ const RegistrationForm = () => {
                />
             </div>
             <div className={s.btn_wrapper}>
-               <BasicButton name="Вход" type="button" />
+               <BasicButton name="Вход" type="button" onClick={() => {}} />
                <BasicButton name="Регистрация" type="submit" />
             </div>
          </form>

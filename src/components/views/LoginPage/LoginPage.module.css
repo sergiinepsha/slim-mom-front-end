@@ -1,9 +1,19 @@
+.wrapper {
+   position: relative;
+}
+
 .container {
+   position: absolute;
    margin: 0 auto;
    padding-top: 120px;
    display: flex;
    justify-content: center;
    width: 100vw;
+   z-index: 1;
+}
+
+.bg_img {
+   display: none;
 }
 
 @media screen and (min-width: 768.1px) {
@@ -18,5 +28,13 @@
    .container {
       padding-top: 362px;
       padding-left: 114px;
+   }
+
+   .bg_img {
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 0;
    }
 }
