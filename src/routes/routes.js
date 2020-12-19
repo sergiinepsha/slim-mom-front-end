@@ -11,16 +11,6 @@ export default [
       private: false,
       restricted: false,
    },
-   // {
-   //    path: '/diary',
-   //    label: 'Diary',
-   //    exact: true,
-   //    component: lazy(() =>
-   //       import('../components/views/Diary/DiaryView.jsx' /* webpackChunkName: "home-page" */),
-   //    ),
-   //    private: false,
-   //    restricted: false,
-   // },
    {
       path: '/login',
       label: 'Login',
@@ -44,21 +34,24 @@ export default [
       private: false,
       restricted: false,
    },
-   // {
-   //   path: '/calculator',
-   //   label: 'Calculator',
-   //   exact: true,
-   //   component: lazy(() =>
-   //     import(
-   //        './components/Header/Calculator/CalculatorView' /* webpackChunkName: "calculator" */
-   //      ),
-   //    ),
-   //   private: false,
-   //   restricted: false,
-   // },
-   //   homePage: '/',
-   //   loginPage: '/login',
-   //   registerPage: '/register',
-   //   calculatorPage: '/calculator',
-   // };
+   {
+      path: '/calculator',
+      label: 'Calculator',
+      exact: true,
+      component: lazy(() =>
+         import('../components/views/CalculatorPage' /* webpackChunkName: "calculator" */),
+      ),
+      private: true,
+      restricted: false,
+   },
+   {
+      path: '/diary',
+      label: 'Diary',
+      exact: true,
+      component: lazy(() =>
+         import('../components/views/MainPage/MainPage.js' /* webpackChunkName: "home-page" */),
+      ),
+      private: true,
+      restricted: false,
+   },
 ];
