@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
+import { connect, useDispatch } from 'react-redux';
+
+import productOperation from '../../redux/product/productOperations';
 
 import PrimaryInput from '../common/PrimaryInput/PrimaryInput';
 import BasicButton from '../common/BasicButton/BasicButton';
 
 import s from './DiaryAddProductForm.module.css';
 
-const DiaryAddProductForm = () => {
+const DiaryAddProductForm = ({ onAddProduct }) => {
    const [productName, setProductName] = useState('');
    const changeProductName = ({ value }) => setProductName(value);
 
@@ -14,9 +17,10 @@ const DiaryAddProductForm = () => {
 
    const handlerSubmit = evt => {
       evt.preventDefault();
+      console.log(productName, weight);
 
-      //TODO: productOperation...
-
+      onAddProduct(productName, weight);
+      // productOperation.addProduct({ productName, weight });
       clearForm();
    };
 
@@ -48,4 +52,10 @@ const DiaryAddProductForm = () => {
    );
 };
 
-export default DiaryAddProductForm;
+const mapDispatchToProps = dispatch => {
+   return {
+      onAddProduct: (product, weight) => dispatch(productOperation.addProduct({ product, weight })),
+   };
+};
+
+export default connect(null, mapDispatchToProps)(DiaryAddProductForm);
