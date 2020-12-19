@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 
 import { userSelector } from '../../../redux/auth';
@@ -9,6 +9,19 @@ import s from './Navigation.module.css';
 
 const Navigation = ({ isAuth }) => {
    const [bars, setBars] = useState(false);
+   const [btn, setBtn] = useState('');
+   const [watcher, setWatcher] = useState('');
+
+   useEffect(() => {
+      if (bars) {
+         setBtn(` ${s.button} `);
+         setWatcher(` ${s.nav} `);
+         return;
+      }
+      setBtn(` ${s.button} ${s.show} `);
+      setWatcher(`${s.head} ${s.nav} `);
+      return;
+   }, [bars]);
 
    function handlerButton() {
       setBars(!bars);
@@ -16,9 +29,9 @@ const Navigation = ({ isAuth }) => {
 
    return (
       <>
-         <nav className={s.nav}>
-            <button onClick={() => handlerButton()} className={s.button} />
-            <ul className={s.navBar}>{!isAuth ? <UserNav /> : <AuthNav />}</ul>
+         <button onClick={() => handlerButton()} className={btn}></button>
+         <nav className={watcher}>
+            <ul className={s.navBar}>{isAuth ? <UserNav /> : <AuthNav />}</ul>
          </nav>
       </>
    );
