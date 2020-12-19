@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 import PrimaryInput from '../common/PrimaryInput/PrimaryInput';
@@ -17,6 +18,8 @@ const LoginForm = () => {
 
    const dispatch = useDispatch();
 
+   const history = useHistory();
+
    const handlerSubmit = evt => {
       evt.preventDefault();
 
@@ -25,6 +28,8 @@ const LoginForm = () => {
 
       clearForm();
    };
+
+   const handleClick = () => history.push('/register');
 
    const clearForm = () => {
       setEmail('');
@@ -50,8 +55,10 @@ const LoginForm = () => {
                />
             </div>
             <div className={s.btn_wrapper}>
-               <BasicButton name="Вход" type="submit" />
-               <BasicButton name="Регистрация" type="button" />
+               <BasicButton type="submit">Вход</BasicButton>
+               <BasicButton type="button" onClick={handleClick}>
+                  Регистрация
+               </BasicButton>
             </div>
          </form>
       </div>
