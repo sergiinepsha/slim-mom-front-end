@@ -1,23 +1,26 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import DailyCalorieIntake from '../DailyCalorieIntake/DailyCalorieIntake';
 
 import s from './modal.module.css';
 
-export default function Modal() {
+import modalActions from '../../redux/modal/modalActions';
+import { connect } from 'react-redux';
+
+function Modal({ isModal }) {
    const closeModal = e => {
       e.preventDefault();
-
-      console.log(e);
-      console.log(e.target);
+      if (e.target.type === 'button' || e.target.className === 'modal_overlay__265-I') {
+         isModal();
+      }
    };
 
    return (
       <>
          <div className={s.overlay} onClick={closeModal}>
             <div className={s.container}>
-               <button className={s.backButton} type="button" onClick={closeModal}></button>
-               <button className={s.closeButton} type="button" onClick={closeModal}></button>
+               <button className={s.backButton} type="button"></button>
+               <button className={s.closeButton} type="button"></button>
 
                <DailyCalorieIntake />
             </div>
@@ -26,4 +29,10 @@ export default function Modal() {
    );
 }
 
-const mapState = state => ({});
+const mapDisp = dispatch => {
+   return {
+      isModal: () => dispatch(modalActions.modalClose()),
+   };
+};
+
+export default connect(null, mapDisp)(Modal);

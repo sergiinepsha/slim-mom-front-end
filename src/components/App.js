@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Switch } from 'react-router-dom';
 
 import routes from '../routes/routes';
 import { PrivateRoute, PublicRoute } from '../components/Routes';
-import { userOperations } from '../redux/auth';
+// import { userOperations } from '../redux/auth';
 
 import Header from './Header';
 

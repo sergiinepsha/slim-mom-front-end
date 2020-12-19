@@ -6,11 +6,14 @@ import dailyRateActions from './dailyRateActions';
 const onAddDailyRate = (state, { payload }) => payload;
 const onDialyID = (state, { payload }) => state.filter(({ id }) => id !== payload);
 
-const dailyRate = createReducer(null, {
-   [dailyRateActions.fetchDailyRateSuccess]: (_, { payload }) => payload,
-   [dailyRateActions.addDailyRateSuccess]: onAddDailyRate,
-   [dailyRateActions.removeDailyRateSuccess]: onDialyID,
-});
+const dailyRate = createReducer(
+   {},
+   {
+      [dailyRateActions.fetchDailyRateSuccess]: (_, { payload }) => payload,
+      [dailyRateActions.addDailyRateSuccess]: onAddDailyRate,
+      [dailyRateActions.removeDailyRateSuccess]: onDialyID,
+   },
+);
 
 const loading = createReducer(false, {
    [dailyRateActions.fetchDailyRateRequest]: () => true,
