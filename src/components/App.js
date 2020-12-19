@@ -10,11 +10,10 @@ import Header from './Header';
 
 const App = () => {
    const token = useSelector(userSelector.isAuth);
-   console.log('App>>>', token);
    const dispatch = useDispatch();
 
    useEffect(() => {
-      userOperations.currentUser(dispatch, token);
+      userOperations.currentUser(token, dispatch);
    }, [dispatch, token]);
 
    return (

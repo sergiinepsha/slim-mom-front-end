@@ -14,7 +14,6 @@ const userLogged = (_, { payload }) => {
 
 const getCurrentUser = (_, { payload }) => {
    const { email, username } = payload;
-   console.log(payload);
    return { email, username };
 };
 

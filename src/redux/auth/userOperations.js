@@ -46,8 +46,7 @@ const logoutUser = () => async dispatch => {
    }
 };
 
-const currentUser = () => async (dispatch, persistedToken) => {
-   console.log('ok'); ///
+const currentUser = async (persistedToken, dispatch) => {
    if (!persistedToken) return;
    tokenToHeader.set(persistedToken);
    dispatch(userActions.currentUserRequest());
