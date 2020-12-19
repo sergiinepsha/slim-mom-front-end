@@ -16,6 +16,7 @@ import { productReducer } from '../redux/product';
 import dailyRateReducer from './dailyRate/dailyRateReducer';
 
 import { loginState } from '../middleware/loginState';
+import modalReducers from './modal/modalReducers';
 
 const defMidd = getDefaultMiddleware({
    serializableCheck: {
@@ -35,6 +36,7 @@ export const store = configureStore({
       authUser: persistReducer(authUserPersistConfig, userReducers),
       products: productReducer,
       dailyRateData: dailyRateReducer,
+      isModal: modalReducers,
    },
    middleware: [...defMidd, loginState],
 });
