@@ -6,13 +6,15 @@ import s from './UserMenu.module.css';
 
 const UserMenu = ({ onLogout }) => {
    const dispatch = useDispatch();
-   const isLoading = useSelector(state => state.authUser.loading);
+   const isToken = useSelector(state => state.authUser.token);
    const { username } = useSelector(state => state.authUser.user);
+
+   console.log('isLoading>>>', isToken);
 
    return (
       <>
-         <div className={s.item}>
-            {isLoading && (
+         {isToken && (
+            <div className={s.item}>
                <>
                   <p className={s.name}>{username}</p>
                   <button
@@ -22,8 +24,8 @@ const UserMenu = ({ onLogout }) => {
                      Bыход
                   </button>
                </>
-            )}
-         </div>
+            </div>
+         )}
       </>
    );
 };

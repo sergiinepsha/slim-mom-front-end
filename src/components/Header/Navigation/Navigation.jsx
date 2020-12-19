@@ -8,7 +8,7 @@ import Btn from './Btn';
 import s from './Navigation.module.css';
 
 const Navigation = () => {
-   const isLoading = useSelector(state => state.authUser.loading);
+   const isToken = useSelector(state => state.authUser.token);
    const [watcher, setWatcher] = useState('');
 
    return (
@@ -16,7 +16,7 @@ const Navigation = () => {
          <Btn setWatcher={setWatcher}></Btn>
 
          <nav className={watcher}>
-            <ul className={s.navBar}>{isLoading ? <UserNav /> : <AuthNav />}</ul>
+            <ul className={s.navBar}>{isToken ? <UserNav /> : <AuthNav />}</ul>
          </nav>
       </>
    );
