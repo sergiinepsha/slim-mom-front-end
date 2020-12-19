@@ -8,7 +8,6 @@ const registerUser = async (credentials, dispatch) => {
 
    try {
       const data = await fetchDB.post(`/auth/register`, credentials);
-      console.log('registerUser>>>', data); ///
 
       dispatch(userActions.registerUserSuccess(data));
    } catch (error) {
@@ -22,7 +21,6 @@ const loginUser = async (credentials, dispatch) => {
 
    try {
       const data = await fetchDB.post(`/auth/login`, credentials);
-      console.log('loginUser>>>', data); ///
 
       tokenToHeader.set(data.accessToken);
 

@@ -12,7 +12,7 @@ import {
 import storage from 'redux-persist/lib/storage';
 
 import { userReducers } from '../redux/auth';
-
+import { loginState } from '../middleware/loginState';
 const defMidd = getDefaultMiddleware({
    serializableCheck: {
       ignoredActions: [FLUSH, REGISTER, PAUSE, PERSIST, PURGE, REHYDRATE],
@@ -30,6 +30,6 @@ export const store = configureStore({
    reducer: {
       authUser: persistReducer(authUserPersistConfig, userReducers),
    },
-   middleware: [...defMidd],
+   middleware: [...defMidd, loginState],
 });
 export const persistor = persistStore(store);

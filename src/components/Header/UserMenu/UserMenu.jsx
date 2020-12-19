@@ -8,9 +8,6 @@ const UserMenu = ({ onLogout }) => {
    const dispatch = useDispatch();
    const isToken = useSelector(state => state.authUser.token);
    const { username } = useSelector(state => state.authUser.user);
-
-   console.log('isLoading>>>', isToken);
-
    return (
       <>
          {isToken && (
