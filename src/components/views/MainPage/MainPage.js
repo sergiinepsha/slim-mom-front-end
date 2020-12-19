@@ -11,14 +11,15 @@ const MainPage = ({ isClickDiet }) => {
 
    return (
       <div className={s.wrapper}>
-         {isClickDiet && <Modal />}
-
          <img src="/images/desctop_min.png" alt="desctop_img" className={s.desctop_img} />
          <img src="/images/tablet_min.png" alt="tablet_img" className={s.tablet_img} />
-
-         <div className={s.container}>
-            <DailyCaloriesForm title={title} />
-         </div>
+         {isClickDiet ? (
+            <Modal />
+         ) : (
+            <div className={s.container}>
+               <DailyCaloriesForm title={title} />
+            </div>
+         )}
       </div>
    );
 };

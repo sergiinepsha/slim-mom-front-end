@@ -4,15 +4,6 @@ import BasicButton from '../common/BasicButton/BasicButton';
 
 import s from './DailyCalorieIntake.module.css';
 
-// const bad_products = [
-//    { name: 'Мучные продукты', id: 1 },
-//    { name: 'Молоко', id: 2 },
-//    { name: 'Красное мясо', id: 3 },
-//    { name: 'Копчености', id: 4 },
-// ];
-
-// const ccalSum = 2800;
-
 const DailyCalorieIntake = ({ ccalSum }) => {
    return (
       <>
