@@ -1,4 +1,4 @@
-const isAuth = state => state.authUser.token;
+const isAuth = state => state.authUser.accessToken;
 const getUserName = state => state.authUser.user;
 const isloading = state => state.authUser.loading;
 

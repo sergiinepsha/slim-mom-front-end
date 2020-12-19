@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import DailyCalorieIntake from '../DailyCalorieIntake/DailyCalorieIntake';
 
-import s from './Modal.module.css';
+import s from './modal.module.css';
 
 export default function Modal() {
    return (

@@ -7,11 +7,13 @@ const registerUser = async (credentials, dispatch) => {
    dispatch(userActions.registerUserRequest());
 
    try {
-      const data = await fetchDB.post(`/auth/register`, credentials);
+      await fetchDB.post(`/auth/register`, credentials);
 
-      dispatch(userActions.registerUserSuccess(data));
+      dispatch(userActions.registerUserSuccess());
+
+      const { email, password } = credentials;
+      await loginUser({ email, password }, dispatch);
    } catch (error) {
-      console.error(error); ///
       dispatch(userActions.registerUserError(error.message));
    }
 };
@@ -26,7 +28,6 @@ const loginUser = async (credentials, dispatch) => {
 
       dispatch(userActions.loginUserSuccess(data));
    } catch (error) {
-      console.error(error); ///
       dispatch(userActions.loginUserError(error.message));
    }
 };

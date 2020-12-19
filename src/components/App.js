@@ -30,8 +30,8 @@ const App = () => {
    );
 };
 
-const mapDisp = {
-   onCurrentUser: userOperations.currentUser,
-};
+// const mapDisp = {
+//    onCurrentUser: userOperations.currentUser,
+// };
 
-export default connect(null, mapDisp)(App);
+export default connect(null, null)(App);

@@ -12,7 +12,11 @@ import {
 import storage from 'redux-persist/lib/storage';
 
 import { userReducers } from '../redux/auth';
+import { productReducer } from '../redux/product';
+import dailyRateReducer from './dailyRate/dailyRateReducer';
+
 import { loginState } from '../middleware/loginState';
+
 const defMidd = getDefaultMiddleware({
    serializableCheck: {
       ignoredActions: [FLUSH, REGISTER, PAUSE, PERSIST, PURGE, REHYDRATE],
@@ -29,6 +33,8 @@ const authUserPersistConfig = {
 export const store = configureStore({
    reducer: {
       authUser: persistReducer(authUserPersistConfig, userReducers),
+      products: productReducer,
+      dailyRateData: dailyRateReducer,
    },
    middleware: [...defMidd, loginState],
 });

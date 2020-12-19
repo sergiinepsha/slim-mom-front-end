@@ -92,8 +92,8 @@
       padding-top: 50px;
       background-color: rgba(239, 241, 243, 1);
       background-image: url('./images/fone_base.png');
-      background-size: 170% 100%;
-      background-position: -127px -100px;
+      background-size: 120% 120%;
+      background-position: 0px 0px;
       background-repeat: no-repeat;
    }
    .listCcal {

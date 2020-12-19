@@ -8,7 +8,7 @@ import Btn from './Btn';
 import s from './Navigation.module.css';
 
 const Navigation = () => {
-   const isToken = useSelector(state => state.authUser.token);
+   const isToken = useSelector(state => state.authUser.accessToken);
    const [watcher, setWatcher] = useState('');
 
    return (
