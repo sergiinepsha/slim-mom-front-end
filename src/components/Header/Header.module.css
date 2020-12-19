@@ -4,7 +4,7 @@
 .logo {
    display: flex;
    flex-direction: row;
-   justify-content: center;
+   justify-content: flex-start;
 }
 
 .header {
@@ -32,7 +32,6 @@
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
    .header {
-      position: relative;
       top: 17px;
 
       justify-content: space-between;
@@ -52,7 +51,6 @@
 
 @media screen and (min-width: 1024.1px) {
    .header {
-      position: relative;
       top: 82px;
       justify-content: center;
    }
