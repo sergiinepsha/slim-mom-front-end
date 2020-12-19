@@ -1,17 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 
 import { userSelector, userOperations } from '../../../redux/auth';
 import s from './UserMenu.module.css';
 
 const UserMenu = ({ name, onLogout, isloading }) => {
+   const [state, setstate] = useState('Nic');
    return (
       <>
          <div className={s.item}>
-            {isloading && (
+            {!isloading && (
                <>
-                  <p className={s.name}>Nic</p>
-                  <button className={s.button}>Bыход</button>
+                  <p className={s.name}>{state}</p>
+                  <button className={s.button} onClick={onLogout}>
+                     Bыход
+                  </button>
                </>
             )}
          </div>
@@ -29,16 +32,3 @@ const mapDist = {
 };
 
 export default connect(mapState, mapDist)(UserMenu);
-
-// const UserMenu = ({ name, onLogout, isloading }) => (
-//    <>
-//       {!isloading && (
-//          <div>
-//             <span>{name}</span>
-//             <button type="button" onClick={onLogout}>
-//                Logout
-//             </button>
-//          </div>
-//       )}
-//    </>
-// );
