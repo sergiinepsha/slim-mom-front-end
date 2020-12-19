@@ -32,7 +32,9 @@ const DailyCalorieIntake = () => {
             ))}
          </ol>
          <div className={s.btn_wrapper}>
-            <BasicButton name="Начать худеть" type="button" onClick={() => {}} />
+            <BasicButton type="button" onClick={() => {}}>
+               Начать худеть
+            </BasicButton>
          </div>
       </>
    );

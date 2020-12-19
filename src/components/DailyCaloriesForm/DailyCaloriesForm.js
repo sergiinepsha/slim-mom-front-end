@@ -72,7 +72,7 @@ const DailyCaloriesForm = ({ title }) => {
             </div>
 
             <div className={s.btn_wrapper}>
-               <BasicButton name="Похудеть" type="submit" />
+               <BasicButton type="submit">Похудеть</BasicButton>
             </div>
          </form>
       </div>
