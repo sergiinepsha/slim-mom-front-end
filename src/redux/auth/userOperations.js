@@ -16,8 +16,13 @@ const token = {
 
 const registerUser = item => async dispatch => {
    try {
+      console.dir(item);
       await dispatch(userActions.registerUserRequest());
-      const response = await axios.post(`auth/register`, item);
+      const response = await axios.post(`auth/register`, {
+         email: 'user@example.com',
+         password: 'qwerty123',
+         username: 'Emma',
+      });
       await token.set(response.data.token);
       await dispatch(userActions.registerUserSuccess(response.data));
       return;

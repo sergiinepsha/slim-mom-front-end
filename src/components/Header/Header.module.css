@@ -52,6 +52,7 @@
 
 @media screen and (min-width: 1024.1px) {
    .header {
+      position: relative;
       top: 82px;
       justify-content: center;
    }

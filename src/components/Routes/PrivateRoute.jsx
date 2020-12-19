@@ -1,20 +1,17 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 
-import { userSelector } from '../../redux/auth';
+const PrivateRoute = ({ component: Component, ...routeProps }) => {
+   const isloading = useSelector(state => state.authUser.loading);
+   return (
+      <Route
+         {...routeProps}
+         render={props => {
+            return isloading ? <Component {...props} /> : <Redirect to="/login" />;
+         }}
+      />
+   );
+};
 
-const PrivateRoute = ({ component: Component, isAuth, ...routeProps }) => (
-   <Route
-      {...routeProps}
-      render={props => {
-         return isAuth ? <Component {...props} /> : <Redirect to="/login" />;
-      }}
-   />
-);
-
-const mapStateToProps = state => ({
-   isAuth: userSelector.isAuth(state),
-});
-
-export default connect(mapStateToProps)(PrivateRoute);
+export default PrivateRoute;

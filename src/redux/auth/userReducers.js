@@ -4,7 +4,8 @@ import userAction from './userActions';
 
 const initialStateUser = {
    email: null,
-   name: null,
+   username: null,
+   password: null,
 };
 
 const user = createReducer(initialStateUser, {
