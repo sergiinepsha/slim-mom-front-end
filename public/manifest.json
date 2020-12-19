@@ -11,6 +11,16 @@
          "src": "images/logo.png",
          "type": "image/png",
          "sizes": "70x66"
+      },
+      {
+         "src": "desctop_min.png",
+         "type": "image/png",
+         "sizes": "904x850"
+      },
+      {
+         "src": "tablet_min.png",
+         "type": "image/png",
+         "sizes": "768x512"
       }
    ],
    "start_url": ".",

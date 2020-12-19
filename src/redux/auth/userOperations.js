@@ -1,80 +1,64 @@
-import axios from 'axios';
+/* eslint-disable import/no-anonymous-default-export */
+import { userActions } from './';
 
-import userActions from './userActions';
+import fetchDB, { tokenToHeader } from '../../services/fetchDB';
 
-axios.defaults.baseURL = 'https://slimmom-backend.herokuapp.com/';
-axios.defaults.headers.get['Accept'] = 'application/json';
+const registerUser = async (credentials, dispatch) => {
+   dispatch(userActions.registerUserRequest());
 
-const token = {
-   set(token) {
-      axios.defaults.headers.common.Authorization = `Bearer ${token}`;
-   },
-   unset() {
-      axios.defaults.headers.common.Authorization = '';
-   },
-};
-
-const registerUser = item => async dispatch => {
    try {
-      console.dir(item);
-      await dispatch(userActions.registerUserRequest());
-      const response = await axios.post(`auth/register`, {
-         email: 'user@example.com',
-         password: 'qwerty123',
-         username: 'Emma',
-      });
-      await token.set(response.data.token);
-      await dispatch(userActions.registerUserSuccess(response.data));
-      return;
+      const data = await fetchDB.post(`/auth/register`, credentials);
+      console.log(data); ///
+
+      dispatch(userActions.registerUserSuccess(data));
    } catch (error) {
-      return dispatch(userActions.registerUserError(error.message));
+      console.error(error); ///
+      dispatch(userActions.registerUserError(error.message));
    }
 };
 
-const loginUser = item => async dispatch => {
+const loginUser = async (credentials, dispatch) => {
+   dispatch(userActions.loginUserRequest());
+
    try {
-      await dispatch(userActions.loginUserRequest());
-      const response = await axios.post(`auth/login`, item);
-      await token.set(response.data.token);
-      await dispatch(userActions.loginUserSuccess(response.data));
-      return;
+      const data = await fetchDB.post(`/auth/login`, credentials);
+      console.log(data); ///
+
+      tokenToHeader.set(data.accessToken);
+
+      dispatch(userActions.loginUserSuccess(data));
    } catch (error) {
-      return dispatch(userActions.loginUserError(error.message));
+      console.error(error); ///
+      dispatch(userActions.loginUserError(error.message));
    }
 };
 
 const logoutUser = () => async dispatch => {
-   try {
-      await dispatch(userActions.logoutUserRequest());
-      await axios.post(`auth/logout`);
-      await token.unset();
-      await dispatch(userActions.logoutUserSuccess());
+   dispatch(userActions.logoutUserRequest());
 
-      return;
+   try {
+      await fetchDB.post(`/auth/logout`);
+
+      tokenToHeader.unset();
+
+      dispatch(userActions.logoutUserSuccess());
    } catch (error) {
-      return dispatch(userActions.logoutUserError(error.message));
+      dispatch(userActions.logoutUserError(error.message));
    }
 };
 
-const currentUser = () => async (dispatch, getState) => {
+const currentUser = () => async (dispatch, persistedToken) => {
+   if (!persistedToken) return;
+
+   tokenToHeader.set(persistedToken);
+   dispatch(userActions.currentUserRequest());
+
    try {
-      //берем весь state и из свойства authUser беру token
-      const {
-         authUser: { token: persistedToken },
-      } = await getState();
-      //если нету то нечего не делать
-      if (!persistedToken) return;
+      const data = await fetchDB.get(`/user`);
 
-      await token.set(persistedToken);
-
-      await dispatch(userActions.currentUserRequest());
-
-      const response = await axios.get(`auth/refresh`);
-
-      await dispatch(userActions.currentUserSuccess(response.data));
-      return;
+      dispatch(userActions.currentUserSuccess(data));
    } catch (error) {
-      return dispatch(userActions.currentUserError(error.message));
+      dispatch(userActions.currentUserError(error.message));
    }
 };
 

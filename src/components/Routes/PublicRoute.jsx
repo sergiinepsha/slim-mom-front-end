@@ -2,20 +2,17 @@ import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
-const PublicRoute = ({ component: Component, isAuth, ...routeProps }) => {
-   const isLoading = useSelector(state => state.authUser.loading);
+import { userSelector } from '../../redux/auth/index';
+
+export default function PublicRoute({ component: Component, restricted, ...routeProps }) {
+   const isAuth = useSelector(userSelector.isAuth);
+
    return (
       <Route
          {...routeProps}
-         render={props => {
-            return isLoading && routeProps.restricted ? (
-               <Redirect to="/calculator" />
-            ) : (
-               <Component {...props} />
-            );
-         }}
+         render={props =>
+            isAuth && restricted ? <Redirect to="/calculator" /> : <Component {...props} />
+         }
       />
    );
-};
-
-export default PublicRoute;
+}

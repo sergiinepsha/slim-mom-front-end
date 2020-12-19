@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 import { lazy } from 'react';
 
 export default [
@@ -9,6 +10,16 @@ export default [
          import('../components/views/MainPage/MainPage.js' /* webpackChunkName: "home-page" */),
       ),
       private: false,
+      restricted: false,
+   },
+   {
+      path: '/diary',
+      label: 'Diary',
+      exact: true,
+      component: lazy(() =>
+         import('../components/views/DiaryPage/DiaryPage.js' /* webpackChunkName: "diary-page" */),
+      ),
+      private: true,
       restricted: false,
    },
    {

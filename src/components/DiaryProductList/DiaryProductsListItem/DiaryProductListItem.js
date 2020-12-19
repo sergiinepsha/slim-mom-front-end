@@ -8,6 +8,7 @@ export default function ContactListItem({ name, weight, cCal, onDeleteProduct })
          <span className={s.product_weight}>{weight} г</span>
          <span className={s.product_cCal}>{cCal} ккал</span>
          <button className={s.product_button} type="button" onClick={onDeleteProduct}></button>
+         <div></div>
       </li>
    );
 }
