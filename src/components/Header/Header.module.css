@@ -8,11 +8,10 @@
 }
 
 .header {
-   position: fixed;
+   position: absolute;
    width: 100%;
-   padding-top: 18px;
-
    flex-wrap: wrap;
+   z-index: 1;
 }
 .logo {
    padding-left: 15px;
