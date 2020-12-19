@@ -1,19 +1,20 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+
 import BasicButton from '../common/BasicButton/BasicButton';
+import modalActions from '../../redux/modal/modalActions';
 
 import s from './DailyCalorieIntake.module.css';
 
-// const bad_products = [
-//    { name: 'Мучные продукты', id: 1 },
-//    { name: 'Молоко', id: 2 },
-//    { name: 'Красное мясо', id: 3 },
-//    { name: 'Копчености', id: 4 },
-// ];
+const DailyCalorieIntake = ({ ccalSum, isModal }) => {
+   const history = useHistory();
 
-// const ccalSum = 2800;
+   const goToLoginPage = () => {
+      isModal();
+      history.push('/login');
+   };
 
-const DailyCalorieIntake = ({ ccalSum }) => {
    return (
       <>
          <h2 className={s.yourNormalCcal}>Ваша рекомендуемая суточная норма калорий составляет</h2>
@@ -33,7 +34,7 @@ const DailyCalorieIntake = ({ ccalSum }) => {
                ))}
          </ol>
          <div className={s.btn_wrapper}>
-            <BasicButton type="button" onClick={() => {}}>
+            <BasicButton type="button" onClick={goToLoginPage}>
                Начать худеть
             </BasicButton>
          </div>
@@ -45,8 +46,10 @@ const mapState = state => ({
    ccalSum: state.dailyRateData.dailyRate,
 });
 
-// const mapDisp = dispatch=>{
-//    return {goToDiet: }
-// }
+const mapDisp = dispatch => {
+   return {
+      isModal: () => dispatch(modalActions.modalClose()),
+   };
+};
 
-export default connect(mapState, null)(DailyCalorieIntake);
+export default connect(mapState, mapDisp)(DailyCalorieIntake);
