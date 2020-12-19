@@ -19,7 +19,7 @@ export default [
       component: lazy(() =>
          import('../components/views/DiaryPage/DiaryPage.js' /* webpackChunkName: "diary" */),
       ),
-      private: false,
+      private: true,
       restricted: false,
    },
    {

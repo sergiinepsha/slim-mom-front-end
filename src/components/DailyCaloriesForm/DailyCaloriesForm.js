@@ -5,28 +5,31 @@ import BasicButton from '../common/BasicButton/BasicButton';
 import BloodGroup from './BloodGroup/BloodGroup';
 
 import s from './DailyCaloriesForm.module.css';
+import dailyRateOperations from '../../redux/dailyRate/dailyRateOperations';
+import { connect } from 'react-redux';
 
-const DailyCaloriesForm = ({ title }) => {
+const DailyCaloriesForm = ({ title, onDailyRate }) => {
    const [height, setHeight] = useState('');
    const onHeightChange = ({ value }) => setHeight(value);
 
    const [age, setAge] = useState('');
    const onAgeChange = ({ value }) => setAge(value);
 
-   const [currentWeight, setCurrentWeight] = useState('');
+   const [weight, setCurrentWeight] = useState('');
    const onCurrentWeightChange = ({ value }) => setCurrentWeight(value);
 
    const [desiredWeight, setDesiredWeight] = useState('');
    const onDesiredWeightChange = ({ value }) => setDesiredWeight(value);
 
-   const [bloodGroup, setBloodGroup] = useState('1');
+   const [bloodType, setBloodGroup] = useState('1');
    const onBloodGroupChange = ({ value }) => setBloodGroup(value);
+
+   const credentials = { weight, height, age, desiredWeight, bloodType };
 
    const handlerSubmit = evt => {
       evt.preventDefault();
-
-      // TODO: dailyRateOparation...
-
+      console.log(credentials);
+      onDailyRate(credentials);
       clearForm();
    };
 
@@ -56,7 +59,7 @@ const DailyCaloriesForm = ({ title }) => {
                   onChange={onAgeChange}
                />
                <PrimaryInput
-                  value={currentWeight}
+                  value={weight}
                   type="number"
                   placeholder="Текущий вес *"
                   onChange={onCurrentWeightChange}
@@ -68,7 +71,7 @@ const DailyCaloriesForm = ({ title }) => {
                   onChange={onDesiredWeightChange}
                />
 
-               <BloodGroup bloodGroup={bloodGroup} onChange={onBloodGroupChange} />
+               <BloodGroup bloodGroup={bloodType} onChange={onBloodGroupChange} />
             </div>
 
             <div className={s.btn_wrapper}>
@@ -79,4 +82,8 @@ const DailyCaloriesForm = ({ title }) => {
    );
 };
 
-export default DailyCaloriesForm;
+const mapDisp = dispatch => {
+   return { onDailyRate: credentials => dispatch(dailyRateOperations.addDailyRate(credentials)) };
+};
+
+export default connect(null, mapDisp)(DailyCaloriesForm);
