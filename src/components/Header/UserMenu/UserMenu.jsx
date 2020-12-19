@@ -1,18 +1,24 @@
-import React, { useState } from 'react';
-import { connect } from 'react-redux';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { userOperations } from '../../../redux/auth';
 
-import { userSelector, userOperations } from '../../../redux/auth';
 import s from './UserMenu.module.css';
 
-const UserMenu = ({ name, onLogout, isloading }) => {
-   const [state, setstate] = useState('Nic');
+const UserMenu = ({ onLogout }) => {
+   const dispatch = useDispatch();
+   const isLoading = useSelector(state => state.authUser.loading);
+   const { username } = useSelector(state => state.authUser.user);
+
    return (
       <>
          <div className={s.item}>
-            {!isloading && (
+            {isLoading && (
                <>
-                  <p className={s.name}>{state}</p>
-                  <button className={s.button} onClick={onLogout}>
+                  <p className={s.name}>{username}</p>
+                  <button
+                     className={s.button}
+                     onClick={() => dispatch(userOperations.logoutUser())}
+                  >
                      Bыход
                   </button>
                </>
@@ -22,13 +28,4 @@ const UserMenu = ({ name, onLogout, isloading }) => {
    );
 };
 
-const mapState = state => ({
-   isloading: userSelector.isloading(state),
-   name: userSelector.getUserName(state),
-});
-
-const mapDist = {
-   onLogout: userOperations.logoutUser,
-};
-
-export default connect(mapState, mapDist)(UserMenu);
+export default UserMenu;
