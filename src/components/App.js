@@ -1,14 +1,22 @@
-import React, { Suspense } from 'react';
-import { connect } from 'react-redux';
+import React, { Suspense, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter as Router, Switch } from 'react-router-dom';
 
 import routes from '../routes/routes';
 import { PrivateRoute, PublicRoute } from '../components/Routes';
-import { userOperations } from '../redux/auth';
+import { userOperations, userSelector } from '../redux/auth';
 
 import Header from './Header';
 
 const App = () => {
+   const token = useSelector(userSelector.isAuth);
+   console.log('App>>>', token);
+   const dispatch = useDispatch();
+
+   useEffect(() => {
+      userOperations.currentUser(dispatch, token);
+   }, [dispatch, token]);
+
    return (
       <>
          <Router>
@@ -30,8 +38,4 @@ const App = () => {
    );
 };
 
-// const mapDisp = {
-//    onCurrentUser: userOperations.currentUser,
-// };
-
-export default connect(null, null)(App);
+export default App;

@@ -25,6 +25,7 @@ const post = async (url, item = null) => {
 
 const get = async url => {
    try {
+      console.log(axios.defaults.headers.common['Authorization']);
       const { data } = await axios.get(url);
       return data;
    } catch (error) {
