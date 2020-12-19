@@ -10,6 +10,7 @@
 .header {
    position: fixed;
    width: 100%;
+   padding-top: 18px;
 
    flex-wrap: wrap;
 }
@@ -24,9 +25,15 @@
    width: 100%;
    order: 2;
 }
+@media screen and (max-width: 767.9px) {
+   .header {
+      background-color: #ffffff;
+   }
+}
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
    .header {
+      position: relative;
       top: 17px;
       border-bottom: 2px solid #e0e0e0;
       justify-content: space-between;

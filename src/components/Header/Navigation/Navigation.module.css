@@ -14,21 +14,52 @@
    align-items: center;
    width: 100%;
 }
+.head {
+   display: none; /*скрывает   кругом*/
+}
 
-@media screen and (max-width: 767.9px) {
+.button {
+   display: block;
+   position: absolute;
+   width: 3em;
+   height: 3em;
+   background-color: transparent;
+   border: none;
+   top: 0.5em;
+   right: 1em;
+   cursor: pointer;
+   z-index: 1111;
+}
+.button:focus,
+.button:active {
+   background-color: transparent;
+   border: none;
+   outline: none;
+}
+.button::after {
+   content: '\2716';
+   position: absolute;
+   font-size: 2.9em;
+   top: 0;
+}
+
+.show.button::after {
+   content: '\2630';
+}
+
+@media screen and (max-width: 1024px) {
    .nav {
-      position: fixed;
-      width: 300px;
+      position: absolute;
+      width: 100%;
       height: 100%;
-      right: 10px;
+      right: 0;
       overflow: hidden;
+      border-radius: 5px;
       background-color: #add8e6;
-
-      transition: 0.4s;
-      -webkit-transition: 0.4s;
-      -moz-transition: 0.4s;
-      -ms-transition: 0.4s;
-      -o-transition: 0.4s;
+      -webkit-border-radius: 5px;
+      -moz-border-radius: 5px;
+      -ms-border-radius: 5px;
+      -o-border-radius: 5px;
    }
    .nav ul {
       position: absolute;
@@ -53,37 +84,13 @@
 /*table*/
 @media screen and (min-width: 768px) and (max-width: 1024px) {
    .nav {
-      position: fixed;
-      width: 300px;
-      height: 100%;
-      right: 10px;
-      overflow: hidden;
-      background-color: #add8e6;
-
-      transition: 0.4s;
-      -webkit-transition: 0.4s;
-      -moz-transition: 0.4s;
-      -ms-transition: 0.4s;
-      -o-transition: 0.4s;
-   }
-
-   .nav ul {
       position: absolute;
-      top: 20px;
-   }
+      right: 0;
+      width: 300px;
+      height: 100px;
+      overflow: hidden;
 
-   .nav ul li:hover {
-      animation: hover 0.6s;
-      -webkit-animation: hover 0.6s;
-   }
-   @keyframes hover {
-      50% {
-         transform: scale(1.2);
-         -webkit-transform: scale(1.2);
-         -moz-transform: scale(1.2);
-         -ms-transform: scale(1.2);
-         -o-transform: scale(1.2);
-      }
+      background-color: #add8e6;
    }
 }
 
@@ -93,6 +100,7 @@
       display: none;
    }
    .nav {
+      display: flex;
       flex-direction: row;
       justify-content: flex-start;
       align-items: flex-end;
