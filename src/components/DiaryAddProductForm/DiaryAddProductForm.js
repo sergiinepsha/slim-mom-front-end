@@ -46,7 +46,7 @@ const DiaryAddProductForm = ({ onAddProduct }) => {
             />
          </div>
          <div className={s.btn_wrapper}>
-            <BasicButton name="Добавить" type="submit" />
+            <BasicButton type="submit">Добавить</BasicButton>
          </div>
       </form>
    );

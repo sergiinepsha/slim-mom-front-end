@@ -33,7 +33,9 @@ const DailyCalorieIntake = ({ ccalSum }) => {
                ))}
          </ol>
          <div className={s.btn_wrapper}>
-            <BasicButton name="Начать худеть" type="button" />
+            <BasicButton type="button" onClick={() => {}}>
+               Начать худеть
+            </BasicButton>
          </div>
       </>
    );
