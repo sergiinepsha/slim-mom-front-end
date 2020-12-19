@@ -15,7 +15,12 @@
       {
          "src": "desctop_min.png",
          "type": "image/png",
-         "sizes": "779x850"
+         "sizes": "904x850"
+      },
+      {
+         "src": "tablet_min.png",
+         "type": "image/png",
+         "sizes": "768x512"
       }
    ],
    "start_url": ".",

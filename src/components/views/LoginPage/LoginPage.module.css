@@ -1,5 +1,7 @@
 .wrapper {
    position: relative;
+   width: 100vw;
+   height: 100vh;
 }
 
 .container {
@@ -12,7 +14,8 @@
    z-index: 1;
 }
 
-.bg_img {
+.desctop_img,
+.tablet_img {
    display: none;
 }
 
@@ -24,16 +27,26 @@
    }
 }
 
+@media screen and (min-width: 768.1px) and (max-width: 1024px) {
+   .tablet_img {
+      display: block;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      z-index: 0;
+   }
+}
+
 @media screen and (min-width: 1024.1px) {
    .container {
       padding-top: 362px;
       padding-left: 114px;
    }
 
-   .bg_img {
+   .desctop_img {
       display: block;
       position: absolute;
-      top: 0;
+      bottom: 0;
       right: 0;
       z-index: 0;
    }
