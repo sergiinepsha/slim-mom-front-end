@@ -1,5 +1,4 @@
 import React, { Suspense } from 'react';
-import { connect } from 'react-redux';
 import { BrowserRouter as Router, Switch } from 'react-router-dom';
 
 import routes from '../routes/routes';
@@ -7,6 +6,7 @@ import { PrivateRoute, PublicRoute } from '../components/Routes';
 // import { userOperations } from '../redux/auth';
 
 import Header from './Header';
+import Loader from './Loader';
 
 const App = () => {
    return (
@@ -14,7 +14,7 @@ const App = () => {
          <Router>
             <Header />
 
-            <Suspense fallback={<span>Loading</span>}>
+            <Suspense fallback={<Loader />}>
                <Switch>
                   {routes.map(route =>
                      route.private ? (
@@ -30,8 +30,4 @@ const App = () => {
    );
 };
 
-// const mapDisp = {
-//    onCurrentUser: userOperations.currentUser,
-// };
-
-export default connect(null, null)(App);
+export default App;
