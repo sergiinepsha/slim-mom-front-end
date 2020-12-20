@@ -13,7 +13,7 @@ const UserMenu = ({ onLogout }) => {
    const loader = useSelector(state => state.loader);
    return (
       <>
-         {!isToken && !loader && <Loader />}
+         {loader && <Loader />}
          {isToken && (
             <div className={s.item}>
                <>
