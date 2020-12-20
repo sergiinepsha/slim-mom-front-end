@@ -13,6 +13,7 @@ import storage from 'redux-persist/lib/storage';
 
 import { userReducers } from '../redux/auth';
 import { productReducer } from '../redux/product';
+import { loaderReducer } from '../redux/loader';
 import dailyRateReducer from './dailyRate/dailyRateReducer';
 
 import { loginState } from '../middleware/loginState';
@@ -34,6 +35,7 @@ export const store = configureStore({
    reducer: {
       authUser: persistReducer(authUserPersistConfig, userReducers),
       products: productReducer,
+      loader: loaderReducer,
       dailyRateData: dailyRateReducer,
    },
    middleware: [...defMidd, loginState],
