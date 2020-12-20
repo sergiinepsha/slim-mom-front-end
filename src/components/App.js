@@ -1,6 +1,6 @@
 import React, { Suspense, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { BrowserRouter as Router, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, useHistory } from 'react-router-dom';
 
 import routes from '../routes/routes';
 import { PrivateRoute, PublicRoute } from '../components/Routes';
@@ -12,10 +12,15 @@ import Loader from './Loader';
 const App = () => {
    const token = useSelector(userSelector.isAuth);
    const dispatch = useDispatch();
+   const history = useHistory();
 
    useEffect(() => {
       userOperations.currentUser(token, dispatch);
    }, [dispatch, token]);
+
+   // useEffect(() => {
+   //    history.replace('/calculator');
+   // }, [history]);
 
    return (
       <>
