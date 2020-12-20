@@ -1,9 +1,9 @@
 import React, { Suspense } from 'react';
 import { BrowserRouter as Router, Switch } from 'react-router-dom';
-// import Loader from 'react-loader-spinner';
 
 import routes from '../routes/routes';
 import { PrivateRoute, PublicRoute } from '../components/Routes';
+// import { userOperations } from '../redux/auth';
 
 import Header from './Header';
 import Loader from './Loader';

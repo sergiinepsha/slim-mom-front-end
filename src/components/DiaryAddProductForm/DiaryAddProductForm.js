@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { connect, useDispatch } from 'react-redux';
+import { connect } from 'react-redux';
 
 import productOperation from '../../redux/product/productOperations';
 

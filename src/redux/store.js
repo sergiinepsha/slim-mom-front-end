@@ -17,6 +17,7 @@ import { loaderReducer } from '../redux/loader';
 import dailyRateReducer from './dailyRate/dailyRateReducer';
 
 import { loginState } from '../middleware/loginState';
+import modalReducers from './modal/modalReducers';
 
 const defMidd = getDefaultMiddleware({
    serializableCheck: {
@@ -37,6 +38,7 @@ export const store = configureStore({
       products: productReducer,
       loader: loaderReducer,
       dailyRateData: dailyRateReducer,
+      isModal: modalReducers,
    },
    middleware: [...defMidd, loginState],
 });
