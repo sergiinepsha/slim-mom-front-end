@@ -15,7 +15,7 @@ const Btn = ({ setWatcher }) => {
       setBtn(` ${s.button} ${s.show} `);
       setWatcher(`${s.head} ${s.nav} `);
       return;
-   }, [bars]);
+   }, [bars, setWatcher]);
 
    function handlerButton() {
       setBars(!bars);

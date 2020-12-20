@@ -7,6 +7,7 @@ import { PrivateRoute, PublicRoute } from '../components/Routes';
 import { userOperations, userSelector } from '../redux/auth';
 
 import Header from './Header';
+import Loader from './Loader';
 
 const App = () => {
    const token = useSelector(userSelector.isAuth);
@@ -21,7 +22,7 @@ const App = () => {
          <Router>
             <Header />
 
-            <Suspense fallback={<span>Loading</span>}>
+            <Suspense fallback={<Loader />}>
                <Switch>
                   {routes.map(route =>
                      route.private ? (

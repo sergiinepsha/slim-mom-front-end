@@ -17,6 +17,7 @@
       "react-transition-group": "^4.4.1",
       "redux": "^4.0.5",
       "redux-persist": "^6.0.0",
+      "react-loader-spinner": "^3.1.14",
       "web-vitals": "^0.2.4"
    },
    "scripts": {
