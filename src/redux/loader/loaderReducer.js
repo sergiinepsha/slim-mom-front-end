@@ -1,5 +1,5 @@
-// import { combineReducers } from 'redux';
 import { createReducer } from '@reduxjs/toolkit';
+
 import { userActions } from '../auth';
 import modalAction from '../modal/modalActions';
 import { productActions } from '../product';
@@ -7,47 +7,47 @@ import { dailyRateActions } from '../dailyRate';
 import loaderAction from './loaderActions';
 
 const loader = createReducer(false, {
-   [loaderAction.startLoader]: () => true,
-   [loaderAction.endLoader]: () => false,
+   [loaderAction.startLoader]: () => false,
+   [loaderAction.endLoader]: () => true,
 
-   [userActions.loginUserError]: () => true,
-   [userActions.loginUserRequest]: () => true,
-   [userActions.loginUserSuccess]: () => false,
+   [userActions.loginUserError]: () => false,
+   [userActions.loginUserRequest]: () => false,
+   [userActions.loginUserSuccess]: () => true,
 
-   [userActions.registerUserError]: () => true,
-   [userActions.registerUserRequest]: () => true,
-   [userActions.registerUserSuccess]: () => false,
+   [userActions.registerUserError]: () => false,
+   [userActions.registerUserRequest]: () => false,
+   [userActions.registerUserSuccess]: () => true,
 
-   [userActions.logoutUserError]: () => true,
-   [userActions.logoutUserRequest]: () => true,
-   [userActions.logoutUserSuccess]: () => false,
+   [userActions.logoutUserError]: () => false,
+   [userActions.logoutUserRequest]: () => false,
+   [userActions.logoutUserSuccess]: () => true,
 
-   [userActions.currentUserError]: () => true,
-   [userActions.currentUserRequest]: () => true,
-   [userActions.currentUserSuccess]: () => false,
+   [userActions.currentUserError]: () => false,
+   [userActions.currentUserRequest]: () => false,
+   [userActions.currentUserSuccess]: () => true,
 
-   [modalAction.modalOpen]: () => true,
-   [modalAction.modalClose]: () => false,
+   [modalAction.modalOpen]: () => false,
+   [modalAction.modalClose]: () => true,
 
-   [productActions.fetchProductError]: () => true,
-   [productActions.fetchProductRequest]: () => true,
-   [productActions.fetchProductSuccess]: () => false,
+   [productActions.fetchProductError]: () => false,
+   [productActions.fetchProductRequest]: () => false,
+   [productActions.fetchProductSuccess]: () => true,
 
-   [productActions.removeProductError]: () => true,
-   [productActions.removeProductRequest]: () => true,
-   [productActions.removeProductSuccess]: () => false,
+   [productActions.removeProductError]: () => false,
+   [productActions.removeProductRequest]: () => false,
+   [productActions.removeProductSuccess]: () => true,
 
-   [productActions.addProductError]: () => true,
-   [productActions.addProductRequest]: () => true,
-   [productActions.addProductSuccess]: () => false,
+   [productActions.addProductError]: () => false,
+   [productActions.addProductRequest]: () => false,
+   [productActions.addProductSuccess]: () => true,
 
-   [dailyRateActions.fetchDailyRateError]: () => true,
-   [dailyRateActions.fetchDailyRateRequest]: () => true,
-   [dailyRateActions.fetchDailyRateSuccess]: () => false,
+   [dailyRateActions.fetchDailyRateError]: () => false,
+   [dailyRateActions.fetchDailyRateRequest]: () => false,
+   [dailyRateActions.fetchDailyRateSuccess]: () => true,
 
-   [dailyRateActions.addDailyRateError]: () => true,
-   [dailyRateActions.addDailyRateRequest]: () => true,
-   [dailyRateActions.addDailyRateSuccess]: () => false,
+   [dailyRateActions.addDailyRateError]: () => false,
+   [dailyRateActions.addDailyRateRequest]: () => false,
+   [dailyRateActions.addDailyRateSuccess]: () => true,
 });
 
 export default loader;
