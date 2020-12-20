@@ -17,7 +17,30 @@ const currentUserRequest = createAction('GET/currentUserRequest');
 const currentUserSuccess = createAction('GET/currentUserSuccess');
 const currentUserError = createAction('GET/currentUserError');
 
+export const request = {
+   loginUserRequest,
+   registerUserRequest,
+   logoutUserRequest,
+   currentUserRequest,
+};
+export const success = {
+   loginUserSuccess,
+   registerUserSuccess,
+   logoutUserSuccess,
+   currentUserSuccess,
+};
+export const error = {
+   loginUserError,
+   registerUserError,
+   logoutUserError,
+   currentUserError,
+};
+
 export default {
+   request,
+   success,
+   error,
+
    loginUserRequest,
    loginUserSuccess,
    loginUserError,
