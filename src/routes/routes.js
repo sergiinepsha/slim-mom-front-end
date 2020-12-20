@@ -20,7 +20,7 @@ export default [
          import('../components/views/DiaryPage/DiaryPage.js' /* webpackChunkName: "diary" */),
       ),
       private: true,
-      restricted: false,
+      restricted: true,
    },
    {
       path: '/login',
@@ -30,7 +30,7 @@ export default [
          import('../components/views/LoginPage/LoginPage.js' /* webpackChunkName: "login" */),
       ),
       private: false,
-      restricted: false,
+      restricted: true,
    },
    {
       path: '/register',
@@ -43,7 +43,7 @@ export default [
          ),
       ),
       private: false,
-      restricted: false,
+      restricted: true,
    },
    {
       path: '/calculator',
@@ -53,16 +53,6 @@ export default [
          import('../components/views/CalculatorPage' /* webpackChunkName: "calculator" */),
       ),
       private: true,
-      restricted: false,
-   },
-   {
-      path: '/diary',
-      label: 'Diary',
-      exact: true,
-      component: lazy(() =>
-         import('../components/views/MainPage/MainPage.js' /* webpackChunkName: "home-page" */),
-      ),
-      private: true,
-      restricted: false,
+      restricted: true,
    },
 ];

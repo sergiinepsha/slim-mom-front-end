@@ -28,7 +28,7 @@ const defMidd = getDefaultMiddleware({
 const authUserPersistConfig = {
    key: 'authUser',
    storage,
-   whitelist: ['token'],
+   whitelist: ['accessToken'],
    // blacklist: ['', '', ''],// -- сохраняет всё кроме этих
 };
 

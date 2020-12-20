@@ -12,9 +12,14 @@ const userLogged = (_, { payload }) => {
    return { email, username };
 };
 
+const getCurrentUser = (_, { payload }) => {
+   const { email, username } = payload;
+   return { email, username };
+};
+
 const user = createReducer(INITIAL_USER_STATE, {
    [userAction.loginUserSuccess]: userLogged,
-   // [userAction.currentUserSuccess]: (_, { payload }) => payload,
+   [userAction.currentUserSuccess]: getCurrentUser,
    [userAction.logoutUserSuccess]: () => INITIAL_USER_STATE,
 });
 
