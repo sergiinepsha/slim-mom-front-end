@@ -1,8 +1,6 @@
-export const loginState = store => next => async action => {
-   console.info('dispatching >>>>', action.type);
-
-   // if (action.type === userActions.loginUserSuccess.type) {
-   //    console.log('middle >>>');
-   // }
+export const loginState = store => next => action => {
+   if (action.payload) {
+      console.log('middle >>>', action.payload);
+   }
    return next(action);
 };
