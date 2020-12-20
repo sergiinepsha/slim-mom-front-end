@@ -23,7 +23,6 @@ const LoginForm = () => {
    const handlerSubmit = evt => {
       evt.preventDefault();
 
-      console.log(email, password);
       userOperations.loginUser({ email, password }, dispatch);
 
       clearForm();
