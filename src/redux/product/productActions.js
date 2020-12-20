@@ -20,6 +20,7 @@ export default {
    fetchProductRequest,
    fetchProductSuccess,
    fetchProductError,
+
    addProductRequest,
    addProductSuccess,
    addProductError,
