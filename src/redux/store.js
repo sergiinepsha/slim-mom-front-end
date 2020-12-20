@@ -14,7 +14,7 @@ import storage from 'redux-persist/lib/storage';
 import { userReducers } from '../redux/auth';
 import { productReducer } from '../redux/product';
 import dailyRateReducer from './dailyRate/dailyRateReducer';
-
+import dayReducer from '../redux/day/dayReducer';
 import { loginState } from '../middleware/loginState';
 import modalReducers from './modal/modalReducers';
 
@@ -37,7 +37,10 @@ export const store = configureStore({
       products: productReducer,
       dailyRateData: dailyRateReducer,
       isModal: modalReducers,
+      curentDate: dayReducer,
    },
    middleware: [...defMidd, loginState],
 });
 export const persistor = persistStore(store);
+
+// nina@mail.com, пароль 123

@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import Calendar from 'react-calendar';
+import { connect } from 'react-redux';
+import dayActions from '../../redux/day/dayActions';
 import s from './DiaryDateCalendar.module.css';
 
-export default function DiaryDateCalendar() {
-   const [value, onChange] = useState(new Date());
+function DiaryDateCalendar({ setDate }) {
+   const dateNow = new Date();
+
+   const [value, onChange] = useState(dateNow);
 
    const [isClick, setClick] = useState(false);
 
@@ -15,6 +19,8 @@ export default function DiaryDateCalendar() {
          setClick(false);
       }
    };
+
+   setDate(value.toLocaleDateString());
 
    return (
       <>
@@ -32,3 +38,11 @@ export default function DiaryDateCalendar() {
       </>
    );
 }
+
+const mapDisp = dispatch => {
+   return {
+      setDate: async value => await dispatch(dayActions.dayFromCalendar(value)),
+   };
+};
+
+export default connect(null, mapDisp)(DiaryDateCalendar);

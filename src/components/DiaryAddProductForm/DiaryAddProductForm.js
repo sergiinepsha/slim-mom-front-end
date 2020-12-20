@@ -7,20 +7,29 @@ import PrimaryInput from '../common/PrimaryInput/PrimaryInput';
 import BasicButton from '../common/BasicButton/BasicButton';
 
 import s from './DiaryAddProductForm.module.css';
+import productOperations from '../../redux/product/productOperations';
 
-const DiaryAddProductForm = ({ onAddProduct }) => {
+const DiaryAddProductForm = async ({ dateCurrent, onAddProduct, getProductQuery }) => {
    const [productName, setProductName] = useState('');
    const changeProductName = ({ value }) => setProductName(value);
 
    const [weight, setWeight] = useState('');
    const changeWeight = ({ value }) => setWeight(value);
 
-   const handlerSubmit = evt => {
+   const handlerSubmit = async evt => {
       evt.preventDefault();
-      console.log(productName, weight);
+      // const productId = async () =>
+      //    await getProductQuery(productName).then(data => console.log(data));
 
-      onAddProduct(productName, weight);
-      // productOperation.addProduct({ productName, weight });
+      const credentials = {
+         dateCurrent,
+         // productId,
+         weight,
+      };
+      console.log(credentials);
+
+      // onAddProduct(credentials);
+
       clearForm();
    };
 
@@ -51,11 +60,15 @@ const DiaryAddProductForm = ({ onAddProduct }) => {
       </form>
    );
 };
+const mapState = state => ({
+   dateCurrent: state.curentDate.day,
+});
 
 const mapDispatchToProps = dispatch => {
    return {
-      onAddProduct: (product, weight) => dispatch(productOperation.addProduct({ product, weight })),
+      onAddProduct: credentials => dispatch(productOperation.addProduct(credentials)),
+      getProductQuery: query => dispatch(productOperations.getProductByQuery(query)),
    };
 };
 
-export default connect(null, mapDispatchToProps)(DiaryAddProductForm);
+export default connect(mapState, mapDispatchToProps)(DiaryAddProductForm);
