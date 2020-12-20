@@ -11,17 +11,6 @@ const fetchProduct = () => async dispatch => {
       .catch(error => dispatch(productActions.fetchProductError(error)));
 };
 
-const getProductByQuery = query => async dispatch => {
-   dispatch(productActions.getProductRequest());
-   await axios
-      .get('/product', query)
-      .then(data => {
-         console.log(data);
-         return dispatch(productActions.getProductSuccess(data));
-      })
-      .catch(error => dispatch(productActions.getProductError(error)));
-};
-
 const addProduct = credentials => async dispatch => {
    dispatch(productActions.addProductRequest());
 
@@ -44,7 +33,6 @@ const removeProduct = id => async dispatch => {
 
 export default {
    fetchProduct,
-   getProductByQuery,
    addProduct,
    removeProduct,
 };

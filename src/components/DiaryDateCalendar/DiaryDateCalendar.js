@@ -10,7 +10,6 @@ function DiaryDateCalendar({ setDate }) {
    const [value, onChange] = useState(dateNow);
 
    const [isClick, setClick] = useState(false);
-
    const openCalendar = e => {
       if (!isClick) {
          setClick(true);
@@ -18,6 +17,10 @@ function DiaryDateCalendar({ setDate }) {
       if (isClick) {
          setClick(false);
       }
+   };
+
+   const changeDate = e => {
+      onChange(e);
    };
 
    setDate(value.toLocaleDateString());
@@ -31,7 +34,7 @@ function DiaryDateCalendar({ setDate }) {
             </div>
             {isClick && (
                <div className={s.calendar}>
-                  <Calendar onChange={e => onChange(e)} value={value} />
+                  <Calendar onChange={changeDate} value={value} />
                </div>
             )}
          </div>
@@ -41,7 +44,7 @@ function DiaryDateCalendar({ setDate }) {
 
 const mapDisp = dispatch => {
    return {
-      setDate: async value => await dispatch(dayActions.dayFromCalendar(value)),
+      setDate: value => dispatch(dayActions.dayFromCalendar(value)),
    };
 };
 
