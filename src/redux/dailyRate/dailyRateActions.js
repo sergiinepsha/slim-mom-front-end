@@ -8,6 +8,10 @@ const addDailyRateRequest = createAction('dailyRate/addRequest');
 const addDailyRateSuccess = createAction('dailyRate/addSuccess');
 const addDailyRateError = createAction('dailyRate/addError');
 
+const addDailyIDRequest = createAction('dailyID/Request');
+const addDailyIDSuccess = createAction('dailyID/Success');
+const addDailyIDError = createAction('dailyID/Error');
+
 export default {
    fetchDailyRateRequest,
    fetchDailyRateSuccess,
@@ -15,4 +19,7 @@ export default {
    addDailyRateRequest,
    addDailyRateSuccess,
    addDailyRateError,
+   addDailyIDRequest,
+   addDailyIDSuccess,
+   addDailyIDError,
 };

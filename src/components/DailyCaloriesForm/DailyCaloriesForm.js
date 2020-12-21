@@ -9,7 +9,7 @@ import dailyRateOperations from '../../redux/dailyRate/dailyRateOperations';
 import { connect } from 'react-redux';
 import modalActions from '../../redux/modal/modalActions';
 
-const DailyCaloriesForm = ({ title, onDailyRate, isModal }) => {
+const DailyCaloriesForm = ({ title, userID, onDailyRate, onDailyRateID, isModal }) => {
    const [height, setHeight] = useState('');
    const onHeightChange = ({ value }) => setHeight(value);
 
@@ -30,7 +30,10 @@ const DailyCaloriesForm = ({ title, onDailyRate, isModal }) => {
    const handlerSubmit = evt => {
       evt.preventDefault();
       console.log(credentials);
-      onDailyRate(credentials);
+      console.log(userID);
+
+      onDailyRateID('5fde49a4ccdc5d0004c5beb4');
+      // onDailyRate(credentials);
       isModal();
       clearForm();
    };
@@ -84,11 +87,16 @@ const DailyCaloriesForm = ({ title, onDailyRate, isModal }) => {
    );
 };
 
+const mapState = state => ({
+   userID: state.authUser.sid,
+});
+
 const mapDisp = dispatch => {
    return {
       onDailyRate: credentials => dispatch(dailyRateOperations.addDailyRate(credentials)),
       isModal: () => dispatch(modalActions.modalOpen()),
+      onDailyRateID: userID => dispatch(dailyRateOperations.addDailyID(userID)),
    };
 };
 
-export default connect(null, mapDisp)(DailyCaloriesForm);
+export default connect(mapState, mapDisp)(DailyCaloriesForm);

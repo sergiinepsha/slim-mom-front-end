@@ -20,9 +20,7 @@ const DiaryAddProductForm = ({ dateCurrent, onAddProduct }) => {
             console.log(error);
          });
 
-      return () => {
-         // сделать отмену http запроса чтобы небыло утечки памяти при unmount
-      };
+      return () => {};
    });
 
    const changeProductName = ({ value }) => {
