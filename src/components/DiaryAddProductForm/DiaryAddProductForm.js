@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { connect, useDispatch } from 'react-redux';
+import { connect, useDispatch, useSelector } from 'react-redux';
 
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
@@ -10,9 +10,11 @@ import PrimaryInput from '../common/PrimaryInput/PrimaryInput';
 import BasicButton from '../common/BasicButton/BasicButton';
 
 import s from './DiaryAddProductForm.module.css';
-import dayOperations from '../../redux/day/dayOperations';
 
-const DiaryAddProductForm = ({ dateCurrent, onAddProduct }) => {
+import dayOperations from '../../redux/day/dayOperations';
+import daySelectors from '../../redux/day/daySelectors';
+
+const DiaryAddProductForm = () => {
    const [productName, setProductName] = useState('');
    const changeProductName = ({ value }) => {
       setProductName(value);
@@ -21,28 +23,29 @@ const DiaryAddProductForm = ({ dateCurrent, onAddProduct }) => {
    const [weight, setWeight] = useState('');
    const changeWeight = ({ value }) => setWeight(value);
 
+   const currentDay = useSelector(daySelectors.currentDay);
+
    const dispatch = useDispatch();
 
    const handlerSubmit = async evt => {
       evt.preventDefault();
 
-      if (!productName) {
-         // TODO: error не выбран продукт
-         return;
-      }
+      // if (!productName) {
+      //    // TODO: error не выбран продукт
+      //    return;
+      // }
+
       console.log(productName, weight);
 
-      // productOperations.addProduct;
-      // const productId = async () => await getProductQuery(productName).then(data => data);
-
       const credentials = {
-         dateCurrent,
+         currentDay,
          // productId,
          weight,
       };
+
       console.log(credentials);
 
-      // onAddProduct(credentials);
+      productOperations.getProductByQuery(productName, dispatch);
 
       clearForm();
    };
@@ -78,15 +81,5 @@ const DiaryAddProductForm = ({ dateCurrent, onAddProduct }) => {
       </form>
    );
 };
-const mapState = state => ({
-   dateCurrent: state.curentDate.day,
-});
 
-const mapDispatchToProps = dispatch => {
-   return {
-      onAddProduct: credentials => dispatch(productOperations.addProduct(credentials)),
-      getProductQuery: query => dispatch(dayOperations.getProductByQuery(query)),
-   };
-};
-
-export default connect(mapState, mapDispatchToProps)(DiaryAddProductForm);
+export default DiaryAddProductForm;
