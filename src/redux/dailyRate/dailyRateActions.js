@@ -1,25 +1,18 @@
 import { createAction } from '@reduxjs/toolkit';
 
-const fetchDailyRateRequest = createAction('dailyRate/fetchRequest');
-const fetchDailyRateSuccess = createAction('dailyRate/fetchSuccess');
-const fetchDailyRateError = createAction('dailyRate/fetchError');
+const getDailyIntakeRequest = createAction('dailyRate/fetchRequest');
+const getDailyIntakeSuccess = createAction('dailyRate/fetchSuccess');
+const getDailyIntakeError = createAction('dailyRate/fetchError');
 
-const addDailyRateRequest = createAction('dailyRate/addRequest');
-const addDailyRateSuccess = createAction('dailyRate/addSuccess');
-const addDailyRateError = createAction('dailyRate/addError');
-
-const addDailyIDRequest = createAction('dailyID/Request');
-const addDailyIDSuccess = createAction('dailyID/Success');
-const addDailyIDError = createAction('dailyID/Error');
+const getDailyIntake_ID_Request = createAction('dailyRate/fetchRequest');
+const getDailyIntake_ID_Success = createAction('dailyRate/fetchSuccess');
+const getDailyIntake_ID_Error = createAction('dailyRate/fetchError');
 
 export default {
-   fetchDailyRateRequest,
-   fetchDailyRateSuccess,
-   fetchDailyRateError,
-   addDailyRateRequest,
-   addDailyRateSuccess,
-   addDailyRateError,
-   addDailyIDRequest,
-   addDailyIDSuccess,
-   addDailyIDError,
+   getDailyIntakeRequest,
+   getDailyIntakeSuccess,
+   getDailyIntakeError,
+   getDailyIntake_ID_Request,
+   getDailyIntake_ID_Success,
+   getDailyIntake_ID_Error,
 };
