@@ -34,12 +34,11 @@ const RegistrationForm = () => {
          return;
       }
 
-      userOperations.registerUser({ username, email, password }, dispatch);
+      userOperations.registerAndLoginUser({ username, email, password }, dispatch);
 
       clearForm();
    };
 
-   // TODO:
    const handleClick = () => history.push('/login');
 
    const clearForm = () => {

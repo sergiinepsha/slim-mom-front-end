@@ -1,7 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import { connect } from 'react-redux';
-import axios from 'axios';
-import productOperation from '../../redux/product/productOperations';
+import React, { useState } from 'react';
+import { connect, useDispatch } from 'react-redux';
+
+import Dropdown from 'react-dropdown';
+import 'react-dropdown/style.css';
+
+import { productOperations } from '../../redux/product';
 
 import PrimaryInput from '../common/PrimaryInput/PrimaryInput';
 import BasicButton from '../common/BasicButton/BasicButton';
@@ -11,18 +14,6 @@ import dayOperations from '../../redux/day/dayOperations';
 
 const DiaryAddProductForm = ({ dateCurrent, onAddProduct }) => {
    const [productName, setProductName] = useState('');
-
-   useEffect(() => {
-      axios
-         .get(`https://slimmom-backend.herokuapp.com/product?search=${productName}`)
-         .then(data => console.log(data.hits))
-         .catch(error => {
-            console.log(error);
-         });
-
-      return () => {};
-   });
-
    const changeProductName = ({ value }) => {
       setProductName(value);
    };
@@ -30,9 +21,18 @@ const DiaryAddProductForm = ({ dateCurrent, onAddProduct }) => {
    const [weight, setWeight] = useState('');
    const changeWeight = ({ value }) => setWeight(value);
 
+   const dispatch = useDispatch();
+
    const handlerSubmit = async evt => {
       evt.preventDefault();
 
+      if (!productName) {
+         // TODO: error не выбран продукт
+         return;
+      }
+      console.log(productName, weight);
+
+      // productOperations.addProduct;
       // const productId = async () => await getProductQuery(productName).then(data => data);
 
       const credentials = {
@@ -52,14 +52,18 @@ const DiaryAddProductForm = ({ dateCurrent, onAddProduct }) => {
       setWeight('');
    };
 
+   const options = ['хлеб', 'морковь', 'картофель'];
+
    return (
       <form className={s.form} onSubmit={handlerSubmit}>
          <div className={s.container}>
-            <PrimaryInput
-               value={productName}
-               type="text"
-               placeholder="Введите название продукта"
+            <Dropdown
+               className={s.dropdown}
+               options={options}
                onChange={changeProductName}
+               value={productName}
+               required
+               placeholder="Введите продукт"
             />
             <PrimaryInput
                value={weight}
@@ -80,7 +84,7 @@ const mapState = state => ({
 
 const mapDispatchToProps = dispatch => {
    return {
-      onAddProduct: credentials => dispatch(productOperation.addProduct(credentials)),
+      onAddProduct: credentials => dispatch(productOperations.addProduct(credentials)),
       getProductQuery: query => dispatch(dayOperations.getProductByQuery(query)),
    };
 };

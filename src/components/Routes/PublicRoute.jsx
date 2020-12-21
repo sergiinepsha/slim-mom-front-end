@@ -6,8 +6,6 @@ import { userSelector } from '../../redux/auth/index';
 
 export default function PublicRoute({ component: Component, restricted, ...routeProps }) {
    const isAuth = useSelector(userSelector.isAuth);
-   console.log('PubRout', isAuth);
-   console.log(restricted);
 
    return (
       <Route
