@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import Calendar from 'react-calendar';
+import { connect } from 'react-redux';
+import dayActions from '../../redux/day/dayActions';
 import s from './DiaryDateCalendar.module.css';
 
-export default function DiaryDateCalendar() {
-   const [value, onChange] = useState(new Date());
+function DiaryDateCalendar({ setDate }) {
+   const dateNow = new Date();
+
+   const [value, onChange] = useState(dateNow);
 
    const [isClick, setClick] = useState(false);
-
    const openCalendar = e => {
       if (!isClick) {
          setClick(true);
@@ -15,6 +18,12 @@ export default function DiaryDateCalendar() {
          setClick(false);
       }
    };
+
+   const changeDate = e => {
+      onChange(e);
+   };
+
+   setDate(value.toLocaleDateString());
 
    return (
       <>
@@ -25,10 +34,18 @@ export default function DiaryDateCalendar() {
             </div>
             {isClick && (
                <div className={s.calendar}>
-                  <Calendar onChange={e => onChange(e)} value={value} />
+                  <Calendar onChange={changeDate} value={value} />
                </div>
             )}
          </div>
       </>
    );
 }
+
+const mapDisp = dispatch => {
+   return {
+      setDate: value => dispatch(dayActions.dayFromCalendar(value)),
+   };
+};
+
+export default connect(null, mapDisp)(DiaryDateCalendar);

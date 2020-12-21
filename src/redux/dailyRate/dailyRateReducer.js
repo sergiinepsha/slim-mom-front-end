@@ -4,14 +4,13 @@ import { createReducer } from '@reduxjs/toolkit';
 import dailyRateActions from './dailyRateActions';
 
 const onAddDailyRate = (state, { payload }) => payload;
-const onDialyID = (state, { payload }) => state.filter(({ id }) => id !== payload);
 
 const dailyRate = createReducer(
    {},
    {
       [dailyRateActions.fetchDailyRateSuccess]: (_, { payload }) => payload,
       [dailyRateActions.addDailyRateSuccess]: onAddDailyRate,
-      [dailyRateActions.removeDailyRateSuccess]: onDialyID,
+      [dailyRateActions.addDailyIDSuccess]: (state, { payload }) => payload,
    },
 );
 
@@ -22,9 +21,9 @@ const loading = createReducer(false, {
    [dailyRateActions.addDailyRateRequest]: () => true,
    [dailyRateActions.addDailyRateSuccess]: () => false,
    [dailyRateActions.addDailyRateError]: () => false,
-   [dailyRateActions.removeDailyRateRequest]: () => true,
-   [dailyRateActions.removeDailyRateSuccess]: () => false,
-   [dailyRateActions.removeDailyRateError]: () => false,
+   [dailyRateActions.addDailyIDSuccess]: () => false,
+   [dailyRateActions.addDailyIDRequest]: () => true,
+   [dailyRateActions.addDailyIDError]: () => false,
 });
 
 export default combineReducers({
