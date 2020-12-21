@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 
+import Dropdown from 'react-dropdown';
+import 'react-dropdown/style.css';
+
 import productOperation from '../../redux/product/productOperations';
 
 import PrimaryInput from '../common/PrimaryInput/PrimaryInput';
@@ -17,6 +20,11 @@ const DiaryAddProductForm = ({ onAddProduct }) => {
 
    const handlerSubmit = evt => {
       evt.preventDefault();
+
+      if (!productName) {
+         // TODO: error не выбран продукт
+         return;
+      }
       console.log(productName, weight);
 
       onAddProduct(productName, weight);
@@ -29,14 +37,18 @@ const DiaryAddProductForm = ({ onAddProduct }) => {
       setWeight('');
    };
 
+   const options = ['хлеб', 'морковь', 'картофель'];
+
    return (
       <form className={s.form} onSubmit={handlerSubmit}>
          <div className={s.container}>
-            <PrimaryInput
-               value={productName}
-               type="text"
-               placeholder="Введите название продукта"
+            <Dropdown
+               className={s.dropdown}
+               options={options}
                onChange={changeProductName}
+               value={productName}
+               required
+               placeholder="Введите продукт"
             />
             <PrimaryInput
                value={weight}

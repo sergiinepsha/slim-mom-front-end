@@ -15,6 +15,24 @@
    align-items: center;
 }
 
+.dropdown {
+   margin: 0;
+   padding: 0;
+   width: 240px;
+   height: 35px;
+   margin-bottom: 20px;
+}
+
+.dropdown::placeholder {
+   font-family: Verdana;
+   font-style: normal;
+   font-weight: bold;
+   font-size: 14px;
+   line-height: 17px;
+   letter-spacing: 0.04em;
+   color: #9b9faa;
+}
+
 .btn_wrapper {
    display: flex;
    justify-content: center;
@@ -22,6 +40,7 @@
 }
 
 @media screen and (max-width: 768px) {
+   .dropdown,
    .container input {
       width: 289px;
    }
@@ -42,10 +61,10 @@
       width: 380px;
       flex-direction: row;
       align-items: start;
-      margin-right: 40px;
+      margin-right: 50px;
    }
 
-   .container input:first-child {
+   .dropdown {
       margin-right: 30px;
    }
 
@@ -60,6 +79,10 @@
    .btn_wrapper {
       flex-direction: row;
       justify-content: flex-start;
+   }
+
+   .btn_wrapper button {
+      width: 120px;
    }
 }
 
