@@ -7,47 +7,47 @@ import { dailyRateActions } from '../dailyRate';
 import loaderAction from './loaderActions';
 
 const loader = createReducer(false, {
-   [loaderAction.startLoader]: () => false,
-   [loaderAction.endLoader]: () => true,
+   [loaderAction.startLoader]: () => true,
+   [loaderAction.endLoader]: () => false,
 
-   [userActions.loginUserError]: () => false,
-   [userActions.loginUserRequest]: () => false,
-   [userActions.loginUserSuccess]: () => true,
+   [userActions.loginUserError]: () => true,
+   [userActions.loginUserRequest]: () => true,
+   [userActions.loginUserSuccess]: () => false,
 
-   [userActions.registerUserError]: () => false,
-   [userActions.registerUserRequest]: () => false,
-   [userActions.registerUserSuccess]: () => true,
+   [userActions.registerUserError]: () => true,
+   [userActions.registerUserRequest]: () => true,
+   [userActions.registerUserSuccess]: () => false,
 
-   [userActions.logoutUserError]: () => false,
-   [userActions.logoutUserRequest]: () => false,
-   [userActions.logoutUserSuccess]: () => true,
+   [userActions.logoutUserError]: () => true,
+   [userActions.logoutUserRequest]: () => true,
+   [userActions.logoutUserSuccess]: () => false,
 
-   [userActions.currentUserError]: () => false,
-   [userActions.currentUserRequest]: () => false,
-   [userActions.currentUserSuccess]: () => true,
+   [userActions.currentUserError]: () => true,
+   [userActions.currentUserRequest]: () => true,
+   [userActions.currentUserSuccess]: () => false,
 
-   [modalAction.modalOpen]: () => false,
-   [modalAction.modalClose]: () => true,
+   [modalAction.modalOpen]: () => true,
+   [modalAction.modalClose]: () => false,
 
-   [productActions.fetchProductError]: () => false,
-   [productActions.fetchProductRequest]: () => false,
-   [productActions.fetchProductSuccess]: () => true,
+   [productActions.fetchProductError]: () => true,
+   [productActions.fetchProductRequest]: () => true,
+   [productActions.fetchProductSuccess]: () => false,
 
-   [productActions.removeProductError]: () => false,
-   [productActions.removeProductRequest]: () => false,
-   [productActions.removeProductSuccess]: () => true,
+   [productActions.removeProductError]: () => true,
+   [productActions.removeProductRequest]: () => true,
+   [productActions.removeProductSuccess]: () => false,
 
-   [productActions.addProductError]: () => false,
-   [productActions.addProductRequest]: () => false,
-   [productActions.addProductSuccess]: () => true,
+   [productActions.addProductError]: () => true,
+   [productActions.addProductRequest]: () => true,
+   [productActions.addProductSuccess]: () => false,
 
-   [dailyRateActions.fetchDailyRateError]: () => false,
-   [dailyRateActions.fetchDailyRateRequest]: () => false,
-   [dailyRateActions.fetchDailyRateSuccess]: () => true,
+   [dailyRateActions.fetchDailyRateError]: () => true,
+   [dailyRateActions.fetchDailyRateRequest]: () => true,
+   [dailyRateActions.fetchDailyRateSuccess]: () => false,
 
-   [dailyRateActions.addDailyRateError]: () => false,
-   [dailyRateActions.addDailyRateRequest]: () => false,
-   [dailyRateActions.addDailyRateSuccess]: () => true,
+   [dailyRateActions.addDailyRateError]: () => true,
+   [dailyRateActions.addDailyRateRequest]: () => true,
+   [dailyRateActions.addDailyRateSuccess]: () => false,
 });
 
 export default loader;
