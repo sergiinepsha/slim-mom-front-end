@@ -45,7 +45,6 @@
       z-index: 0;
    }
 }
-
 @media screen and (min-width: 1280px) {
    .wrapper {
       width: 100%;
