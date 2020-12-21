@@ -11,6 +11,7 @@
    position: absolute;
    width: 100%;
    flex-wrap: wrap;
+
    z-index: 555;
 }
 .logo {
@@ -22,6 +23,7 @@
 }
 .info {
    width: 100%;
+   min-height: 30px;
    order: 2;
 }
 @media screen and (max-width: 767.9px) {
@@ -30,7 +32,7 @@
    }
 }
 
-@media screen and (min-width: 768px) and (max-width: 1024px) {
+@media screen and (min-width: 768px) and (max-width: 1279.9px) {
    .header {
       top: 17px;
 
@@ -49,7 +51,7 @@
    }
 }
 
-@media screen and (min-width: 1024.1px) {
+@media screen and (min-width: 1280px) {
    .header {
       top: 82px;
       justify-content: center;

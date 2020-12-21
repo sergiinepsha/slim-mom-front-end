@@ -40,7 +40,7 @@ const DiaryAddProductForm = ({ dateCurrent, onAddProduct }) => {
          // productId,
          weight,
       };
-      console.log(credentials);
+      console.log('DiaryAddProductForm/credentials >>>>', credentials);
 
       // onAddProduct(credentials);
 

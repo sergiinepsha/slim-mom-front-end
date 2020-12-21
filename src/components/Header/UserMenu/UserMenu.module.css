@@ -45,7 +45,7 @@
 }
 
 /*table*/
-@media screen and (min-width: 768px) and (max-width: 1024px) {
+@media screen and (min-width: 768px) and (max-width: 1279.9px) {
    .item {
       justify-content: flex-end;
       align-items: center;
@@ -53,7 +53,7 @@
 }
 
 /*desktop*/
-@media screen and (min-width: 1024.1px) {
+@media screen and (min-width: 1280px) {
    .item {
       justify-content: flex-end;
       align-items: flex-end;

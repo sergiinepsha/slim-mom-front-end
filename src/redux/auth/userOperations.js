@@ -42,6 +42,7 @@ const logoutUser = () => async dispatch => {
 
       dispatch(userActions.logoutUserSuccess());
    } catch (error) {
+      dispatch(userActions.logoutUserSuccess());
       dispatch(userActions.logoutUserError(error.message));
    }
 };
