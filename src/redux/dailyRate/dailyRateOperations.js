@@ -15,6 +15,19 @@ const getDailyIntake = async (userCharacteristics, dispatch) => {
    }
 };
 
+const getDailyIntakeById = async (userCharacteristics, userId, dispatch) => {
+   dispatch(dailyRateActions.getDailyIntake_ID_Request());
+
+   try {
+      const date = await fetchDB.post(`/daily-rate/${userId}`, userCharacteristics);
+      console.log(date);
+
+      dispatch(dailyRateActions.getDailyIntake_ID_Success(date));
+   } catch (error) {
+      dispatch(dailyRateActions.getDailyIntake_ID_Error());
+   }
+};
+
 // const fetchDailyRate = () => async dispatch => {
 //    dispatch(dailyRateActions.fetchDailyRateRequest());
 //    await axios
@@ -47,6 +60,7 @@ const getDailyIntake = async (userCharacteristics, dispatch) => {
 
 export default {
    getDailyIntake,
+   getDailyIntakeById,
    // fetchDailyRate,
    // addDailyRate,
    // addDailyID,

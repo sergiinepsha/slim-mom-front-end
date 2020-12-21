@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import PrimaryInput from '../common/PrimaryInput/PrimaryInput';
 import BasicButton from '../common/BasicButton/BasicButton';
 import BloodGroup from './BloodGroup/BloodGroup';
 
 import { dailyRateOperations } from '../../redux/dailyRate';
-import { modalSelectors } from '../../redux/modal';
-import { useDispatch, useSelector } from 'react-redux';
+// import { modalSelectors } from '../../redux/modal';
+import { userSelector } from '../../redux/auth';
 
 import s from './DailyCaloriesForm.module.css';
 
@@ -26,17 +27,24 @@ const DailyCaloriesForm = ({ title }) => {
    const [bloodType, setBloodGroup] = useState('1');
    const onBloodGroupChange = ({ value }) => setBloodGroup(value);
 
-   const isModal = useSelector(modalSelectors.isModal);
-
    const dispatch = useDispatch();
 
    const userCharacteristics = { weight, height, age, desiredWeight, bloodType };
+
+   const userId = useSelector(userSelector.getUserId);
+   const isAuth = useSelector(userSelector.isAuth);
 
    const handlerSubmit = evt => {
       evt.preventDefault();
       console.log(userCharacteristics);
 
-      dailyRateOperations.getDailyIntake(userCharacteristics, dispatch);
+      console.log(userId, isAuth);
+
+      if (isAuth) {
+         dailyRateOperations.getDailyIntakeById(userCharacteristics, userId, dispatch);
+      } else {
+         dailyRateOperations.getDailyIntake(userCharacteristics, dispatch);
+      }
 
       clearForm();
    };
