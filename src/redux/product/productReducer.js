@@ -3,10 +3,10 @@ import { createReducer } from '@reduxjs/toolkit';
 
 import productAction from './productActions';
 
-const productReducer = createReducer([], {
+const products = createReducer([], {
    [productAction.getProductSuccess]: (state, { payload }) => [payload, ...state],
 });
 
 export default combineReducers({
-   productReducer,
+   products,
 });

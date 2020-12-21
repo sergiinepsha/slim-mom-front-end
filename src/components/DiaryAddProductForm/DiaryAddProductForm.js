@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { connect, useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
@@ -11,7 +11,7 @@ import BasicButton from '../common/BasicButton/BasicButton';
 
 import s from './DiaryAddProductForm.module.css';
 
-import dayOperations from '../../redux/day/dayOperations';
+// import dayOperations from '../../redux/day/dayOperations';
 import daySelectors from '../../redux/day/daySelectors';
 
 const DiaryAddProductForm = () => {
@@ -24,16 +24,14 @@ const DiaryAddProductForm = () => {
    const changeWeight = ({ value }) => setWeight(value);
 
    const currentDay = useSelector(daySelectors.currentDay);
-
    const dispatch = useDispatch();
+
+   if (productName) {
+      productOperations.getProductByQuery(productName, dispatch);
+   }
 
    const handlerSubmit = async evt => {
       evt.preventDefault();
-
-      // if (!productName) {
-      //    // TODO: error не выбран продукт
-      //    return;
-      // }
 
       console.log(productName, weight);
 
@@ -45,8 +43,6 @@ const DiaryAddProductForm = () => {
 
       console.log(credentials);
 
-      productOperations.getProductByQuery(productName, dispatch);
-
       clearForm();
    };
 
@@ -55,7 +51,7 @@ const DiaryAddProductForm = () => {
       setWeight('');
    };
 
-   const options = ['хлеб', 'морковь', 'картофель'];
+   const options = [];
 
    return (
       <form className={s.form} onSubmit={handlerSubmit}>
