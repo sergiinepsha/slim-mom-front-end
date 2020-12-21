@@ -3,7 +3,7 @@ import { userActions } from './';
 
 import fetchDB, { tokenToHeader } from '../../services/fetchDB';
 
-const registerUser = async (credentials, dispatch) => {
+const registerAndLoginUser = async (credentials, dispatch) => {
    dispatch(userActions.registerUserRequest());
 
    try {
@@ -46,14 +46,14 @@ const logoutUser = () => async dispatch => {
    }
 };
 
-const currentUser = async (persistedToken, dispatch) => {
+const getCurrentUser = async (persistedToken, dispatch) => {
    if (!persistedToken) return;
    tokenToHeader.set(persistedToken);
    dispatch(userActions.currentUserRequest());
 
    try {
       const data = await fetchDB.get(`/user`);
-
+      console.log(data);
       dispatch(userActions.currentUserSuccess(data));
    } catch (error) {
       dispatch(userActions.currentUserError(error.message));
@@ -61,8 +61,8 @@ const currentUser = async (persistedToken, dispatch) => {
 };
 
 export default {
-   logoutUser,
-   registerUser,
+   registerAndLoginUser,
    loginUser,
-   currentUser,
+   logoutUser,
+   getCurrentUser,
 };

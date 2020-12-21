@@ -14,7 +14,7 @@ const App = () => {
    const dispatch = useDispatch();
 
    useEffect(() => {
-      userOperations.currentUser(token, dispatch);
+      userOperations.getCurrentUser(token, dispatch);
    }, [dispatch, token]);
 
    return (
