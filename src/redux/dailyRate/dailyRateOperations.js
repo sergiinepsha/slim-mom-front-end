@@ -1,40 +1,53 @@
-import axios from 'axios';
-import dailyRateActions from './dailyRateActions';
+import fetchDB from '../../services/fetchDB';
 
-axios.defaults.baseURL = 'https://slimmom-backend.herokuapp.com';
+import { dailyRateActions } from './';
 
-const fetchDailyRate = () => async dispatch => {
-   dispatch(dailyRateActions.fetchDailyRateRequest());
-   await axios
-      .get('/daily-rate')
-      .then(res => dispatch(dailyRateActions.fetchDailyRateSuccess(res)))
-      .catch(error => dispatch(dailyRateActions.fetchDailyRateError(error)));
+const getDailyIntake = async (userCharacteristics, dispatch) => {
+   dispatch(dailyRateActions.getDailyIntakeRequest());
+
+   try {
+      const date = await fetchDB.post('/daily-rate', userCharacteristics);
+      console.log(date);
+
+      dispatch(dailyRateActions.getDailyIntakeSuccess(date));
+   } catch (error) {
+      dispatch(dailyRateActions.getDailyIntakeError());
+   }
 };
 
-const addDailyRate = credentials => async dispatch => {
-   dispatch(dailyRateActions.addDailyRateRequest());
-   await axios
-      .post('/daily-rate', credentials)
-      .then(({ data }) => {
-         console.log(data);
-         return dispatch(dailyRateActions.addDailyRateSuccess(data));
-      })
-      .catch(error => dispatch(dailyRateActions.addDailyRateError(error)));
-};
+// const fetchDailyRate = () => async dispatch => {
+//    dispatch(dailyRateActions.fetchDailyRateRequest());
+//    await axios
+//       .get('/daily-rate')
+//       .then(res => dispatch(dailyRateActions.fetchDailyRateSuccess(res)))
+//       .catch(error => dispatch(dailyRateActions.fetchDailyRateError(error)));
+// };
 
-const addDailyID = userID => async dispatch => {
-   dispatch(dailyRateActions.addDailyRateRequest());
-   await axios
-      .post(`/daily-rate/${userID}`)
-      .then(({ data }) => {
-         console.log(data);
-         return dispatch(dailyRateActions.addDailyRateSuccess(data));
-      })
-      .catch(error => dispatch(dailyRateActions.addDailyRateError(error)));
-};
+// const addDailyRate = credentials => async dispatch => {
+//    dispatch(dailyRateActions.addDailyRateRequest());
+//    await axios
+//       .post('/daily-rate', credentials)
+//       .then(({ data }) => {
+//          console.log(data);
+//          return dispatch(dailyRateActions.addDailyRateSuccess(data));
+//       })
+//       .catch(error => dispatch(dailyRateActions.addDailyRateError(error)));
+// };
+
+// const addDailyID = userID => async dispatch => {
+//    dispatch(dailyRateActions.addDailyRateRequest());
+//    await axios
+//       .post(`/daily-rate/${userID}`)
+//       .then(({ data }) => {
+//          console.log(data);
+//          return dispatch(dailyRateActions.addDailyRateSuccess(data));
+//       })
+//       .catch(error => dispatch(dailyRateActions.addDailyRateError(error)));
+// };
 
 export default {
-   fetchDailyRate,
-   addDailyRate,
-   addDailyID,
+   getDailyIntake,
+   // fetchDailyRate,
+   // addDailyRate,
+   // addDailyID,
 };

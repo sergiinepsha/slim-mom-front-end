@@ -4,12 +4,13 @@ import PrimaryInput from '../common/PrimaryInput/PrimaryInput';
 import BasicButton from '../common/BasicButton/BasicButton';
 import BloodGroup from './BloodGroup/BloodGroup';
 
-import s from './DailyCaloriesForm.module.css';
-import dailyRateOperations from '../../redux/dailyRate/dailyRateOperations';
-import { connect } from 'react-redux';
-import modalActions from '../../redux/modal/modalActions';
+import { dailyRateOperations } from '../../redux/dailyRate';
+import { modalSelectors } from '../../redux/modal';
+import { useDispatch, useSelector } from 'react-redux';
 
-const DailyCaloriesForm = ({ title, userID, onDailyRate, onDailyRateID, isModal }) => {
+import s from './DailyCaloriesForm.module.css';
+
+const DailyCaloriesForm = ({ title }) => {
    const [height, setHeight] = useState('');
    const onHeightChange = ({ value }) => setHeight(value);
 
@@ -25,16 +26,18 @@ const DailyCaloriesForm = ({ title, userID, onDailyRate, onDailyRateID, isModal 
    const [bloodType, setBloodGroup] = useState('1');
    const onBloodGroupChange = ({ value }) => setBloodGroup(value);
 
-   const credentials = { weight, height, age, desiredWeight, bloodType };
+   const isModal = useSelector(modalSelectors.isModal);
+
+   const dispatch = useDispatch();
+
+   const userCharacteristics = { weight, height, age, desiredWeight, bloodType };
 
    const handlerSubmit = evt => {
       evt.preventDefault();
-      console.log(credentials);
-      console.log(userID);
+      console.log(userCharacteristics);
 
-      onDailyRateID('5fde49a4ccdc5d0004c5beb4');
-      // onDailyRate(credentials);
-      isModal();
+      dailyRateOperations.getDailyIntake(userCharacteristics, dispatch);
+
       clearForm();
    };
 
@@ -87,16 +90,4 @@ const DailyCaloriesForm = ({ title, userID, onDailyRate, onDailyRateID, isModal 
    );
 };
 
-const mapState = state => ({
-   userID: state.authUser.sid,
-});
-
-const mapDisp = dispatch => {
-   return {
-      onDailyRate: credentials => dispatch(dailyRateOperations.addDailyRate(credentials)),
-      isModal: () => dispatch(modalActions.modalOpen()),
-      onDailyRateID: userID => dispatch(dailyRateOperations.addDailyID(userID)),
-   };
-};
-
-export default connect(mapState, mapDisp)(DailyCaloriesForm);
+export default DailyCaloriesForm;
