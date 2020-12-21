@@ -1,24 +1,29 @@
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
 
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 
-import productOperation from '../../redux/product/productOperations';
+import { productOperations } from '../../redux/product';
 
 import PrimaryInput from '../common/PrimaryInput/PrimaryInput';
 import BasicButton from '../common/BasicButton/BasicButton';
 
 import s from './DiaryAddProductForm.module.css';
+import dayOperations from '../../redux/day/dayOperations';
 
-const DiaryAddProductForm = ({ onAddProduct }) => {
+const DiaryAddProductForm = ({ dateCurrent, onAddProduct }) => {
    const [productName, setProductName] = useState('');
-   const changeProductName = ({ value }) => setProductName(value);
+   const changeProductName = ({ value }) => {
+      setProductName(value);
+   };
 
    const [weight, setWeight] = useState('');
    const changeWeight = ({ value }) => setWeight(value);
 
-   const handlerSubmit = evt => {
+   const dispatch = useDispatch();
+
+   const handlerSubmit = async evt => {
       evt.preventDefault();
 
       if (!productName) {
@@ -27,8 +32,18 @@ const DiaryAddProductForm = ({ onAddProduct }) => {
       }
       console.log(productName, weight);
 
-      onAddProduct(productName, weight);
-      // productOperation.addProduct({ productName, weight });
+      // productOperations.addProduct;
+      // const productId = async () => await getProductQuery(productName).then(data => data);
+
+      const credentials = {
+         dateCurrent,
+         // productId,
+         weight,
+      };
+      console.log(credentials);
+
+      // onAddProduct(credentials);
+
       clearForm();
    };
 
@@ -63,11 +78,15 @@ const DiaryAddProductForm = ({ onAddProduct }) => {
       </form>
    );
 };
+const mapState = state => ({
+   dateCurrent: state.curentDate.day,
+});
 
 const mapDispatchToProps = dispatch => {
    return {
-      onAddProduct: (product, weight) => dispatch(productOperation.addProduct({ product, weight })),
+      onAddProduct: credentials => dispatch(productOperations.addProduct(credentials)),
+      getProductQuery: query => dispatch(dayOperations.getProductByQuery(query)),
    };
 };
 
-export default connect(null, mapDispatchToProps)(DiaryAddProductForm);
+export default connect(mapState, mapDispatchToProps)(DiaryAddProductForm);

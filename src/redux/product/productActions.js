@@ -16,11 +16,9 @@ export default {
    fetchProductRequest,
    fetchProductSuccess,
    fetchProductError,
-
    addProductRequest,
    addProductSuccess,
    addProductError,
-
    removeProductRequest,
    removeProductSuccess,
    removeProductError,

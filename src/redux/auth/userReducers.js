@@ -5,16 +5,17 @@ import userAction from './userActions';
 const INITIAL_USER_STATE = {
    email: null,
    username: null,
+   id: null,
 };
 
 const userLogged = (_, { payload }) => {
-   const { email, username } = payload.user;
-   return { email, username };
+   const { email, username, id } = payload.user;
+   return { email, username, id };
 };
 
 const getCurrentUser = (_, { payload }) => {
-   const { email, username } = payload;
-   return { email, username };
+   const { email, username, id } = payload;
+   return { email, username, id };
 };
 
 const user = createReducer(INITIAL_USER_STATE, {

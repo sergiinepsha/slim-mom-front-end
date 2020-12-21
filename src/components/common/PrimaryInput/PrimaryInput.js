@@ -18,7 +18,7 @@ const PrimaryInput = ({ name, value, type, placeholder, onChange }) => {
 };
 
 PrimaryInput.propTypes = {
-   value: PropTypes.string,
+   // value: PropTypes.string,
    type: PropTypes.string.isRequired,
    placeholder: PropTypes.string.isRequired,
    onChange: PropTypes.func.isRequired,

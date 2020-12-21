@@ -10,17 +10,16 @@ import DiaryProductListItem from './DiaryProductsListItem/DiaryProductListItem';
 //    { name: 'Орех', id: 4, weight: 50 },
 // ];
 
-const cCal = 300;
-
 function DiaryProductsList({ products }) {
-   // const [products, setProducts] = useState([]);
    return (
       <div className={s.container}>
-         <ul className={s.list_products}>
-            {products.map(({ id, productName, weight }) => (
-               <DiaryProductListItem key={id} name={productName} weight={weight} cCal={cCal} />
-            ))}
-         </ul>
+         {products && (
+            <ul className={s.list_products}>
+               {products.map(product => (
+                  <DiaryProductListItem key={product._id} product={product} />
+               ))}
+            </ul>
+         )}
          <div className={s.linearBack}></div>
       </div>
    );

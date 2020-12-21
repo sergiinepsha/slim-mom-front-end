@@ -22,7 +22,19 @@ const addDailyRate = credentials => async dispatch => {
       .catch(error => dispatch(dailyRateActions.addDailyRateError(error)));
 };
 
+const addDailyID = userID => async dispatch => {
+   dispatch(dailyRateActions.addDailyRateRequest());
+   await axios
+      .post(`/daily-rate/${userID}`)
+      .then(({ data }) => {
+         console.log(data);
+         return dispatch(dailyRateActions.addDailyRateSuccess(data));
+      })
+      .catch(error => dispatch(dailyRateActions.addDailyRateError(error)));
+};
+
 export default {
    fetchDailyRate,
    addDailyRate,
+   addDailyID,
 };

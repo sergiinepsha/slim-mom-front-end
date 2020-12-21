@@ -1,8 +1,12 @@
 import { combineReducers } from 'redux';
 import { createReducer } from '@reduxjs/toolkit';
 
-const daysReducer = createReducer([], {});
+import dayAction from './dayActions';
+
+const day = createReducer('', {
+   [dayAction.dayFromCalendar]: (state, { payload }) => payload,
+});
 
 export default combineReducers({
-   daysReducer,
+   day,
 });
