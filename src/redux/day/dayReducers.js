@@ -3,8 +3,25 @@ import { createReducer } from '@reduxjs/toolkit';
 
 import { dayActions } from './';
 
+const INITIAL_DAY_SUMMARY = {
+   date: '',
+   kcalLeft: null,
+   kcalConsumed: null,
+   dailyRate: null,
+   percentsOfDailyRate: null,
+};
+
+const getDaySummary = (_, { payload }) => {
+   const { kcalLeft, kcalConsumed, dailyRate, percentsOfDailyRate } = payload;
+   return { kcalLeft, kcalConsumed, dailyRate, percentsOfDailyRate };
+};
+
 const date = createReducer('', {
    [dayActions.dayFromCalendar]: (_, { payload }) => payload,
+});
+
+const dayId = createReducer('', {
+   [dayActions.dayId]: (_, { payload }) => payload,
 });
 
 const eatenProducts = createReducer([], {
@@ -12,9 +29,14 @@ const eatenProducts = createReducer([], {
    [dayActions.emptyEatenProducts]: () => [],
 });
 
-const infoDay = createReducer();
+const daySummary = createReducer(INITIAL_DAY_SUMMARY, {
+   [dayActions.daySummary]: getDaySummary,
+   [dayActions.emptyDaySummary]: () => INITIAL_DAY_SUMMARY,
+});
 
 export default combineReducers({
+   dayId,
    date,
    eatenProducts,
+   daySummary,
 });
