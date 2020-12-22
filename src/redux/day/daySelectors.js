@@ -1,8 +1,8 @@
 /* eslint-disable import/no-anonymous-default-export */
-const currentDay = state => state.curentDate.day;
+const date = state => state.day.date;
+const eatenProducts = state => state.day.eatenProducts;
 
-const eatenProducts = state => state.curentDate.eatenProduct;
 export default {
-   currentDay,
+   date,
    eatenProducts,
 };
