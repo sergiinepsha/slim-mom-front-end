@@ -25,11 +25,12 @@
    .main {
       justify-content: center;
       width: 100%;
+      flex: 1 0 60%;
    }
    .container {
       padding-top: 180px;
-
       justify-content: start;
+      height: 100vh;
    }
 }
 
@@ -63,13 +64,5 @@
 
       background-position: 100% 100%;
       background-repeat: no-repeat;
-   }
-
-   .desctop_img {
-      display: block;
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      z-index: 0;
    }
 }

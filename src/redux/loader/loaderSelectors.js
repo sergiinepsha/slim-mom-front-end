@@ -1,2 +1,2 @@
-const isLoader = state => state.loader;
-export default { isLoader };
+// const isLoader = state => state.loader;
+// export default { isLoader };

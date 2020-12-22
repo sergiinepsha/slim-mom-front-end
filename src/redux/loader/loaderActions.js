@@ -1,9 +1,9 @@
-import { createAction } from '@reduxjs/toolkit';
+// import { createAction } from '@reduxjs/toolkit';
 
-const startLoader = createAction('loader/START');
-const endLoader = createAction('loader/END');
+// const startLoader = createAction('loader/START');
+// const endLoader = createAction('loader/END');
 
-export default {
-   endLoader,
-   startLoader,
-};
+// export default {
+//    endLoader,
+//    startLoader,
+// };
