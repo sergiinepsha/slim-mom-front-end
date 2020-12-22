@@ -4,11 +4,11 @@ import { userActions } from '../auth';
 import modalAction from '../modal/modalActions';
 import { productActions } from '../product';
 import { dailyRateActions } from '../dailyRate';
-import loaderAction from './loaderActions';
+// import loaderAction from './loaderActions';
 
 const loader = createReducer(false, {
-   [loaderAction.startLoader]: () => true,
-   [loaderAction.endLoader]: () => false,
+   // [loaderAction.startLoader]: () => true,
+   // [loaderAction.endLoader]: () => false,
 
    [userActions.loginUserError]: () => true,
    [userActions.loginUserRequest]: () => true,
