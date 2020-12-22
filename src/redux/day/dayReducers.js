@@ -17,10 +17,10 @@ const getDaySummary = (_, { payload }) => {
 };
 
 const date = createReducer('', {
-   [dayActions.dayFromCalendar]: (_, { payload }) => payload,
+   [dayActions.getDate]: (_, { payload }) => payload,
 });
 
-const dayId = createReducer('', {
+const id = createReducer('', {
    [dayActions.dayId]: (_, { payload }) => payload,
 });
 
@@ -35,7 +35,7 @@ const daySummary = createReducer(INITIAL_DAY_SUMMARY, {
 });
 
 export default combineReducers({
-   dayId,
+   id,
    date,
    eatenProducts,
    daySummary,

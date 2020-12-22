@@ -46,7 +46,7 @@ function DiaryDateCalendar({ setDate }) {
 
 const mapDisp = dispatch => {
    return {
-      setDate: value => dispatch(dayActions.dayFromCalendar(value)),
+      setDate: value => dispatch(dayActions.getDate(value)),
    };
 };
 
