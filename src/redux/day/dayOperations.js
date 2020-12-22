@@ -4,9 +4,12 @@ import fetchDB from '../../services/fetchDB';
 
 const postEatenProduct = async (reqBody, dispatch) => {
    dispatch(dayActions.eatenProductRequest);
+
    try {
-      const eatenProduct = await fetchDB.post(`/day`, reqBody);
-      dispatch(dayActions.eatenProductSuccess(eatenProduct));
+      const { day } = await fetchDB.post(`/day`, reqBody);
+      console.log(day);
+
+      dispatch(dayActions.eatenProductSuccess(day.eatenProducts));
    } catch (error) {
       dispatch(dayActions.eatenProductError(error));
    }

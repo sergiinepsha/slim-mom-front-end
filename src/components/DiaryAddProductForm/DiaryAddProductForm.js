@@ -22,13 +22,15 @@ const DiaryAddProductForm = () => {
    const [weight, setWeight] = useState('');
    const changeWeight = ({ value }) => setWeight(value);
 
-   const date = useSelector(daySelectors.currentDay);
+   const date = useSelector(daySelectors.date);
    const products = useSelector(productSelectors.products);
 
    const dispatch = useDispatch();
 
    useEffect(() => {
-      setTimeout(() => productOperations.getProductByQuery(productName, dispatch), 200);
+      if (productName) {
+         setTimeout(() => productOperations.getProductByQuery(productName, dispatch), 200);
+      }
    }, [dispatch, productName]);
 
    const handlerSubmit = async evt => {
