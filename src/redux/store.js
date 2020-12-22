@@ -11,14 +11,15 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
+import { loginState, errorState } from '../middleware/loginState';
+
 import { userReducers } from '../redux/auth';
 import { productReducer } from '../redux/product';
 import { loaderReducer } from '../redux/loader';
 import dailyRateReducer from './dailyRate/dailyRateReducer';
 import dayReducer from '../redux/day/dayReducer';
-import { loginState } from '../middleware/loginState';
+import { errorReducer } from './error';
 import modalReducers from './modal/modalReducers';
-
 const defMidd = getDefaultMiddleware({
    serializableCheck: {
       ignoredActions: [FLUSH, REGISTER, PAUSE, PERSIST, PURGE, REHYDRATE],
@@ -37,11 +38,12 @@ export const store = configureStore({
       authUser: persistReducer(authUserPersistConfig, userReducers),
       products: productReducer,
       loader: loaderReducer,
+      isError: errorReducer,
       dailyRateData: dailyRateReducer,
       isModal: modalReducers,
       curentDate: dayReducer,
    },
-   middleware: [...defMidd, loginState],
+   middleware: [...defMidd, loginState, errorState],
 });
 export const persistor = persistStore(store);
 
