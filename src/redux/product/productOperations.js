@@ -1,14 +1,16 @@
 /* eslint-disable import/no-anonymous-default-export */
-import productAction from './productActions';
+import { productActions } from './';
 import fetchDB from '../../services/fetchDB';
 
 const getProductByQuery = async (query, dispatch) => {
-   dispatch(productAction.getProductRequest());
+   dispatch(productActions.getProductRequest());
+
    try {
       const products = await fetchDB.get(`/product?search=${query}`);
-      dispatch(productAction.getProductSuccess(products));
+
+      dispatch(productActions.getProductSuccess(products));
    } catch (error) {
-      dispatch(productAction.getProductError(error));
+      dispatch(productActions.getProductError(error));
    }
 };
 
