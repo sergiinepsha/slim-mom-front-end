@@ -1,27 +1,18 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import s from './PrimaryInput.module.css';
 
-const PrimaryInput = ({ name, value, type, placeholder, onChange }) => {
+const PrimaryInput = ({ ...props }) => {
+   const { onChange } = props;
+
    return (
       <input
          className={s.primary_input}
-         name={name}
-         type={type}
-         placeholder={placeholder}
+         {...props}
          required
-         value={value}
          onChange={({ target }) => onChange(target)}
       />
    );
-};
-
-PrimaryInput.propTypes = {
-   // value: PropTypes.string,
-   type: PropTypes.string.isRequired,
-   placeholder: PropTypes.string.isRequired,
-   onChange: PropTypes.func.isRequired,
 };
 
 export default PrimaryInput;

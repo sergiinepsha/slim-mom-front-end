@@ -11,7 +11,7 @@
    position: absolute;
    margin: 0 auto;
    padding-top: 110px;
-   width: 100vw;
+   width: 100%;
    z-index: 1;
 }
 .main {

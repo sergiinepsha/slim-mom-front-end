@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 import dayActions from './dayActions';
 import fetchDB from '../../services/fetchDB';
 

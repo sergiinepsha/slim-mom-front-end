@@ -56,6 +56,7 @@
 }
 @media (min-width: 1280px) {
    .container {
+      background: none;
       background-image: url('./images/fone_base.png');
       background-size: 120% 120%;
    }

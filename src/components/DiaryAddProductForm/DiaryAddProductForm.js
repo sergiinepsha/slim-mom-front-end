@@ -1,10 +1,9 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 
-import { productOperations, productSelectors } from '../../redux/product';
+import { productActions, productOperations, productSelectors } from '../../redux/product';
 
 import PrimaryInput from '../common/PrimaryInput/PrimaryInput';
 import BasicButton from '../common/BasicButton/BasicButton';
@@ -20,12 +19,6 @@ const DiaryAddProductForm = () => {
       setProductName(value);
    };
 
-   const prevProductRef = useRef();
-   useEffect(() => {
-      prevProductRef.current = productName;
-   });
-   const prevProductName = prevProductRef.current;
-
    const [weight, setWeight] = useState('');
    const changeWeight = ({ value }) => setWeight(value);
 
@@ -34,32 +27,23 @@ const DiaryAddProductForm = () => {
 
    const dispatch = useDispatch();
 
-   if (productName && productName !== prevProductName) {
-      productOperations.getProductByQuery(productName, dispatch);
-   }
+   useEffect(() => {
+      setTimeout(() => productOperations.getProductByQuery(productName, dispatch), 200);
+   }, [dispatch, productName]);
 
    const handlerSubmit = async evt => {
       evt.preventDefault();
       const productId = products[0]._id;
 
-      const credentials = {
-         date,
-         productId,
-         weight,
-      };
-
-      console.log(credentials);
-      dayOperations.postEatenProduct(credentials, dispatch);
+      dayOperations.postEatenProduct({ date, productId, weight }, dispatch);
       clearForm();
    };
 
    const clearForm = () => {
       setProductName('');
       setWeight('');
+      dispatch(productActions.emptyProduct());
    };
-
-   const productMap = products.map(product => product.title.ru);
-   const options = [...productMap];
 
    return (
       <form className={s.form} onSubmit={handlerSubmit}>
@@ -68,16 +52,16 @@ const DiaryAddProductForm = () => {
                value={productName}
                type="text"
                placeholder="Введите продукт"
+               list="products"
                onChange={changeProductName}
             />
-            <Dropdown
-               className={s.dropdown}
-               options={options}
-               onChange={changeProductName}
-               value={productName}
-               required
-            />
-
+            {products.length > 0 && (
+               <datalist className={s.products} id="products">
+                  {products.map(({ _id, title }) => (
+                     <option key={_id} value={title.ru}></option>
+                  ))}
+               </datalist>
+            )}
             <PrimaryInput
                value={weight}
                type="number"
