@@ -14,6 +14,98 @@
    align-items: center;
 }
 
+.products {
+   margin-left: auto;
+   margin-right: auto;
+   position: absolute;
+
+   max-width: 500px;
+   background-color: #d2e9ff;
+   padding: 5px;
+   font: 12px Arial, Helvetica, sans-serif;
+   color: #666;
+}
+
+.container input::-webkit-calendar-picker-indicator {
+   display: none;
+}
+
+.btn_wrapper {
+   display: flex;
+   justify-content: center;
+   width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+   .container input {
+      width: 289px;
+   }
+
+   .container {
+      margin-bottom: 48px;
+   }
+}
+
+@media screen and (min-width: 768.1px) {
+   .form {
+      width: 100%;
+      align-items: start;
+      flex-direction: row;
+   }
+
+   .container {
+      width: 380px;
+      flex-direction: row;
+      align-items: start;
+      margin-right: 40px;
+   }
+
+   .container input:first-child {
+      margin-right: 30px;
+   }
+
+   .container input:last-child {
+      width: 104px;
+   }
+
+   .container input:last-child::placeholder {
+      text-align: end;
+   }
+
+   .btn_wrapper {
+      flex-direction: row;
+      justify-content: flex-start;
+   }
+
+   .btn_wrapper button {
+      width: 120px;
+   }
+}
+
+@media screen and (min-width: 1024.1px) {
+   .container {
+      margin-right: 76px;
+   }
+}
+
+/* 
+.form {
+   margin: 0 auto;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   margin-bottom: 30px;
+   width: 300px;
+   padding-top: 80px;
+}
+
+.container {
+   margin: 0 auto;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
 .dropdown {
    margin: 0;
    padding: 0;
@@ -88,4 +180,4 @@
    .container {
       margin-right: 76px;
    }
-}
+} */

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import s from './DiaryProductList.module.css';
-import DiaryProductListItem from './DiaryProductsListItem/DiaryProductListItem';
+// import DiaryProductListItem from './DiaryProductsListItem/DiaryProductListItem';
 
 import daySelectors from '../../redux/day/daySelectors';
 

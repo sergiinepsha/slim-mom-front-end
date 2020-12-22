@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 import fetchDB from '../../services/fetchDB';
 
 import { dailyRateActions } from './';
