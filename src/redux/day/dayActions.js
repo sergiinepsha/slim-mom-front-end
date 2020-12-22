@@ -1,6 +1,7 @@
 /* eslint-disable import/no-anonymous-default-export */
 import { createAction } from '@reduxjs/toolkit';
 
+const dayId = createAction('day/dayId');
 const dayFromCalendar = createAction('day/fromCalendar');
 
 const eatenProductRequest = createAction('day/eatenProductRequest');
@@ -13,7 +14,11 @@ const infoForDayError = createAction('day/infoForDayError');
 
 const emptyEatenProducts = createAction('day/emptyEatenProducts');
 
+const daySummary = createAction('day/daySummary');
+const emptyDaySummary = createAction('day/emptyDaySummary');
+
 export default {
+   dayId,
    dayFromCalendar,
 
    eatenProductRequest,
@@ -25,4 +30,7 @@ export default {
    infoForDayError,
 
    emptyEatenProducts,
+
+   daySummary,
+   emptyDaySummary,
 };
