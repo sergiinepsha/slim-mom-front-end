@@ -1,15 +1,18 @@
 import { combineReducers } from 'redux';
 import { createReducer } from '@reduxjs/toolkit';
 
-import dayAction from './dayActions';
+import { dayActions } from './';
 
 const date = createReducer('', {
-   [dayAction.dayFromCalendar]: (_, { payload }) => payload,
+   [dayActions.dayFromCalendar]: (_, { payload }) => payload,
 });
 
 const eatenProducts = createReducer([], {
-   [dayAction.eatenProductSuccess]: (_, { payload }) => payload,
+   [dayActions.eatenProductSuccess]: (_, { payload }) => payload,
+   [dayActions.emptyEatenProducts]: () => [],
 });
+
+const infoDay = createReducer();
 
 export default combineReducers({
    date,
