@@ -13,7 +13,7 @@ function DiaryProductsList() {
          {eatenProducts.length > 0 && (
             <ul className={s.list_products}>
                {eatenProducts.map(product => (
-                  <DiaryProductListItem key={product._id} product={product} />
+                  <DiaryProductListItem key={product.id} product={product} />
                ))}
             </ul>
          )}

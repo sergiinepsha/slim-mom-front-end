@@ -8,19 +8,11 @@ function DiaryDateCalendar({ setDate }) {
    const dateNow = new Date();
 
    const [value, onChange] = useState(dateNow);
-
    const [isClick, setClick] = useState(false);
-   const openCalendar = e => {
-      if (!isClick) {
-         setClick(true);
-      }
-      if (isClick) {
-         setClick(false);
-      }
-   };
 
    const changeDate = e => {
       onChange(e);
+      setClick(false);
    };
 
    const dateFormat = value.toLocaleDateString('fr-ca');
@@ -32,7 +24,11 @@ function DiaryDateCalendar({ setDate }) {
          <div className={s.container}>
             <div className={s.calendarMenu}>
                <div className={s.date}> {dateFormat} </div>
-               <button className={s.buttonCalendar} type="button" onClick={openCalendar}></button>
+               <button
+                  className={s.buttonCalendar}
+                  type="button"
+                  onClick={() => setClick(true)}
+               ></button>
             </div>
             {isClick && (
                <div className={s.calendar}>
