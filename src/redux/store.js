@@ -17,9 +17,10 @@ import { userReducers } from '../redux/auth';
 import { productReducer } from '../redux/product';
 import { loaderReducer } from '../redux/loader';
 import dailyRateReducer from './dailyRate/dailyRateReducer';
-import dayReducer from '../redux/day/dayReducer';
 import { errorReducer } from './error';
 import modalReducers from './modal/modalReducers';
+import { dayReducers } from './day';
+
 const defMidd = getDefaultMiddleware({
    serializableCheck: {
       ignoredActions: [FLUSH, REGISTER, PAUSE, PERSIST, PURGE, REHYDRATE],
@@ -41,7 +42,7 @@ export const store = configureStore({
       isError: errorReducer,
       dailyRateData: dailyRateReducer,
       isModal: modalReducers,
-      curentDate: dayReducer,
+      day: dayReducers,
    },
    middleware: [...defMidd, loginState, errorState],
 });
