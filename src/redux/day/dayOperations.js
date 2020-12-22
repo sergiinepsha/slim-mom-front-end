@@ -6,10 +6,11 @@ const postEatenProduct = async (reqBody, dispatch) => {
    dispatch(dayActions.eatenProductRequest);
 
    try {
-      const { day } = await fetchDB.post(`/day`, reqBody);
-      console.log(day);
+      const data = await fetchDB.post(`/day`, reqBody);
+      const { day, daySummary } = data;
 
       dispatch(dayActions.eatenProductSuccess(day.eatenProducts));
+      dispatch(dayActions.daySummary(daySummary));
    } catch (error) {
       dispatch(dayActions.eatenProductError(error));
    }
@@ -19,17 +20,33 @@ const getInfoForDay = async (date, dispatch) => {
    dispatch(dayActions.infoForDayRequest());
 
    try {
-      const { eatenProducts } = await fetchDB.post('/day/info', { date });
+      const { id, eatenProducts, daySummary } = await fetchDB.post('/day/info', { date });
       console.log(eatenProducts);
 
-      if (eatenProducts) {
-         dispatch(dayActions.eatenProductSuccess(eatenProducts));
-      } else {
-         dispatch(dayActions.emptyEatenProducts());
-      }
+      dispatch(dayActions.dayId(id));
+
+      daySummarySetState(daySummary, dispatch);
+
+      eatenProductsSetState(eatenProducts, dispatch);
    } catch (error) {
       dispatch(dayActions.infoForDayError());
    }
 };
+
+function eatenProductsSetState(eatenProducts, dispatch) {
+   if (eatenProducts) {
+      dispatch(dayActions.eatenProductSuccess(eatenProducts));
+   } else {
+      dispatch(dayActions.emptyEatenProducts());
+   }
+}
+
+function daySummarySetState(daySummary, dispatch) {
+   if (daySummary) {
+      dispatch(dayActions.daySummary(daySummary));
+   } else {
+      dispatch(dayActions.emptyDaySummary());
+   }
+}
 
 export default { postEatenProduct, getInfoForDay };
