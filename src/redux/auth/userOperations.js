@@ -60,12 +60,9 @@ const getCurrentUser = async (persistedToken, dispatch) => {
 
    try {
       const data = await fetchDB.get(`/user`);
-
-      const { id, date } = data.daySummary;
+      console.log(data);
 
       dispatch(userActions.currentUserSuccess(data));
-      dispatch(dayActions.getDate(date));
-      dispatch(dayActions.dayId(id));
    } catch (error) {
       dispatch(userActions.currentUserError(error.message));
    }
