@@ -2,7 +2,7 @@
 import { createAction } from '@reduxjs/toolkit';
 
 const dayId = createAction('day/dayId');
-const dayFromCalendar = createAction('day/fromCalendar');
+const getDate = createAction('day/getDate');
 
 const eatenProductRequest = createAction('day/eatenProductRequest');
 const eatenProductSuccess = createAction('day/eatenProductSuccess');
@@ -19,7 +19,7 @@ const emptyDaySummary = createAction('day/emptyDaySummary');
 
 export default {
    dayId,
-   dayFromCalendar,
+   getDate,
 
    eatenProductRequest,
    eatenProductSuccess,

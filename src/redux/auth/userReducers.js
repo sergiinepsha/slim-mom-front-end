@@ -6,16 +6,19 @@ const INITIAL_USER_STATE = {
    email: null,
    username: null,
    id: null,
+   notAllowedProducts: [],
 };
 
 const userLogged = (_, { payload }) => {
-   const { email, username, id } = payload.user;
-   return { email, username, id };
+   const { email, username, id, userData } = payload.user;
+   const { notAllowedProducts } = userData;
+   return { email, username, id, notAllowedProducts };
 };
 
 const getCurrentUser = (_, { payload }) => {
-   const { email, username, id } = payload;
-   return { email, username, id };
+   const { email, username, id, userData } = payload;
+   const { notAllowedProducts } = userData;
+   return { email, username, id, notAllowedProducts };
 };
 
 const user = createReducer(INITIAL_USER_STATE, {

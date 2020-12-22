@@ -25,11 +25,14 @@ const loginUser = async (credentials, dispatch) => {
    try {
       const data = await fetchDB.post(`/auth/login`, credentials);
       const { accessToken, todaySummary } = data;
+      const { id, date } = todaySummary;
 
       tokenToHeader.set(accessToken);
 
       dispatch(userActions.loginUserSuccess(data));
       dispatch(dayActions.daySummary(todaySummary));
+      dispatch(dayActions.getDate(date));
+      dispatch(dayActions.dayId(id));
    } catch (error) {
       dispatch(userActions.loginUserError(error.message));
    }
@@ -57,8 +60,12 @@ const getCurrentUser = async (persistedToken, dispatch) => {
 
    try {
       const data = await fetchDB.get(`/user`);
-      console.log(data);
+
+      const { id, date } = data.daySummary;
+
       dispatch(userActions.currentUserSuccess(data));
+      dispatch(dayActions.getDate(date));
+      dispatch(dayActions.dayId(id));
    } catch (error) {
       dispatch(userActions.currentUserError(error.message));
    }

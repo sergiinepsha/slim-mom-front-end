@@ -5,7 +5,6 @@ import DiaryProductListItem from './DiaryProductsListItem/DiaryProductListItem';
 
 import { dayOperations, daySelectors } from '../../redux/day';
 
-// TODO:
 function DiaryProductsList() {
    const eatenProducts = useSelector(daySelectors.eatenProducts);
    const date = useSelector(daySelectors.date);
