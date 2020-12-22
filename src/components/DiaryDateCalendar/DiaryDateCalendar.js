@@ -23,13 +23,15 @@ function DiaryDateCalendar({ setDate }) {
       onChange(e);
    };
 
-   setDate(value.toLocaleDateString());
+   const dateFormat = value.toLocaleDateString('fr-ca');
+
+   setDate(dateFormat);
 
    return (
       <>
          <div className={s.container}>
             <div className={s.calendarMenu}>
-               <div className={s.date}> {value.toLocaleDateString()} </div>
+               <div className={s.date}> {dateFormat} </div>
                <button className={s.buttonCalendar} type="button" onClick={openCalendar}></button>
             </div>
             {isClick && (

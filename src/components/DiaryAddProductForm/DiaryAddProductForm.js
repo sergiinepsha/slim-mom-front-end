@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 
-import { productOperations } from '../../redux/product';
+import { productOperations, productSelectors } from '../../redux/product';
 
 import PrimaryInput from '../common/PrimaryInput/PrimaryInput';
 import BasicButton from '../common/BasicButton/BasicButton';
 
 import s from './DiaryAddProductForm.module.css';
 
-// import dayOperations from '../../redux/day/dayOperations';
+import dayOperations from '../../redux/day/dayOperations';
 import daySelectors from '../../redux/day/daySelectors';
 
 const DiaryAddProductForm = () => {
@@ -20,29 +20,36 @@ const DiaryAddProductForm = () => {
       setProductName(value);
    };
 
+   const prevProductRef = useRef();
+   useEffect(() => {
+      prevProductRef.current = productName;
+   });
+   const prevProductName = prevProductRef.current;
+
    const [weight, setWeight] = useState('');
    const changeWeight = ({ value }) => setWeight(value);
 
-   const currentDay = useSelector(daySelectors.currentDay);
+   const date = useSelector(daySelectors.currentDay);
+   const products = useSelector(productSelectors.products);
+
    const dispatch = useDispatch();
 
-   if (productName) {
+   if (productName && productName !== prevProductName) {
       productOperations.getProductByQuery(productName, dispatch);
    }
 
    const handlerSubmit = async evt => {
       evt.preventDefault();
-
-      console.log(productName, weight);
+      const productId = products[0]._id;
 
       const credentials = {
-         currentDay,
-         // productId,
+         date,
+         productId,
          weight,
       };
 
       console.log(credentials);
-
+      dayOperations.postEatenProduct(credentials, dispatch);
       clearForm();
    };
 
@@ -51,19 +58,26 @@ const DiaryAddProductForm = () => {
       setWeight('');
    };
 
-   const options = [];
+   const productMap = products.map(product => product.title.ru);
+   const options = [...productMap];
 
    return (
       <form className={s.form} onSubmit={handlerSubmit}>
          <div className={s.container}>
+            <PrimaryInput
+               value={productName}
+               type="text"
+               placeholder="Введите продукт"
+               onChange={changeProductName}
+            />
             <Dropdown
                className={s.dropdown}
                options={options}
                onChange={changeProductName}
                value={productName}
                required
-               placeholder="Введите продукт"
             />
+
             <PrimaryInput
                value={weight}
                type="number"
