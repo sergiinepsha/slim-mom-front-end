@@ -3,7 +3,7 @@ import dayActions from './dayActions';
 import fetchDB from '../../services/fetchDB';
 
 const postEatenProduct = async (reqBody, dispatch) => {
-   dispatch(dayActions.eatenProductRequest);
+   dispatch(dayActions.eatenProductRequest());
 
    try {
       const { day } = await fetchDB.post(`/day`, reqBody);
@@ -15,4 +15,17 @@ const postEatenProduct = async (reqBody, dispatch) => {
    }
 };
 
-export default { postEatenProduct };
+const deleteEatenProduct = async (reqBody, dispatch) => {
+   dispatch(dayActions.deleteEatenProductRequest());
+
+   try {
+      const { data } = await fetchDB.del(`/day`, reqBody);
+      console.log(data);
+
+      // dispatch(dayActions.deleteEatenProductSuccess(data));
+   } catch (error) {
+      // dispatch(dayActions.deleteEatenProductError(error));
+   }
+};
+
+export default { postEatenProduct, deleteEatenProduct };
