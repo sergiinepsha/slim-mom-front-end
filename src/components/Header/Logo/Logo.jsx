@@ -10,7 +10,7 @@ const Logo = () => {
    const isAuth = useSelector(userSelector.isAuth);
 
    return (
-      <Item to={isAuth ? '/' : 'diary'}>
+      <Item to={isAuth ? 'diary' : '/'}>
          <div className={s.logoContainer}>
             <img src="/images/logo.png" alt="logo" className={s.icon} />
             <h1 className={s.logo} value="slim">

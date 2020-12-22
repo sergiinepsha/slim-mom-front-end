@@ -10,7 +10,7 @@ export default [
          import('../components/views/MainPage/MainPage.js' /* webpackChunkName: "home-page" */),
       ),
       private: false,
-      restricted: false,
+      restricted: true,
    },
    {
       path: '/diary',
