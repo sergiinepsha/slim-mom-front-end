@@ -21,11 +21,11 @@ export default function DiaryPage() {
 
    return (
       <>
-         <div className={s.container}>
+         <div className={s.wrapper}>
             {isClick && <DiaryAddProductForm />}
             {!isClick && (
-               <div className={s.container_flex1280}>
-                  <div className={s.diary}>
+               <div className={s.container}>
+                  <div className={s.main}>
                      <DiaryDateCalendar />
                      {!isMobile && <DiaryAddProductForm />}
                      <DiaryProductList />
