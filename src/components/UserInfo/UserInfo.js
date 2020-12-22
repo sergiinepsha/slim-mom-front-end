@@ -1,34 +1,30 @@
 import React from 'react';
+
+import ListItems from './ListItems';
+
 import s from './UserInfo.module.css';
 
-export default function UserInfo() {
-   const date = new Date();
+//удалить как будут данные
+// Должно приходить с  бэка
+const glushka = [
+   { name: 'Осталось', value: 1 },
+   { name: 'Употреблено', value: 1 },
+   { name: 'Дневная норма', value: 1 },
+   { name: 'n% от нормы', value: 1 },
+];
 
-   // const {nicName, calculatio_result } = props
+export default function UserInfo() {
+   const date = new Date().toLocaleDateString(); // Должно приходить с  бэка
 
    return (
       <div className={s.container}>
          <div className={s.userInfoMenu}>
-            <div>
-               <h2 className={s.titleThisTime}>Сводка за {date.toLocaleDateString()}</h2>
-               <ul className={s.listCcal}>
-                  <li className={s.cCalItem}>
-                     <span>Осталось</span> <span>{}000 ккал</span>
-                  </li>
-                  <li className={s.cCalItem}>
-                     <span>Употреблено</span> <span>{}000 ккал</span>
-                  </li>
-                  <li className={s.cCalItem}>
-                     <span>Дневная норма</span> <span>{}000 ккал</span>
-                  </li>
-                  <li className={s.cCalItem}>
-                     <span>n% от нормы</span> <span>{}000 ккал</span>
-                  </li>
-               </ul>
+            <div className={s.cart}>
+               <ListItems items={glushka} name={'Сводка за'} time={date} />
             </div>
-            <div>
-               <h2 className={s.notRecomendedProduct}>Нерекомендуемые продукты</h2>
-               <p className={s.yourDiet}>Здесь будет отображатся Ваш рацион</p>
+            <div className={s.cart2}>
+               <ListItems name={'Нерекомендуемые продукты'} />
+               <ListItems name={'Здесь будет отображаться Ваш рацион'} />
             </div>
          </div>
       </div>
