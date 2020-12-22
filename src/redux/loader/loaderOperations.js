@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 import loaderActions from './loaderActions';
 
 const loaderStart = async dispatch => dispatch(loaderActions.startLoader());

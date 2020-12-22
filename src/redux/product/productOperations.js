@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 import productAction from './productActions';
 import fetchDB from '../../services/fetchDB';
 

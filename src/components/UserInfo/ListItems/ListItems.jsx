@@ -19,7 +19,7 @@ const ListItems = ({ items, name, time }) => {
       if (name) {
          setNameList(name);
       }
-   });
+   }, [time, items, name]);
 
    return (
       <>
