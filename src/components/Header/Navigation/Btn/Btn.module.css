@@ -14,8 +14,9 @@
    align-items: center;
    width: 100%;
 }
+
 .head {
-   display: none; /*скрывает   кругом*/
+   display: none;
 }
 
 .button {
@@ -44,8 +45,12 @@
 .show.button::after {
    content: '\2630';
 }
+/*table*/
 
 @media screen and (max-width: 1279.9px) {
+   .not_auth {
+      display: flex;
+   }
    .nav {
       position: absolute;
       width: 100%;
@@ -77,15 +82,20 @@
          -o-transform: scale(1.2);
       }
    }
+   .not_auth {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+   }
 }
 
-/*table*/
 @media screen and (min-width: 768px) and (max-width: 1279.9px) {
    .nav {
       position: absolute;
       right: 0;
       width: 300px;
-      height: 100px;
+      height: 200px;
       overflow: hidden;
 
       background-color: #add8e6;

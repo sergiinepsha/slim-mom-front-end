@@ -16,6 +16,7 @@ const Navigation = () => {
          setAuth(`${s.navBar} ${s.column}`);
          return;
       }
+      setWatcher('');
       setAuth(`${s.navBar} ${s.row}`);
       return;
    }, [isToken]);

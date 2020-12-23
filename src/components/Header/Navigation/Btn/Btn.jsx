@@ -12,8 +12,8 @@ const Btn = ({ setWatcher }) => {
          setWatcher(`${s.nav} `);
          return;
       }
-      setBtn(`${s.button} ${s.show}`);
 
+      setBtn(`${s.button} ${s.show}`);
       setWatcher(`${s.head} ${s.nav}`);
       return;
    }, [bars, setWatcher]);
