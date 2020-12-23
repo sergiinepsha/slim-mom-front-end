@@ -5,7 +5,9 @@ import Item from './Item';
 import s from './ListItems.module.css';
 
 const ListItems = ({ items, name, time }) => {
-   const [itemsValue, setItemsValue] = useState([{ name: 'Данных нет', value: null }]);
+   const [itemsValue, setItemsValue] = useState([
+      { name: 'Здесь будет отображаться Ваш рацион', value: null },
+   ]);
    const [nameList, setNameList] = useState(null);
    const [date, setDate] = useState(null);
 

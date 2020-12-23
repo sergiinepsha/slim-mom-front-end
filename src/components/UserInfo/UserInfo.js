@@ -30,7 +30,6 @@ export default function UserInfo() {
             </div>
             <div className={s.cart2}>
                <ListItems name={'Нерекомендуемые продукты'} />
-               <ListItems name={'Здесь будет отображаться Ваш рацион'} />
             </div>
          </div>
       </div>
