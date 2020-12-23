@@ -9,12 +9,15 @@ import s from './Header.module.css';
 function Header() {
    return (
       <header className={s.header}>
-         <div className={s.logo}>
-            <Logo />
+         <div className={s.main}>
+            <div className={s.logo}>
+               <Logo />
+            </div>
+            <div className={s.nav}>
+               <Navigation />
+            </div>
          </div>
-         <div className={s.nav}>
-            <Navigation />
-         </div>
+
          <div className={s.info}>
             <UserMenu />
          </div>
