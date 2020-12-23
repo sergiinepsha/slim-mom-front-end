@@ -13,9 +13,9 @@ export const tokenToHeader = {
    },
 };
 
-const post = async (url, item = null) => {
+const post = async (url, reqBody = null) => {
    try {
-      const { data } = await axios.post(url, item);
+      const { data } = await axios.post(url, reqBody);
 
       return data;
    } catch (error) {
@@ -26,15 +26,18 @@ const post = async (url, item = null) => {
 const get = async url => {
    try {
       const { data } = await axios.get(url);
+
       return data;
    } catch (error) {
       throw error;
    }
 };
 
-const del = async url => {
+const del = async (url, reqBody) => {
    try {
-      await axios.delete(url);
+      const { data } = await axios.delete(url, { data: reqBody });
+
+      return data;
    } catch (error) {
       throw error;
    }
