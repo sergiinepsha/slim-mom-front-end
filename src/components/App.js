@@ -8,6 +8,7 @@ import { userOperations, userSelector } from '../redux/auth';
 
 import Header from './Header';
 import Loader from './Loader';
+import Alert from './Alert';
 
 const App = () => {
    const token = useSelector(userSelector.isAuth);
@@ -19,6 +20,7 @@ const App = () => {
 
    return (
       <>
+         <Alert />
          <Router>
             <Header />
 

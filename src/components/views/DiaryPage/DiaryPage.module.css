@@ -12,7 +12,7 @@
    position: absolute;
    margin: 0 auto;
    padding-top: 110px;
-   width: 100vw;
+   width: 100%;
    z-index: 1;
 }
 .main {
@@ -49,6 +49,7 @@
    .main {
       justify-content: flex-start;
       align-items: center;
+      padding-top: 192px;
       flex: 1 0 60%;
    }
    .wrapper {
@@ -57,9 +58,9 @@
 
    .container {
       justify-content: center;
-      align-items: center;
+      align-items: flex-start;
       flex-direction: row;
-      padding-top: 292px;
+
       background-position: 100% 100%;
       background-repeat: no-repeat;
    }

@@ -44,7 +44,7 @@ const getInfoForDay = async (date, dispatch) => {
 
       eatenProductsSetState(eatenProducts, dispatch);
    } catch (error) {
-      dispatch(dayActions.infoForDayError());
+      dispatch(dayActions.infoForDayError(error));
    }
 };
 

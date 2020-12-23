@@ -11,11 +11,13 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
+import { loginState, isErrorAlert } from '../middleware';
+
 import { userReducers } from '../redux/auth';
 import { productReducer } from '../redux/product';
 import { loaderReducer } from '../redux/loader';
 import dailyRateReducer from './dailyRate/dailyRateReducer';
-import { loginState } from '../middleware/loginState';
+import { errorReducer } from './error';
 import modalReducers from './modal/modalReducers';
 import { dayReducers } from './day';
 
@@ -37,11 +39,12 @@ export const store = configureStore({
       authUser: persistReducer(authUserPersistConfig, userReducers),
       products: productReducer,
       loader: loaderReducer,
+      isError: errorReducer,
       dailyRateData: dailyRateReducer,
       isModal: modalReducers,
       day: dayReducers,
    },
-   middleware: [...defMidd, loginState],
+   middleware: [...defMidd, loginState, isErrorAlert],
 });
 export const persistor = persistStore(store);
 

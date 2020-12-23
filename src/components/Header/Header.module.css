@@ -35,12 +35,9 @@
 @media screen and (min-width: 768px) and (max-width: 1279.9px) {
    .header {
       top: 17px;
-
       justify-content: space-between;
    }
-   .logo {
-      padding-left: 69px;
-   }
+
    .nav {
       flex: 1 0 40px;
       order: 2;
