@@ -1,6 +1,7 @@
 /* eslint-disable import/no-anonymous-default-export */
 import { dayActions } from './';
 import fetchDB from '../../services/fetchDB';
+import loaderActions from '../loader/loaderActions';
 
 const postEatenProduct = async (reqBody, dispatch) => {
    dispatch(dayActions.eatenProductRequest());
@@ -41,7 +42,15 @@ const getInfoForDay = async (date, dispatch) => {
 
    try {
       const { id, eatenProducts, daySummary } = await fetchDB.post('/day/info', { date });
+
+      if (!id) {
+         dispatch(dayActions.emptyDaySummary());
+         dispatch(loaderActions.endLoader());
+         return;
+      }
+
       console.log(eatenProducts);
+
       dispatch(dayActions.dayId(id));
 
       daySummarySetState(daySummary, dispatch);
