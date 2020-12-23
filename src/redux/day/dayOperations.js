@@ -21,10 +21,15 @@ const deleteProduct = async (productAndDayIds, dispatch) => {
    dispatch(dayActions.deleteEatenProductRequest());
 
    try {
+      console.log(productAndDayIds);
       const products = await fetchDB.del('/day', productAndDayIds);
+      console.log(products);
 
       if (products) {
+         const { daySummary } = products;
+
          dispatch(dayActions.deleteEatenProductSuccess(eatenProductId));
+         dispatch(dayActions.daySummary(daySummary));
       }
    } catch (error) {
       dispatch(dayActions.deleteEatenProductError(error));
