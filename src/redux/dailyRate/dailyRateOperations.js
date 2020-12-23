@@ -12,7 +12,7 @@ const getDailyIntake = async (userCharacteristics, dispatch) => {
 
       dispatch(dailyRateActions.getDailyIntakeSuccess(date));
    } catch (error) {
-      dispatch(dailyRateActions.getDailyIntakeError());
+      dispatch(dailyRateActions.getDailyIntakeError(error));
    }
 };
 
@@ -25,7 +25,7 @@ const getDailyIntakeById = async (userCharacteristics, userId, dispatch) => {
 
       dispatch(dailyRateActions.getDailyIntake_ID_Success(date));
    } catch (error) {
-      dispatch(dailyRateActions.getDailyIntake_ID_Error());
+      dispatch(dailyRateActions.getDailyIntake_ID_Error(error));
    }
 };
 

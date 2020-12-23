@@ -1,22 +1,77 @@
 import { createReducer } from '@reduxjs/toolkit';
 
+import { dayActions } from '../day';
 import { userActions } from '../auth';
 import { productActions } from '../product';
 import { dailyRateActions } from '../dailyRate';
+import newError, { readingInError } from './errorActions';
 
-const isError = createReducer(null, {
-   [userActions.loginUserError]: (_, { payload }) => payload,
-   [userActions.registerUserError]: (_, { payload }) => payload,
-   [userActions.logoutUserError]: (_, { payload }) => payload,
-   [userActions.currentUserError]: (_, { payload }) => payload,
+const isError = createReducer(
+   { error: '' },
+   {
+      [newError]: (state, { payload }) => ({
+         ...state,
+         error: '',
+      }),
 
-   [productActions.getProductError]: (_, { payload }) => payload,
+      [readingInError]: (state, { payload }) => ({
+         ...state,
+         error: payload,
+      }),
+      [userActions.loginUserError]: (state, { payload }) => ({
+         ...state,
+         error: payload,
+         login: payload,
+      }),
+      [userActions.registerUserError]: (state, { payload }) => ({
+         ...state,
+         error: payload,
+         register: payload,
+      }),
+      [userActions.logoutUserError]: (state, { payload }) => ({
+         ...state,
+         error: payload,
+         logout: payload,
+      }),
+      [userActions.currentUserError]: (state, { payload }) => ({
+         ...state,
+         error: payload,
+         current: payload,
+      }),
 
-   [dailyRateActions.fetchDailyRateError]: (_, { payload }) => payload,
-   [dailyRateActions.addDailyRateError]: (_, { payload }) => payload,
-});
+      [dayActions.eatenProductError]: (state, { payload }) => ({
+         ...state,
+         error: payload.message,
+         eatenProduct: payload.message,
+      }),
+      [dayActions.infoForDayError]: (state, { payload }) => ({
+         ...state,
+         error: payload.message,
+         infoForDay: payload.message,
+      }),
+
+      [productActions.getProductError]: (state, { payload }) => ({
+         ...state,
+         error: payload.message,
+         product: payload.message,
+      }),
+
+      [dailyRateActions.getDailyIntakeError]: (state, { payload }) => ({
+         ...state,
+         error: payload.message,
+         DailyIntake: payload.message,
+      }),
+
+      [dailyRateActions.getDailyIntake_ID_Error]: (state, { payload }) => ({
+         ...state,
+         error: payload.message,
+         DailyIntake_ID: payload.message,
+      }),
+   },
+);
 
 export default isError;
+
 // (payload = {
 //    name: payload.name,
 // }),
