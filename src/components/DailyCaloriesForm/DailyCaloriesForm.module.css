@@ -41,6 +41,7 @@
 
 @media screen and (min-width: 768px) {
    .container {
+      margin: 0;
       width: 700px;
       align-items: flex-start;
    }
@@ -88,13 +89,13 @@
    }
 }
 
-@media screen and (min-width: 768px) and (max-width: 1279.9px) {
+@media screen and (min-width: 768px) and (max-width: 1280px) {
    .btn_wrapper {
       justify-content: flex-start;
    }
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 1280.1px) {
    .container {
       margin: 0;
    }
