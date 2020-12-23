@@ -34,9 +34,18 @@ const daySummary = createReducer(INITIAL_DAY_SUMMARY, {
    [dayActions.emptyDaySummary]: () => INITIAL_DAY_SUMMARY,
 });
 
+const deleteEatenProduct = createReducer(
+   {},
+   {
+      [dayActions.deleteEatenProductSuccess]: (state, { payload }) =>
+         state.filter(({ id }) => id !== payload),
+   },
+);
+
 export default combineReducers({
    id,
    date,
    eatenProducts,
+   deleteEatenProduct,
    daySummary,
 });
