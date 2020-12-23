@@ -20,7 +20,7 @@ function DiaryDateCalendar() {
 
    const dateFormat = value.toLocaleDateString('fr-ca');
 
-   dispatch(dayActions.dayFromCalendar(dateFormat));
+   dispatch(dayActions.getDate(dateFormat));
 
    return (
       <div className={s.container}>
