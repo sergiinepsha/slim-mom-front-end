@@ -8,12 +8,13 @@ const Btn = ({ setWatcher }) => {
 
    useEffect(() => {
       if (bars) {
-         setBtn(` ${s.button} `);
-         setWatcher(` ${s.nav} `);
+         setBtn(`${s.button}`);
+         setWatcher(`${s.nav} `);
          return;
       }
-      setBtn(` ${s.button} ${s.show} `);
-      setWatcher(`${s.head} ${s.nav} `);
+      setBtn(`${s.button} ${s.show}`);
+
+      setWatcher(`${s.head} ${s.nav}`);
       return;
    }, [bars, setWatcher]);
 
