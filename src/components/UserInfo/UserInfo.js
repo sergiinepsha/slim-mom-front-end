@@ -12,9 +12,9 @@ export default function UserInfo() {
    useEffect(() => {
       if (items) {
          setItemList([
-            { name: 'Осталось', value: items.kcalLeft },
-            { name: 'Употреблено', value: items.kcalConsumed },
-            { name: 'Дневная норма', value: items.dailyRate },
+            { name: 'Осталось', value: Math.round(items.kcalLeft) || null },
+            { name: 'Употреблено', value: Math.round(items.kcalConsumed) || null },
+            { name: 'Дневная норма', value: Math.round(items.dailyRate) || null },
             { name: 'n% от нормы', value: Math.round(items.percentsOfDailyRate) || null },
          ]);
          return;
