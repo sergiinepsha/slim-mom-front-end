@@ -1,14 +1,30 @@
 import { createReducer } from '@reduxjs/toolkit';
 
+import { dayActions } from '../day';
 import { userActions } from '../auth';
-import modalAction from '../modal/modalActions';
 import { productActions } from '../product';
 import { dailyRateActions } from '../dailyRate';
+// import modalAction from '../modal/modalActions';
 // import loaderAction from './loaderActions';
 
 const loader = createReducer(false, {
    // [loaderAction.startLoader]: () => true,
    // [loaderAction.endLoader]: () => false,
+   // TODO
+   // [modalAction.modalOpen]: () => true,
+   // [modalAction.modalClose]: () => false,
+
+   [dayActions.eatenProductError]: () => true,
+   [dayActions.eatenProductRequest]: () => true,
+   [dayActions.eatenProductSuccess]: () => false,
+
+   [dayActions.deleteEatenProductError]: () => true,
+   [dayActions.deleteEatenProductRequest]: () => true,
+   [dayActions.deleteEatenProductSuccess]: () => false,
+
+   [dayActions.infoForDayError]: () => true,
+   [dayActions.infoForDayRequest]: () => true,
+   [dayActions.infoForDaySuccess]: () => false,
 
    [userActions.loginUserError]: () => true,
    [userActions.loginUserRequest]: () => true,
@@ -25,9 +41,6 @@ const loader = createReducer(false, {
    [userActions.currentUserError]: () => true,
    [userActions.currentUserRequest]: () => true,
    [userActions.currentUserSuccess]: () => false,
-
-   [modalAction.modalOpen]: () => true,
-   [modalAction.modalClose]: () => false,
 
    [productActions.fetchProductError]: () => true,
    [productActions.fetchProductRequest]: () => true,
