@@ -9,7 +9,7 @@ const errorState = ({ dispatch }) => next => async action => {
       const found = await Object.entries(item).find(v => v[0] === 'isAxiosError');
       if (found.length) {
          const errorText = await JSON.parse(item.request.responseText);
-         await dispatch(readingInError(errorText.message));
+         await dispatch(readingInError(errorText.message || 'Что-то пошло не так'));
          await setTimeout(() => {
             dispatch(newError());
          }, 2000);
