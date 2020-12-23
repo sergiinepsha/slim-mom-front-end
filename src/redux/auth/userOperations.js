@@ -15,7 +15,7 @@ const registerAndLoginUser = async (credentials, dispatch) => {
       const { email, password } = credentials;
       await loginUser({ email, password }, dispatch);
    } catch (error) {
-      dispatch(userActions.registerUserError(error.message));
+      dispatch(userActions.registerUserError(error));
    }
 };
 
@@ -34,7 +34,7 @@ const loginUser = async (credentials, dispatch) => {
       dispatch(dayActions.getDate(date));
       dispatch(dayActions.dayId(id));
    } catch (error) {
-      dispatch(userActions.loginUserError(error.message));
+      dispatch(userActions.loginUserError(error));
    }
 };
 
@@ -49,7 +49,7 @@ const logoutUser = () => async dispatch => {
       dispatch(userActions.logoutUserSuccess());
    } catch (error) {
       dispatch(userActions.logoutUserSuccess());
-      dispatch(userActions.logoutUserError(error.message));
+      dispatch(userActions.logoutUserError(error));
    }
 };
 
@@ -64,7 +64,7 @@ const getCurrentUser = async (persistedToken, dispatch) => {
 
       dispatch(userActions.currentUserSuccess(data));
    } catch (error) {
-      dispatch(userActions.currentUserError(error.message));
+      dispatch(userActions.currentUserError(error));
    }
 };
 

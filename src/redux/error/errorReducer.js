@@ -20,23 +20,23 @@ const isError = createReducer(
       }),
       [userActions.loginUserError]: (state, { payload }) => ({
          ...state,
-         error: payload,
-         login: payload,
+         error: payload.message,
+         login: payload.message,
       }),
       [userActions.registerUserError]: (state, { payload }) => ({
          ...state,
-         error: payload,
-         register: payload,
+         error: payload.message,
+         register: payload.message,
       }),
       [userActions.logoutUserError]: (state, { payload }) => ({
          ...state,
-         error: payload,
-         logout: payload,
+         error: payload.message,
+         logout: payload.message,
       }),
       [userActions.currentUserError]: (state, { payload }) => ({
          ...state,
-         error: payload,
-         current: payload,
+         error: payload.message,
+         current: payload.message,
       }),
 
       [dayActions.eatenProductError]: (state, { payload }) => ({

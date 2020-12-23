@@ -58,10 +58,11 @@
       padding-top: 91px;
    }
 }
-@media (min-width: 1280px) {
+@media screen and (min-width: 1280px) {
    .container {
-      padding-top: 192px;
+      padding-top: 90px;
       background: none;
+      height: 100%;
       background-image: url('./images/fone_base.png');
       background-size: 120% 120%;
       flex: 1 0 40%;

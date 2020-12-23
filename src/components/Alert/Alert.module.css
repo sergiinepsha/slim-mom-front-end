@@ -4,6 +4,7 @@
    top: 10px;
    right: 20px;
    background-color: rgba(247, 155, 144, 0.514);
+   z-index: 1;
 }
 .text {
    font-size: 1em;
