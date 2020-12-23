@@ -4,9 +4,11 @@ import loaderActions from '../redux/loader/loaderActions';
 const errorState = ({ dispatch }) => next => async action => {
    try {
       const item = await action.payload;
+
       if (item === undefined) {
-         return next(action);
+         return next();
       }
+
       const found = await Object.entries(item).find(v => v[0] === 'isAxiosError');
       if (found.length) {
          const errorText = await JSON.parse(item.request.responseText);
