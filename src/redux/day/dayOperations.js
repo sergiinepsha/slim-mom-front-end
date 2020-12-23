@@ -42,7 +42,6 @@ const getInfoForDay = async (date, dispatch) => {
    try {
       const { id, eatenProducts, daySummary } = await fetchDB.post('/day/info', { date });
       console.log(eatenProducts);
-
       dispatch(dayActions.dayId(id));
 
       daySummarySetState(daySummary, dispatch);
