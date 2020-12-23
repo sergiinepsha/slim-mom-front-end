@@ -27,7 +27,7 @@
    }
 }
 
-@media screen and (min-width: 768.1px) and (max-width: 1024px) {
+@media screen and (min-width: 768.1px) and (max-width: 1280px) {
    .tablet_img {
       display: block;
       position: absolute;
@@ -37,7 +37,7 @@
    }
 }
 
-@media screen and (min-width: 1024.1px) {
+@media screen and (min-width: 1280.1px) {
    .container {
       padding-top: 292px;
       padding-left: 114px;

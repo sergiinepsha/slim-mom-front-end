@@ -1,9 +1,10 @@
 /* eslint-disable import/no-anonymous-default-export */
 import { dayActions } from './';
 import fetchDB from '../../services/fetchDB';
+import { request } from '../auth/userActions';
 
 const postEatenProduct = async (reqBody, dispatch) => {
-   dispatch(dayActions.eatenProductRequest);
+   dispatch(dayActions.eatenProductRequest());
 
    try {
       const data = await fetchDB.post(`/day`, reqBody);
@@ -13,6 +14,18 @@ const postEatenProduct = async (reqBody, dispatch) => {
       dispatch(dayActions.daySummary(daySummary));
    } catch (error) {
       dispatch(dayActions.eatenProductError(error));
+   }
+};
+
+const deleteProduct = async (request, dispatch) => {
+   dispatch(dayActions.deleteEatenProductRequest());
+
+   try {
+      const products = await fetchDB.del('/day', request);
+
+      dispatch(dayActions.deleteEatenProductSuccess(products));
+   } catch (error) {
+      dispatch(dayActions.deleteEatenProductError(error));
    }
 };
 
@@ -49,4 +62,10 @@ function daySummarySetState(daySummary, dispatch) {
    }
 }
 
-export default { postEatenProduct, getInfoForDay };
+export default {
+   postEatenProduct,
+   getInfoForDay,
+   deleteProduct,
+   eatenProductsSetState,
+   daySummarySetState,
+};
