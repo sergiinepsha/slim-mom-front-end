@@ -4,11 +4,10 @@ import { createReducer } from '@reduxjs/toolkit';
 import { dayActions } from './';
 
 const INITIAL_DAY_SUMMARY = {
-   date: '',
-   kcalLeft: null,
-   kcalConsumed: null,
-   dailyRate: null,
-   percentsOfDailyRate: null,
+   kcalLeft: 0,
+   kcalConsumed: 0,
+   dailyRate: 0,
+   percentsOfDailyRate: 0,
 };
 
 const getDaySummary = (_, { payload }) => {
