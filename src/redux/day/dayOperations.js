@@ -22,12 +22,10 @@ const deleteProduct = async (productAndDayIds, dispatch) => {
    dispatch(dayActions.deleteEatenProductRequest());
 
    try {
-      console.log(productAndDayIds);
-      const products = await fetchDB.del('/day', productAndDayIds);
-      console.log(products);
+      const data = await fetchDB.del('/day', productAndDayIds);
 
-      if (products) {
-         const { daySummary } = products;
+      if (data) {
+         const daySummary = currentDaySummary(data);
 
          dispatch(dayActions.deleteEatenProductSuccess(eatenProductId));
          dispatch(dayActions.daySummary(daySummary));
@@ -60,6 +58,15 @@ const getInfoForDay = async (date, dispatch) => {
       dispatch(dayActions.infoForDayError(error));
    }
 };
+
+function currentDaySummary(data) {
+   if (data.daySummary) {
+      return data.daySummary;
+   }
+   if (data.newDaySummary) {
+      return data.newDaySummary;
+   }
+}
 
 function eatenProductsSetState(eatenProducts, dispatch) {
    if (eatenProducts) {

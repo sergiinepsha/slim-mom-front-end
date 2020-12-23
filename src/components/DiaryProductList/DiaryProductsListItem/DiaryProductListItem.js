@@ -16,7 +16,6 @@ export default function ContactListItem({ product }) {
          dayId,
          eatenProductId: id,
       };
-      console.log(productAndDayIds);
 
       dayOperations.deleteProduct(productAndDayIds, dispatch);
    };
