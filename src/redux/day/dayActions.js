@@ -4,13 +4,13 @@ import { createAction } from '@reduxjs/toolkit';
 const dayId = createAction('day/dayId');
 const dayFromCalendar = createAction('day/fromCalendar');
 
-const deleteEatenProductRequest = createAction('deleteEatenProductRequest/request');
-const deleteEatenProductSuccess = createAction('deleteEatenProductSuccess/success');
-const deleteEatenProductError = createAction('deleteEatenProductError/error');
-
 const eatenProductRequest = createAction('day/eatenProductRequest');
 const eatenProductSuccess = createAction('day/eatenProductSuccess');
 const eatenProductError = createAction('day/eatenProductError');
+
+const deleteEatenProductRequest = createAction('deleteEatenProductRequest/request');
+const deleteEatenProductSuccess = createAction('deleteEatenProductSuccess/success');
+const deleteEatenProductError = createAction('deleteEatenProductError/error');
 
 const infoForDayRequest = createAction('day/infoForDayRequest');
 const infoForDaySuccess = createAction('day/infoForDaySuccess');

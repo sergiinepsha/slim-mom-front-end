@@ -35,7 +35,7 @@ const DiaryAddProductForm = () => {
 
    const handlerSubmit = async evt => {
       evt.preventDefault();
-      // TODO:
+
       const productId = products[0]._id;
 
       dayOperations.postEatenProduct({ date, productId, weight }, dispatch);

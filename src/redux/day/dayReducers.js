@@ -1,10 +1,6 @@
 import { combineReducers } from 'redux';
 import { createReducer } from '@reduxjs/toolkit';
 
-<<<<<<< HEAD
-import dayAction from './dayActions';
-import { dayActions } from '.';
-=======
 import { dayActions } from './';
 
 const INITIAL_DAY_SUMMARY = {
@@ -19,7 +15,6 @@ const getDaySummary = (_, { payload }) => {
    const { kcalLeft, kcalConsumed, dailyRate, percentsOfDailyRate } = payload;
    return { kcalLeft, kcalConsumed, dailyRate, percentsOfDailyRate };
 };
->>>>>>> dev
 
 const date = createReducer('', {
    [dayActions.dayFromCalendar]: (_, { payload }) => payload,
@@ -39,10 +34,11 @@ const daySummary = createReducer(INITIAL_DAY_SUMMARY, {
    [dayActions.emptyDaySummary]: () => INITIAL_DAY_SUMMARY,
 });
 
-const deleteData = createReducer(
+const deleteEatenProduct = createReducer(
    {},
    {
-      [dayActions.deleteEatenProductSuccess]: (state, payload) => payload,
+      [dayActions.deleteEatenProductSuccess]: (state, { payload }) =>
+         state.filter(({ id }) => id !== payload),
    },
 );
 
@@ -50,9 +46,6 @@ export default combineReducers({
    dayId,
    date,
    eatenProducts,
-<<<<<<< HEAD
-   deleteData,
-=======
+   deleteEatenProduct,
    daySummary,
->>>>>>> dev
 });
