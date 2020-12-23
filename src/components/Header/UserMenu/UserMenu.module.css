@@ -54,9 +54,14 @@
 
 /*desktop*/
 @media screen and (min-width: 1280px) {
+   .wrapper {
+      display: flex;
+      width: 100%;
+   }
    .item {
       justify-content: flex-end;
       align-items: flex-end;
+      width: 100%;
    }
    .button {
       margin-right: 10%;

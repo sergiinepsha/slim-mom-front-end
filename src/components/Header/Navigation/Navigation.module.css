@@ -15,6 +15,14 @@
    align-items: center;
    width: 100%;
 }
+
+.row {
+   flex-direction: row;
+}
+.column {
+   flex-direction: column;
+}
+
 .head {
    display: none;
 }
@@ -85,13 +93,16 @@
 @media screen and (min-width: 768px) and (max-width: 1279.9px) {
    .nav {
       position: absolute;
-
       right: 0;
       width: 300px;
       height: 100px;
       overflow: hidden;
 
       background-color: #add8e6;
+   }
+   .row {
+      width: 300px;
+      padding-top: 1.15em;
    }
 }
 

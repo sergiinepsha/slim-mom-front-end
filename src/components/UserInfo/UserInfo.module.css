@@ -42,6 +42,7 @@
    .container {
       background-image: url('./images/fone_userInfo.png');
       background-size: 80% auto;
+      min-height: 300px;
    }
    .cart {
       width: 370px;
