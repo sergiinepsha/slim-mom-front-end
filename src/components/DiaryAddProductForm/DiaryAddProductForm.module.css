@@ -48,7 +48,6 @@
 
 @media screen and (min-width: 768.1px) {
    .form {
-      width: 100%;
       align-items: start;
       flex-direction: row;
    }
@@ -82,13 +81,13 @@
    }
 }
 
-@media screen and (min-width: 1024.1px) {
+@media screen and (min-width: 1280px) {
    .container {
       margin-right: 76px;
    }
 }
 
-/* 
+/*
 .form {
    margin: 0 auto;
    display: flex;
