@@ -12,12 +12,13 @@ export default function ContactListItem({ product }) {
    // const eatenProducts = useSelector(daySelectors.eatenProducts);
 
    const onDelete = () => {
-      dayOperations.deleteProduct({ dayId, eatenProductId: id }, dispatch);
-      const del = {
+      const productAndDayIds = {
          dayId,
          eatenProductId: id,
       };
-      console.log(del);
+      console.log(productAndDayIds);
+
+      dayOperations.deleteProduct(productAndDayIds, dispatch);
    };
 
    // const del = e => {
