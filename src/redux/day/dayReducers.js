@@ -16,16 +16,19 @@ const getDaySummary = (_, { payload }) => {
    return { kcalLeft, kcalConsumed, dailyRate, percentsOfDailyRate };
 };
 
+const deleteEatenProduct = (state, { payload }) => state.filter(({ id }) => id !== payload);
+
 const date = createReducer('', {
    [dayActions.getDate]: (_, { payload }) => payload,
 });
 
-const id = createReducer('', {
+const dayId = createReducer('', {
    [dayActions.dayId]: (_, { payload }) => payload,
 });
 
 const eatenProducts = createReducer([], {
    [dayActions.eatenProductSuccess]: (_, { payload }) => payload,
+   [dayActions.deleteEatenProductSuccess]: deleteEatenProduct,
    [dayActions.emptyEatenProducts]: () => [],
 });
 
@@ -34,18 +37,9 @@ const daySummary = createReducer(INITIAL_DAY_SUMMARY, {
    [dayActions.emptyDaySummary]: () => INITIAL_DAY_SUMMARY,
 });
 
-const deleteEatenProduct = createReducer(
-   {},
-   {
-      [dayActions.deleteEatenProductSuccess]: (state, { payload }) =>
-         state.filter(({ id }) => id !== payload),
-   },
-);
-
 export default combineReducers({
-   id,
+   dayId,
    date,
    eatenProducts,
-   deleteEatenProduct,
    daySummary,
 });
