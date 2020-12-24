@@ -1,72 +1,74 @@
 import { createReducer } from '@reduxjs/toolkit';
 
-import { dayActions } from '../day';
-import { userActions } from '../auth';
-import { productActions } from '../product';
-import { dailyRateActions } from '../dailyRate';
-import newError, { readingInError } from './errorActions';
+// import { dayActions } from '../day';
+// import { userActions } from '../auth';
+// import { productActions } from '../product';
+// import { dailyRateActions } from '../dailyRate';
+import cleanError, { readingInError } from './errorActions';
 
 const isError = createReducer(
    { error: '' },
    {
-      [newError]: (state, { payload }) => ({
+      [cleanError]: (state, { payload }) => ({
          ...state,
          error: '',
       }),
 
       [readingInError]: (state, { payload }) => ({
          ...state,
-         error: payload,
-      }),
-      [userActions.loginUserError]: (state, { payload }) => ({
-         ...state,
-         error: payload.message,
-         login: payload.message,
-      }),
-      [userActions.registerUserError]: (state, { payload }) => ({
-         ...state,
-         error: payload.message,
-         register: payload.message,
-      }),
-      [userActions.logoutUserError]: (state, { payload }) => ({
-         ...state,
-         error: payload.message,
-         logout: payload.message,
-      }),
-      [userActions.currentUserError]: (state, { payload }) => ({
-         ...state,
-         error: payload.message,
-         current: payload.message,
+         error: payload.error,
+         [payload.name]: payload.error,
       }),
 
-      [dayActions.eatenProductError]: (state, { payload }) => ({
-         ...state,
-         error: payload.message,
-         eatenProduct: payload.message,
-      }),
-      [dayActions.infoForDayError]: (state, { payload }) => ({
-         ...state,
-         error: payload.message,
-         infoForDay: payload.message,
-      }),
+      // [userActions.loginUserError]: (state, { payload }) => ({
+      //    ...state,
+      //    error: payload.message,
+      //    login: payload.message,
+      // }),
+      // [userActions.registerUserError]: (state, { payload }) => ({
+      //    ...state,
+      //    error: payload.message,
+      //    register: payload.message,
+      // }),
+      // [userActions.logoutUserError]: (state, { payload }) => ({
+      //    ...state,
+      //    error: payload.message,
+      //    logout: payload.message,
+      // }),
+      // [userActions.currentUserError]: (state, { payload }) => ({
+      //    ...state,
+      //    error: payload.message,
+      //    current: payload.message,
+      // }),
 
-      [productActions.getProductError]: (state, { payload }) => ({
-         ...state,
-         error: payload.message,
-         product: payload.message,
-      }),
+      // [dayActions.eatenProductError]: (state, { payload }) => ({
+      //    ...state,
+      //    error: payload.message,
+      //    eatenProduct: payload.message,
+      // }),
+      // [dayActions.infoForDayError]: (state, { payload }) => ({
+      //    ...state,
+      //    error: payload.message,
+      //    infoForDay: payload.message,
+      // }),
 
-      [dailyRateActions.getDailyIntakeError]: (state, { payload }) => ({
-         ...state,
-         error: payload.message,
-         DailyIntake: payload.message,
-      }),
+      // [productActions.getProductError]: (state, { payload }) => ({
+      //    ...state,
+      //    error: payload.message,
+      //    product: payload.message,
+      // }),
 
-      [dailyRateActions.getDailyIntake_ID_Error]: (state, { payload }) => ({
-         ...state,
-         error: payload.message,
-         DailyIntake_ID: payload.message,
-      }),
+      // [dailyRateActions.getDailyIntakeError]: (state, { payload }) => ({
+      //    ...state,
+      //    error: payload.message,
+      //    DailyIntake: payload.message,
+      // }),
+
+      // [dailyRateActions.getDailyIntake_ID_Error]: (state, { payload }) => ({
+      //    ...state,
+      //    error: payload.message,
+      //    DailyIntake_ID_Error: payload.message,
+      // }),
    },
 );
 

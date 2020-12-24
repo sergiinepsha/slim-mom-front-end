@@ -1,5 +1,5 @@
-import newError, { readingInError } from '../redux/error/errorActions';
-import loaderActions from '../redux/loader/loaderActions';
+import cleanError, { readingInError } from '../redux/error/errorActions';
+import { loaderActions } from '../redux/loader';
 
 const errorState = ({ dispatch }) => next => async action => {
    try {
@@ -10,15 +10,21 @@ const errorState = ({ dispatch }) => next => async action => {
       }
 
       const found = await Object.entries(item).find(v => v[0] === 'isAxiosError');
+
       if (found.length) {
          const errorText = await JSON.parse(item.request.responseText);
-         await dispatch(readingInError(errorText.message || 'Что-то пошло не так'));
+
+         await dispatch(
+            readingInError(
+               { error: errorText.message, name: action.type } || 'Что-то пошло не так',
+            ),
+         );
 
          await setTimeout(() => {
             dispatch(loaderActions.endLoader());
-            dispatch(newError());
+            dispatch(cleanError());
          }, 2000);
-         return next();
+         return;
       }
       return next(action);
    } catch (err) {
