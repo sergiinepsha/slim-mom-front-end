@@ -14,3 +14,7 @@
 
    color: rgb(155, 159, 170);
 }
+
+.cCalItem:last-child span:last-child {
+   margin-right: 20px;
+}

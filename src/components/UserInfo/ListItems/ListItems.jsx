@@ -30,7 +30,12 @@ const ListItems = ({ items, name, time }) => {
          </h2>
          <ul className={s.listCcal}>
             {itemsValue.map(item => (
-               <Item key={item.name} itemName={item.name} value={item.value} />
+               <Item
+                  key={item.name}
+                  itemName={item.name}
+                  value={item.value}
+                  measureUnit={item.measureUnit}
+               />
             ))}
          </ul>
       </>

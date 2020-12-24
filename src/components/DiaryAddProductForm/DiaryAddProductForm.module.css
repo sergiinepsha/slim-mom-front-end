@@ -23,17 +23,11 @@
    z-index: 10;
    max-width: 240px;
    background-color: #d2e9ff;
-   /* padding: 5px; */
    font: 14px Arial, Helvetica, sans-serif;
    color: #666;
 }
 
-/* .container input::-webkit-calendar-picker-indicator {
-   display: none;
-} */
-
-.optionClass{
-   
+.optionClass {
    border: 1px solid #ddd; /* Add a border to all links */
    margin-top: -1px; /* Prevent double borders */
    background-color: #f6f6f6; /* Grey background color */
@@ -44,7 +38,7 @@
    display: block; /* Make it into a block element to fill the whole list */
 }
 
-.optionClass:hover{
+.optionClass:hover {
    background-color: rgb(206, 206, 206);
 }
 
@@ -104,97 +98,3 @@
       margin-right: 76px;
    }
 }
-
-/*
-.form {
-   margin: 0 auto;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   margin-bottom: 30px;
-   width: 300px;
-   padding-top: 80px;
-}
-
-.container {
-   margin: 0 auto;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-}
-
-.dropdown {
-   margin: 0;
-   padding: 0;
-   width: 240px;
-   height: 35px;
-   margin-bottom: 20px;
-}
-
-.dropdown::placeholder {
-   font-family: Verdana;
-   font-style: normal;
-   font-weight: bold;
-   font-size: 14px;
-   line-height: 17px;
-   letter-spacing: 0.04em;
-   color: #9b9faa;
-}
-
-.btn_wrapper {
-   display: flex;
-   justify-content: center;
-   width: 100%;
-}
-
-@media screen and (max-width: 768px) {
-   .dropdown,
-   .container input {
-      width: 289px;
-   }
-
-   .container {
-      margin-bottom: 48px;
-   }
-}
-
-@media screen and (min-width: 768.1px) {
-   .form {
-      align-items: start;
-      flex-direction: row;
-   }
-
-   .container {
-      width: 380px;
-      flex-direction: row;
-      align-items: start;
-      margin-right: 50px;
-   }
-
-   .dropdown {
-      margin-right: 30px;
-   }
-
-   .container input:last-child {
-      width: 104px;
-   }
-
-   .container input:last-child::placeholder {
-      text-align: end;
-   }
-
-   .btn_wrapper {
-      flex-direction: row;
-      justify-content: flex-start;
-   }
-
-   .btn_wrapper button {
-      width: 120px;
-   }
-}
-
-@media screen and (min-width: 1024.1px) {
-   .container {
-      margin-right: 76px;
-   }
-} */
