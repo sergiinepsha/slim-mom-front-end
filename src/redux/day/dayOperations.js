@@ -39,15 +39,15 @@ const getInfoForDay = async (date, dispatch) => {
    dispatch(dayActions.infoForDayRequest());
 
    try {
-      const { id, eatenProducts, daySummary } = await fetchDB.post('/day/info', { date });
+      const data = await fetchDB.post('/day/info', { date });
+      const { id, eatenProducts, daySummary } = data;
 
       if (!id) {
-         dispatch(dayActions.emptyDaySummary());
+         daySummarySetState({ ...data }, dispatch);
+         dispatch(dayActions.emptyEatenProducts());
          dispatch(loaderActions.endLoader());
          return;
       }
-
-      console.log(eatenProducts);
 
       dispatch(dayActions.dayId(id));
 
