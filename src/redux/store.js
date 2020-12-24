@@ -37,12 +37,12 @@ const authUserPersistConfig = {
 export const store = configureStore({
    reducer: {
       authUser: persistReducer(authUserPersistConfig, userReducers),
+      day: dayReducers,
       products: productReducer,
-      loader: loaderReducer,
-      isError: errorReducer,
       dailyRateData: dailyRateReducer,
       isModal: modalReducers,
-      day: dayReducers,
+      isError: errorReducer,
+      loader: loaderReducer,
    },
    middleware: [...defMidd, isErrorAlert],
 });
