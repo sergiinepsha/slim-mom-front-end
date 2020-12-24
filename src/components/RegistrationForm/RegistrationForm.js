@@ -30,12 +30,7 @@ const RegistrationForm = () => {
       evt.preventDefault();
 
       if (password !== passwordDuplicate) {
-         dispatch(
-            userActions.passwordNotMatch({
-               error: true,
-               message: 'Пароли в форме не совпадают!',
-            }),
-         );
+         dispatch(userActions.passwordNotMatch({ message: 'Пароли в форме не совпадают!' }));
          return;
       }
 
