@@ -47,5 +47,3 @@ export const store = configureStore({
    middleware: [...defMidd, loginState, isErrorAlert],
 });
 export const persistor = persistStore(store);
-
-// nina@mail.com, пароль 123

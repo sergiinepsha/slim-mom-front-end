@@ -6,7 +6,6 @@ import BasicButton from '../common/BasicButton/BasicButton';
 import BloodGroup from './BloodGroup/BloodGroup';
 
 import { dailyRateOperations } from '../../redux/dailyRate';
-// import { modalSelectors } from '../../redux/modal';
 import { userSelector } from '../../redux/auth';
 
 import s from './DailyCaloriesForm.module.css';

@@ -6,6 +6,12 @@ import { productActions } from '../product';
 import { dailyRateActions } from '../dailyRate';
 import newError, { readingInError } from './errorActions';
 
+const registerError = (state, { payload }) => ({
+   ...state,
+   error: payload.message,
+   register: payload.message,
+});
+
 const isError = createReducer(
    { error: '' },
    {
@@ -23,11 +29,8 @@ const isError = createReducer(
          error: payload.message,
          login: payload.message,
       }),
-      [userActions.registerUserError]: (state, { payload }) => ({
-         ...state,
-         error: payload.message,
-         register: payload.message,
-      }),
+      [userActions.registerUserError]: registerError,
+      [userActions.passwordNotMatch]: registerError,
       [userActions.logoutUserError]: (state, { payload }) => ({
          ...state,
          error: payload.message,
@@ -71,7 +74,3 @@ const isError = createReducer(
 );
 
 export default isError;
-
-// (payload = {
-//    name: payload.name,
-// }),

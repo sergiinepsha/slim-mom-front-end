@@ -9,6 +9,8 @@ const registerUserRequest = createAction('POST/registerUserRequest');
 const registerUserSuccess = createAction('POST/registerUserSuccess');
 const registerUserError = createAction('POST/registerUserError');
 
+const passwordNotMatch = createAction('auth/passwordNotMatch');
+
 const logoutUserRequest = createAction('POST/logoutUserRequest');
 const logoutUserSuccess = createAction('POST/logoutUserSuccess');
 const logoutUserError = createAction('POST/logoutUserError');
@@ -25,6 +27,8 @@ export default {
    registerUserRequest,
    registerUserSuccess,
    registerUserError,
+
+   passwordNotMatch,
 
    logoutUserRequest,
    logoutUserSuccess,
