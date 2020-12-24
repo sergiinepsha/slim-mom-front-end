@@ -4,15 +4,10 @@ import { dayActions } from '../day';
 import { userActions } from '../auth';
 import { productActions } from '../product';
 import { dailyRateActions } from '../dailyRate';
-// import modalAction from '../modal/modalActions';
 import loaderAction from './loaderActions';
 
 const loader = createReducer(false, {
-   // [loaderAction.startLoader]: () => true,
    [loaderAction.endLoader]: () => false,
-   // TODO
-   // [modalAction.modalOpen]: () => true,
-   // [modalAction.modalClose]: () => false,
 
    [dayActions.eatenProductError]: () => true,
    [dayActions.eatenProductRequest]: () => true,

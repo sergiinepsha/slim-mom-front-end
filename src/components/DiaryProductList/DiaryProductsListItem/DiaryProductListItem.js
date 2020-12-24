@@ -9,7 +9,6 @@ export default function ContactListItem({ product }) {
    const dispatch = useDispatch();
 
    const dayId = useSelector(daySelectors.dayId);
-   // const eatenProducts = useSelector(daySelectors.eatenProducts);
 
    const onDelete = () => {
       const productAndDayIds = {
@@ -19,18 +18,6 @@ export default function ContactListItem({ product }) {
 
       dayOperations.deleteProduct(productAndDayIds, dispatch);
    };
-
-   // const del = e => {
-   //    console.dir(e.target);
-
-   //    const eatenProductId = eatenProducts[0].id;
-   //    const request = { dayId, eatenProductId: 'f5d59d20-1095-4752-ad71-f455218bf454' };
-   //    console.log(request);
-
-   //    if (e) {
-   //       dayOperations.deleteProduct(request, dispatch);
-   //    }
-   // };
 
    return (
       <li className={s.product_Item}>
