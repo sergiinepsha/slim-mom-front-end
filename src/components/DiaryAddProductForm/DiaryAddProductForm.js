@@ -69,8 +69,9 @@ const DiaryAddProductForm = () => {
 
             {products.length > 0 && isHidden && (
                <select className={s.products} id="products" required size={size}>
-                  {products.map(({ title }) => (
+                  {products.map(({ _id, title }) => (
                      <option
+                        key={_id}
                         className={s.optionClass}
                         value={title.ru}
                         onClick={e => {
