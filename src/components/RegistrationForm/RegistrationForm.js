@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import PrimaryInput from '../common/PrimaryInput/PrimaryInput';
 import BasicButton from '../common/BasicButton/BasicButton';
 
-import { userOperations } from '../../redux/auth';
+import { userActions, userOperations } from '../../redux/auth';
 
 import s from './RegistrationForm.module.css';
 
@@ -30,7 +30,12 @@ const RegistrationForm = () => {
       evt.preventDefault();
 
       if (password !== passwordDuplicate) {
-         // TODO: error
+         dispatch(
+            userActions.passwordNotMatch({
+               error: true,
+               message: 'Пароли в форме не совпадают!',
+            }),
+         );
          return;
       }
 

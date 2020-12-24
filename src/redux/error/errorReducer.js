@@ -6,6 +6,12 @@ import { createReducer } from '@reduxjs/toolkit';
 // import { dailyRateActions } from '../dailyRate';
 import cleanError, { readingInError } from './errorActions';
 
+// const registerError = (state, { payload }) => ({
+//    ...state,
+//    error: payload.message,
+//    register: payload.message,
+// });
+
 const isError = createReducer(
    { error: '' },
    {
@@ -17,8 +23,31 @@ const isError = createReducer(
       [readingInError]: (state, { payload }) => ({
          ...state,
          error: payload.error,
-         [payload.name]: payload.error,
+         [payload.name]: [
+            {
+               requestError: payload.error,
+               payloadError: payload.message,
+            },
+         ],
       }),
+      // [userActions.passwordNotMatch]: registerError,
+      // [userActions.loginUserError]: (state, { payload }) => ({
+      //    ...state,
+      //    error: payload.message,
+      //    login: payload.message,
+      // }),
+      //[userActions.registerUserError]: registerError,
+
+      // [userActions.logoutUserError]: (state, { payload }) => ({
+      //    ...state,
+      //    error: payload.message,
+      //    logout: payload.message,
+      // }),
+      // [userActions.currentUserError]: (state, { payload }) => ({
+      //    ...state,
+      //    error: payload.message,
+      //    current: payload.message,
+      // }),
 
       // [userActions.loginUserError]: (state, { payload }) => ({
       //    ...state,
@@ -73,7 +102,3 @@ const isError = createReducer(
 );
 
 export default isError;
-
-// (payload = {
-//    name: payload.name,
-// }),

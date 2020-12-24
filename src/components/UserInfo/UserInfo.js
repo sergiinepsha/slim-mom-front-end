@@ -12,10 +12,22 @@ export default function UserInfo() {
    useEffect(() => {
       if (items) {
          setItemList([
-            { name: 'Осталось', value: Math.round(items.kcalLeft) || null },
-            { name: 'Употреблено', value: Math.round(items.kcalConsumed) || null },
-            { name: 'Дневная норма', value: Math.round(items.dailyRate) || null },
-            { name: 'n% от нормы', value: Math.round(items.percentsOfDailyRate) || null },
+            { name: 'Осталось', value: Math.round(items.kcalLeft) || null, measureUnit: 'ккал' },
+            {
+               name: 'Употреблено',
+               value: Math.round(items.kcalConsumed) || null,
+               measureUnit: 'ккал',
+            },
+            {
+               name: 'Дневная норма',
+               value: Math.round(items.dailyRate) || null,
+               measureUnit: 'ккал',
+            },
+            {
+               name: 'n% от нормы',
+               value: Math.round(items.percentsOfDailyRate) || null,
+               measureUnit: '%',
+            },
          ]);
          return;
       }

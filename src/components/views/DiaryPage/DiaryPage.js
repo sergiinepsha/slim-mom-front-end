@@ -8,16 +8,11 @@ import AddButton from '../../common/AddButton/AddButton';
 
 export default function DiaryPage() {
    const [isClick, setClick] = useState(false);
-   // const [isMobile, setMobile] = useState(false);
+
    const isMobile = false;
    const openMenuAdd = () => {
       setClick(true);
    };
-
-   // const changeWidth = e => {
-   //    console.log(e);
-   //    setMobile(false);
-   // };
 
    return (
       <>

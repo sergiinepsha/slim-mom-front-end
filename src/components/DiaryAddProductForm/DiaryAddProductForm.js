@@ -22,6 +22,8 @@ const DiaryAddProductForm = () => {
    const [weight, setWeight] = useState('');
    const changeWeight = ({ value }) => setWeight(value);
 
+   const [isHidden, setHidden] = useState(true);
+
    const date = useSelector(daySelectors.date);
    const products = useSelector(productSelectors.products);
 
@@ -40,6 +42,7 @@ const DiaryAddProductForm = () => {
 
       dayOperations.postEatenProduct({ date, productId, weight }, dispatch);
       clearForm();
+      setHidden(true);
    };
 
    const clearForm = () => {
@@ -48,6 +51,12 @@ const DiaryAddProductForm = () => {
       dispatch(productActions.emptyProduct());
    };
 
+   let size;
+
+   if (products.length > 1) {
+      size = '10';
+   }
+
    return (
       <form className={s.form} onSubmit={handlerSubmit}>
          <div className={s.container}>
@@ -55,16 +64,27 @@ const DiaryAddProductForm = () => {
                value={productName}
                type="text"
                placeholder="Введите продукт"
-               list="products"
                onChange={changeProductName}
             />
-            {products.length > 0 && (
-               <datalist className={s.products} id="products">
+
+            {products.length > 0 && isHidden && (
+               <select className={s.products} id="products" required size={size}>
                   {products.map(({ _id, title }) => (
-                     <option key={_id} value={title.ru}></option>
+                     <option
+                        key={_id}
+                        className={s.optionClass}
+                        value={title.ru}
+                        onClick={e => {
+                           setHidden(false);
+                           setProductName(e.target.outerText);
+                        }}
+                     >
+                        {title.ru}
+                     </option>
                   ))}
-               </datalist>
+               </select>
             )}
+
             <PrimaryInput
                value={weight}
                type="number"
