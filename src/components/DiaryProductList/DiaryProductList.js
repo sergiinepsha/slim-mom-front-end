@@ -14,7 +14,6 @@ function DiaryProductsList() {
       dayOperations.getInfoForDay(date, dispatch);
    }, [dispatch, date]);
 
-   console.log(eatenProducts);
    return (
       <div className={s.container}>
          {eatenProducts.length > 0 && (
