@@ -5,6 +5,7 @@
    align-items: center;
    margin-bottom: 30px;
    padding-top: 80px;
+   position: relative;
 }
 
 .container {
@@ -18,16 +19,33 @@
    margin-left: auto;
    margin-right: auto;
    position: absolute;
-
-   max-width: 500px;
+   top: 118px;
+   z-index: 10;
+   max-width: 240px;
    background-color: #d2e9ff;
-   padding: 5px;
-   font: 12px Arial, Helvetica, sans-serif;
+   /* padding: 5px; */
+   font: 14px Arial, Helvetica, sans-serif;
    color: #666;
 }
 
-.container input::-webkit-calendar-picker-indicator {
+/* .container input::-webkit-calendar-picker-indicator {
    display: none;
+} */
+
+.optionClass{
+   
+   border: 1px solid #ddd; /* Add a border to all links */
+   margin-top: -1px; /* Prevent double borders */
+   background-color: #f6f6f6; /* Grey background color */
+   padding: 5px; /* Add some padding */
+   text-decoration: none; /* Remove default text underline */
+   font-size: 14px; /* Increase the font-size */
+   color: black; /* Add a black text color */
+   display: block; /* Make it into a block element to fill the whole list */
+}
+
+.optionClass:hover{
+   background-color: rgb(206, 206, 206);
 }
 
 .btn_wrapper {
