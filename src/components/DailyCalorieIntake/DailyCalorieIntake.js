@@ -1,17 +1,21 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
 import BasicButton from '../common/BasicButton/BasicButton';
 import modalActions from '../../redux/modal/modalActions';
 
+import dailyRateSelectors from '../../redux/dailyRate/dailyRateSelectors';
+
 import s from './DailyCalorieIntake.module.css';
 
-const DailyCalorieIntake = ({ ccalSum, isModal }) => {
+const DailyCalorieIntake = () => {
+   const dispatch = useDispatch();
    const history = useHistory();
+   const ccalSum = useSelector(dailyRateSelectors.ccalSum);
 
    const goToLoginPage = () => {
-      isModal();
+      dispatch(modalActions.modalClose());
       history.push('/login');
    };
 
@@ -42,14 +46,4 @@ const DailyCalorieIntake = ({ ccalSum, isModal }) => {
    );
 };
 
-const mapState = state => ({
-   ccalSum: state.dailyRateData.dailyRate,
-});
-
-const mapDisp = dispatch => {
-   return {
-      isModal: () => dispatch(modalActions.modalClose()),
-   };
-};
-
-export default connect(mapState, mapDisp)(DailyCalorieIntake);
+export default DailyCalorieIntake;

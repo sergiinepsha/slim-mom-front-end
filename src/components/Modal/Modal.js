@@ -5,19 +5,22 @@ import DailyCalorieIntake from '../DailyCalorieIntake/DailyCalorieIntake';
 import s from './modal.module.css';
 
 import modalActions from '../../redux/modal/modalActions';
-import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
-function Modal({ isModal }) {
+function Modal() {
+   const dispatch = useDispatch();
+
    const closeModal = e => {
       e.preventDefault();
-      if (e.target.type === 'button' || e.target.className === 'modal_overlay__265-I') {
-         isModal();
+      console.dir(e.target);
+      if (e.target.type === 'button' || e.target.tabIndex === -2) {
+         dispatch(modalActions.modalClose());
       }
    };
 
    return (
       <>
-         <div className={s.overlay} onClick={closeModal}>
+         <div className={s.overlay} onClick={closeModal} tabIndex="-2">
             <div className={s.container}>
                <button className={s.backButton} type="button"></button>
                <button className={s.closeButton} type="button"></button>
@@ -29,10 +32,4 @@ function Modal({ isModal }) {
    );
 }
 
-const mapDisp = dispatch => {
-   return {
-      isModal: () => dispatch(modalActions.modalClose()),
-   };
-};
-
-export default connect(null, mapDisp)(Modal);
+export default Modal;
