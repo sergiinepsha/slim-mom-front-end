@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
-import PrimaryInput from '../common/PrimaryInput/PrimaryInput';
-import BasicButton from '../common/BasicButton/BasicButton';
+import PrimaryInput from '../../common/PrimaryInput/PrimaryInput';
+import BasicButton from '../../common/BasicButton/BasicButton';
 
-import { userActions, userOperations } from '../../redux/auth';
+import { userActions, userOperations } from '../../../redux/auth';
 
 import s from './RegistrationForm.module.css';
 

@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import Loader from '../../Loader';
-import { userOperations } from '../../../redux/auth';
+import { userOperations } from '../../../../redux/auth';
 
 import s from './UserMenu.module.css';
 

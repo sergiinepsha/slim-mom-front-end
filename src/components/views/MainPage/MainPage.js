@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import DailyCaloriesForm from '../../DailyCaloriesForm/DailyCaloriesForm';
-import Modal from '../../Modal/Modal';
+import DailyCaloriesForm from '../../presentational/DailyCaloriesForm/DailyCaloriesForm';
+import Modal from '../../presentational/Modal/Modal';
 
 import s from './MainPage.module.css';
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Calendar from 'react-calendar';
 import { useDispatch } from 'react-redux';
-import { dayActions } from '../../redux/day';
+import { dayActions } from '../../../redux/day';
 import s from './DiaryDateCalendar.module.css';
 
 function DiaryDateCalendar() {

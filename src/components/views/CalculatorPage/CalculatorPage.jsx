@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
-import DailyCaloriesForm from '../../DailyCaloriesForm/DailyCaloriesForm';
-import UserInfo from '../../UserInfo/UserInfo';
+import DailyCaloriesForm from '../../presentational/DailyCaloriesForm/DailyCaloriesForm';
+import UserInfo from '../../presentational/UserInfo/UserInfo';
 import { dayActions } from '../../../redux/day';
 
 import s from './CalculatorPage.module.css';

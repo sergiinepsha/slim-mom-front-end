@@ -2,8 +2,8 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
-import BasicButton from '../common/BasicButton/BasicButton';
-import modalActions from '../../redux/modal/modalActions';
+import BasicButton from '../../common/BasicButton/BasicButton';
+import { modalActions } from '../../../redux/modal';
 
 import dailyRateSelectors from '../../redux/dailyRate/dailyRateSelectors';
 

@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import PrimaryInput from '../common/PrimaryInput/PrimaryInput';
-import BasicButton from '../common/BasicButton/BasicButton';
+import PrimaryInput from '../../common/PrimaryInput/PrimaryInput';
+import BasicButton from '../../common/BasicButton/BasicButton';
 import BloodGroup from './BloodGroup/BloodGroup';
 
-import { dailyRateOperations } from '../../redux/dailyRate';
-import { userSelector } from '../../redux/auth';
+import { dailyRateOperations } from '../../../redux/dailyRate';
+import { userSelector } from '../../../redux/auth';
 
 import s from './DailyCaloriesForm.module.css';
 
