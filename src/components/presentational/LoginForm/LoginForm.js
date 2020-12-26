@@ -7,7 +7,9 @@ import BasicButton from '../../common/BasicButton/BasicButton';
 
 import { userOperations } from '../../../redux/auth';
 
-import s from './LoginForm.module.css';
+import validatorLoginForm from '../../../validators/validatorLoginForm';
+
+import style from './LoginForm.module.css';
 
 const LoginForm = () => {
    const [email, setEmail] = useState('');
@@ -20,15 +22,17 @@ const LoginForm = () => {
 
    const history = useHistory();
 
-   const handlerSubmit = evt => {
-      evt.preventDefault();
+   const handlerSubmit = e => {
+      e.preventDefault();
+
+      if (!validatorLoginForm(email, password, dispatch)) {
+         return;
+      }
 
       userOperations.loginUser({ email, password }, dispatch);
 
       clearForm();
    };
-
-   const handleClick = () => history.push('/register');
 
    const clearForm = () => {
       setEmail('');
@@ -36,10 +40,10 @@ const LoginForm = () => {
    };
 
    return (
-      <div className={s.wrapper}>
-         <h2 className={s.title}>Вход</h2>
-         <form className={s.form} onSubmit={handlerSubmit}>
-            <div className={s.container}>
+      <div className={style.wrapper}>
+         <h2 className={style.title}>Вход</h2>
+         <form className={style.form} onSubmit={handlerSubmit}>
+            <div className={style.container}>
                <PrimaryInput
                   value={email}
                   type="email"
@@ -53,9 +57,9 @@ const LoginForm = () => {
                   onChange={changePassword}
                />
             </div>
-            <div className={s.btn_wrapper}>
+            <div className={style.btn_wrapper}>
                <BasicButton type="submit">Вход</BasicButton>
-               <BasicButton type="button" onClick={handleClick}>
+               <BasicButton type="button" onClick={() => history.push('/register')}>
                   Регистрация
                </BasicButton>
             </div>

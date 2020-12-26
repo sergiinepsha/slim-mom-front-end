@@ -1,29 +1,29 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import DailyCaloriesForm from '../../presentational/DailyCaloriesForm/DailyCaloriesForm';
 import Modal from '../../presentational/Modal/Modal';
 
-import s from './MainPage.module.css';
+import { modalSelectors } from '../../../redux/modal';
 
-const MainPage = ({ isModalop }) => {
+import style from './MainPage.module.css';
+
+const MainPage = () => {
    const title = 'Просчитай свою суточную норму калорий прямо сейчас';
 
-   return (
-      <div className={s.wrapper}>
-         <img src="/images/desctop_min.png" alt="desctop_img" className={s.desctop_img} />
-         <img src="/images/tablet_min.png" alt="tablet_img" className={s.tablet_img} />
-         {isModalop && <Modal />}
+   const isModal = useSelector(modalSelectors.isModal);
 
-         <div className={s.container}>
+   return (
+      <div className={style.wrapper}>
+         <img src="/images/desctop_min.png" alt="desctop_img" className={style.desctop_img} />
+         <img src="/images/tablet_min.png" alt="tablet_img" className={style.tablet_img} />
+         {isModal && <Modal />}
+
+         <div className={style.container}>
             <DailyCaloriesForm title={title} />
          </div>
       </div>
    );
 };
 
-const mapState = state => ({
-   isModalop: state.isModal.isModal,
-});
-
-export default connect(mapState)(MainPage);
+export default MainPage;

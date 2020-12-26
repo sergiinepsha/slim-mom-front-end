@@ -9,7 +9,9 @@ import { dayOperations, daySelectors } from '../../../redux/day';
 import PrimaryInput from '../../common/PrimaryInput/PrimaryInput';
 import BasicButton from '../../common/BasicButton/BasicButton';
 
-import s from './DiaryAddProductForm.module.css';
+import style from './DiaryAddProductForm.module.css';
+
+const SIZE_OF_SELECTOR = '10';
 
 const DiaryAddProductForm = () => {
    const [productName, setProductName] = useState('');
@@ -29,12 +31,12 @@ const DiaryAddProductForm = () => {
 
    useEffect(() => {
       if (productName) {
-         setTimeout(() => productOperations.getProductByQuery(productName, dispatch), 200);
+         productOperations.getProductByQuery(productName, dispatch);
       }
    }, [dispatch, productName]);
 
-   const handlerSubmit = async evt => {
-      evt.preventDefault();
+   const handlerSubmit = async e => {
+      e.preventDefault();
 
       const productId = products[0]._id;
 
@@ -52,12 +54,12 @@ const DiaryAddProductForm = () => {
    let size;
 
    if (products.length > 1) {
-      size = '10';
+      size = SIZE_OF_SELECTOR;
    }
 
    return (
-      <form className={s.form} onSubmit={handlerSubmit}>
-         <div className={s.container}>
+      <form className={style.form} onSubmit={handlerSubmit}>
+         <div className={style.container}>
             <PrimaryInput
                value={productName}
                type="text"
@@ -66,11 +68,11 @@ const DiaryAddProductForm = () => {
             />
 
             {products.length > 0 && isHidden && (
-               <select className={s.products} id="products" required size={size}>
+               <select className={style.products} id="products" required size={size}>
                   {products.map(({ _id, title }) => (
                      <option
                         key={_id}
-                        className={s.optionClass}
+                        className={style.optionClass}
                         value={title.ru}
                         onClick={e => {
                            setHidden(false);
@@ -90,7 +92,7 @@ const DiaryAddProductForm = () => {
                onChange={changeWeight}
             />
          </div>
-         <div className={s.btn_wrapper}>
+         <div className={style.btn_wrapper}>
             <BasicButton type="submit">Добавить</BasicButton>
          </div>
       </form>
