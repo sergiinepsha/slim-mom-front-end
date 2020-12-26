@@ -10,7 +10,7 @@ const errorState = ({ dispatch }) => next => async action => {
          return next();
       }
 
-      if (action.type === userActions.passwordNotMatch.type) {
+      if (action.type === userActions.validateFormError.type) {
          await readError(action.payload, action, dispatch);
          await clear(dispatch);
          return;

@@ -8,7 +8,9 @@ import BloodGroup from './BloodGroup/BloodGroup';
 import { dailyRateOperations } from '../../../redux/dailyRate';
 import { userSelector } from '../../../redux/auth';
 
-import s from './DailyCaloriesForm.module.css';
+import validatorDailyCaloriesForm from '../../../validators/validatorDailyCaloriesForm';
+
+import style from './DailyCaloriesForm.module.css';
 
 const DailyCaloriesForm = ({ title }) => {
    const [height, setHeight] = useState('');
@@ -33,11 +35,12 @@ const DailyCaloriesForm = ({ title }) => {
    const userId = useSelector(userSelector.getUserId);
    const isAuth = useSelector(userSelector.isAuth);
 
-   const handlerSubmit = evt => {
-      evt.preventDefault();
-      console.log(userCharacteristics);
+   const handlerSubmit = e => {
+      e.preventDefault();
 
-      console.log(userId, isAuth);
+      if (!validatorDailyCaloriesForm(weight, height, age, desiredWeight, bloodType, dispatch)) {
+         return;
+      }
 
       if (isAuth) {
          dailyRateOperations.getDailyIntakeById(userCharacteristics, userId, dispatch);
@@ -57,10 +60,10 @@ const DailyCaloriesForm = ({ title }) => {
    };
 
    return (
-      <div className={s.container}>
-         <h2 className={s.title}>{title}</h2>
-         <form className={s.form} onSubmit={handlerSubmit}>
-            <div className={s.inp_wrapper}>
+      <div className={style.container}>
+         <h2 className={style.title}>{title}</h2>
+         <form className={style.form} onSubmit={handlerSubmit}>
+            <div className={style.inp_wrapper}>
                <PrimaryInput
                   value={height}
                   type="number"
@@ -89,7 +92,7 @@ const DailyCaloriesForm = ({ title }) => {
                <BloodGroup bloodGroup={bloodType} onChange={onBloodGroupChange} />
             </div>
 
-            <div className={s.btn_wrapper}>
+            <div className={style.btn_wrapper}>
                <BasicButton type="submit">Похудеть</BasicButton>
             </div>
          </form>

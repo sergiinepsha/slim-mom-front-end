@@ -5,9 +5,11 @@ import { useDispatch } from 'react-redux';
 import PrimaryInput from '../../common/PrimaryInput/PrimaryInput';
 import BasicButton from '../../common/BasicButton/BasicButton';
 
-import { userActions, userOperations } from '../../../redux/auth';
+import { userOperations } from '../../../redux/auth';
 
-import s from './RegistrationForm.module.css';
+import validatorRegistrationForm from '../../../validators/validatorRegistrationForm';
+
+import style from './RegistrationForm.module.css';
 
 const RegistrationForm = () => {
    const [username, setUsername] = useState('');
@@ -26,11 +28,10 @@ const RegistrationForm = () => {
 
    const history = useHistory();
 
-   const handlerSubmit = evt => {
-      evt.preventDefault();
+   const handlerSubmit = e => {
+      e.preventDefault();
 
-      if (password !== passwordDuplicate) {
-         dispatch(userActions.passwordNotMatch({ message: 'Пароли в форме не совпадают!' }));
+      if (!validatorRegistrationForm(username, email, password, passwordDuplicate, dispatch)) {
          return;
       }
 
@@ -38,8 +39,6 @@ const RegistrationForm = () => {
 
       clearForm();
    };
-
-   const handleClick = () => history.push('/login');
 
    const clearForm = () => {
       setUsername('');
@@ -49,10 +48,10 @@ const RegistrationForm = () => {
    };
 
    return (
-      <div className={s.wrapper}>
-         <h2 className={s.title}>Регистрация</h2>
-         <form className={s.form} onSubmit={handlerSubmit}>
-            <div className={s.container}>
+      <div className={style.wrapper}>
+         <h2 className={style.title}>Регистрация</h2>
+         <form className={style.form} onSubmit={handlerSubmit}>
+            <div className={style.container}>
                <PrimaryInput
                   value={username}
                   type="text"
@@ -78,8 +77,8 @@ const RegistrationForm = () => {
                   onChange={changePasswordDuplicate}
                />
             </div>
-            <div className={s.btn_wrapper}>
-               <BasicButton type="button" onClick={handleClick}>
+            <div className={style.btn_wrapper}>
+               <BasicButton type="button" onClick={() => history.push('/login')}>
                   Вход
                </BasicButton>
                <BasicButton type="submit">Регистрация</BasicButton>
