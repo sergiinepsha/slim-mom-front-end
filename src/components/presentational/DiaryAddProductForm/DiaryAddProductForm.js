@@ -3,15 +3,13 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import 'react-dropdown/style.css';
 
-import { productActions, productOperations, productSelectors } from '../../redux/product';
+import { productActions, productOperations, productSelectors } from '../../../redux/product';
+import { dayOperations, daySelectors } from '../../../redux/day';
 
-import PrimaryInput from '../common/PrimaryInput/PrimaryInput';
-import BasicButton from '../common/BasicButton/BasicButton';
+import PrimaryInput from '../../common/PrimaryInput/PrimaryInput';
+import BasicButton from '../../common/BasicButton/BasicButton';
 
 import s from './DiaryAddProductForm.module.css';
-
-import dayOperations from '../../redux/day/dayOperations';
-import daySelectors from '../../redux/day/daySelectors';
 
 const DiaryAddProductForm = () => {
    const [productName, setProductName] = useState('');

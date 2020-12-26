@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import s from './DiaryProductList.module.css';
 import DiaryProductListItem from './DiaryProductsListItem/DiaryProductListItem';
 
-import { dayOperations, daySelectors } from '../../redux/day';
+import { dayOperations, daySelectors } from '../../../redux/day';
 
 function DiaryProductsList() {
    const eatenProducts = useSelector(daySelectors.eatenProducts);

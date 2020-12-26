@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { dayOperations, daySelectors } from '../../../redux/day';
+import { dayOperations, daySelectors } from '../../../../redux/day';
 import s from './DiaryProductListItem.module.css';
 
 export default function ContactListItem({ product }) {
