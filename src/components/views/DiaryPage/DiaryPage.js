@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import s from './DiaryPage.module.css';
-import DiaryProductList from '../../DiaryProductList/DiaryProductList';
-import DiaryDateCalendar from '../../DiaryDateCalendar/DiaryDateCalendar';
-import DiaryAddProductForm from '../../DiaryAddProductForm/DiaryAddProductForm';
-import UserInfo from '../../UserInfo/UserInfo';
+import DiaryProductList from '../../presentational/DiaryProductList/DiaryProductList';
+import DiaryDateCalendar from '../../presentational/DiaryDateCalendar/DiaryDateCalendar';
+import DiaryAddProductForm from '../../presentational/DiaryAddProductForm/DiaryAddProductForm';
+import UserInfo from '../../presentational/UserInfo/UserInfo';
 import AddButton from '../../common/AddButton/AddButton';
 
 export default function DiaryPage() {

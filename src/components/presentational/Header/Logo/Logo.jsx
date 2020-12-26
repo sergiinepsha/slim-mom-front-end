@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import { userSelector } from '../../../redux/auth';
+import { userSelector } from '../../../../redux/auth';
 import Item from '../Navigation/Item/Item';
 
 import s from './Logo.module.css';
