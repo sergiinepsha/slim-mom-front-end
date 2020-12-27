@@ -16,7 +16,6 @@ export const tokenToHeader = {
 const post = async (url, reqBody = null) => {
    try {
       const { data } = await axios.post(url, reqBody);
-
       return data;
    } catch (error) {
       throw error;

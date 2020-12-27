@@ -60,8 +60,6 @@ const getCurrentUser = async (persistedToken, dispatch) => {
 
    try {
       const data = await fetchDB.get(`/user`);
-      console.log(data);
-
       dispatch(userActions.currentUserSuccess(data));
    } catch (error) {
       dispatch(userActions.currentUserError(error));
