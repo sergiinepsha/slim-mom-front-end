@@ -12,7 +12,7 @@ import validatorRegistrationForm from '../../../validators/validatorRegistration
 import style from './RegistrationForm.module.css';
 
 const RegistrationForm = () => {
-   const [username, setUsername] = useState('');
+   const [name, setUsername] = useState('');
    const changeUsername = ({ value }) => setUsername(value);
 
    const [email, setEmail] = useState('');
@@ -31,11 +31,11 @@ const RegistrationForm = () => {
    const handlerSubmit = e => {
       e.preventDefault();
 
-      if (!validatorRegistrationForm(username, email, password, passwordDuplicate, dispatch)) {
+      if (!validatorRegistrationForm(name, email, password, passwordDuplicate, dispatch)) {
          return;
       }
 
-      userOperations.registerAndLoginUser({ username, email, password }, dispatch);
+      userOperations.registerAndLoginUser({ name, email, password }, dispatch);
 
       clearForm();
    };
@@ -53,7 +53,7 @@ const RegistrationForm = () => {
          <form className={style.form} onSubmit={handlerSubmit}>
             <div className={style.container}>
                <PrimaryInput
-                  value={username}
+                  value={name}
                   type="text"
                   placeholder="Имя *"
                   onChange={changeUsername}

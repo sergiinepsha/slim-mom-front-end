@@ -8,16 +8,16 @@ import s from './UserMenu.module.css';
 
 const UserMenu = ({ onLogout }) => {
    const dispatch = useDispatch();
-   const isToken = useSelector(state => state.authUser.accessToken);
-   const { username } = useSelector(state => state.authUser.user);
+   const isAuth = useSelector(state => state.authUser.accessToken);
+   const { name } = useSelector(state => state.authUser.user);
    const loader = useSelector(state => state.loader);
    return (
       <>
          {loader && <Loader />}
-         {isToken && (
+         {isAuth && (
             <div className={s.item}>
                <>
-                  <p className={s.name}>{username}</p>
+                  <p className={s.name}>{name}</p>
                   <button
                      className={s.button}
                      onClick={() => dispatch(userOperations.logoutUser())}
