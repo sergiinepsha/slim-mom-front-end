@@ -5,7 +5,7 @@ import { useHistory } from 'react-router-dom';
 import BasicButton from '../../common/BasicButton/BasicButton';
 import { modalActions } from '../../../redux/modal';
 
-import dailyRateSelectors from '../../redux/dailyRate/dailyRateSelectors';
+import dailyRateSelectors from '../../../redux/dailyRate/dailyRateSelectors';
 
 import s from './DailyCalorieIntake.module.css';
 

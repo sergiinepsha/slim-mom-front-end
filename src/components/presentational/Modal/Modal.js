@@ -4,7 +4,7 @@ import DailyCalorieIntake from '../DailyCalorieIntake/DailyCalorieIntake';
 
 import s from './modal.module.css';
 
-import modalActions from '../../redux/modal/modalActions';
+import modalActions from '../../../redux/modal/modalActions';
 import { useDispatch } from 'react-redux';
 
 function Modal() {
