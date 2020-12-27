@@ -4,21 +4,21 @@ import userAction from './userActions';
 
 const INITIAL_USER_STATE = {
    email: null,
-   username: null,
+   name: null,
    id: null,
-   notAllowedProducts: [],
+   // notAllowedProducts: [],
 };
 
 const userLogged = (_, { payload }) => {
-   const { email, username, id, userData } = payload.user;
-   const { notAllowedProducts } = userData;
-   return { email, username, id, notAllowedProducts };
+   const { email, name, id, userData } = payload.user;
+   // const { notAllowedProducts } = userData;
+   return { email, name, id };
 };
 
 const getCurrentUser = (_, { payload }) => {
-   const { email, username, id, userData } = payload;
-   const { notAllowedProducts } = userData;
-   return { email, username, id, notAllowedProducts };
+   const { email, name, id, userData } = payload;
+   // const { notAllowedProducts } = userData;
+   return { email, name, id };
 };
 
 const user = createReducer(INITIAL_USER_STATE, {

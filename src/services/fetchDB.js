@@ -1,7 +1,7 @@
 /* eslint-disable import/no-anonymous-default-export */
 import axios from 'axios';
 
-axios.defaults.baseURL = 'https://slimmom-backend.herokuapp.com';
+axios.defaults.baseURL = 'http://localhost:3001';
 axios.defaults.headers.get['Accept'] = 'application/json';
 
 export const tokenToHeader = {

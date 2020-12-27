@@ -9,7 +9,6 @@ const registerAndLoginUser = async (credentials, dispatch) => {
 
    try {
       await fetchDB.post(`/auth/register`, credentials);
-
       dispatch(userActions.registerUserSuccess());
 
       const { email, password } = credentials;
@@ -24,15 +23,17 @@ const loginUser = async (credentials, dispatch) => {
 
    try {
       const data = await fetchDB.post(`/auth/login`, credentials);
+
       const { accessToken, todaySummary } = data;
+
       const { id, date } = todaySummary;
 
       tokenToHeader.set(accessToken);
 
-      dispatch(userActions.loginUserSuccess(data));
-      dispatch(dayActions.daySummary(todaySummary));
-      dispatch(dayActions.getDate(date));
-      dispatch(dayActions.dayId(id));
+      await dispatch(userActions.loginUserSuccess(data));
+      await dispatch(dayActions.daySummary(todaySummary));
+      await dispatch(dayActions.getDate(date));
+      await dispatch(dayActions.dayId(id));
    } catch (error) {
       dispatch(userActions.loginUserError(error));
    }
@@ -40,11 +41,9 @@ const loginUser = async (credentials, dispatch) => {
 
 const logoutUser = () => async dispatch => {
    dispatch(userActions.logoutUserRequest());
-
    try {
       await fetchDB.post(`/auth/logout`);
-
-      tokenToHeader.unset();
+      await tokenToHeader.unset();
 
       dispatch(userActions.logoutUserSuccess());
    } catch (error) {
