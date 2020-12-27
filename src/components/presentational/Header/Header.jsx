@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import classNames from 'classnames';
 
 import Logo from './Logo';
 import Navigation from './Navigation';
@@ -20,7 +21,7 @@ function Header() {
    }, [isToken]);
 
    return (
-      <header className={watcher}>
+      <header className={classNames ? watcher : s}>
          <div className={s.main}>
             <div className={s.logo}>
                <Logo />

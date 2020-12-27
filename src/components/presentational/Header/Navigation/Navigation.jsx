@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import classNames from 'classnames';
 
 import AuthNav from './AuthNav';
 import UserNav from './UserNav';

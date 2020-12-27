@@ -1,20 +1,22 @@
 import React, { useState, useEffect } from 'react';
+import cn from 'classnames';
 
-import s from './Btn.module.css';
+import styles from './Btn.module.css';
 
 const Btn = ({ setWatcher }) => {
    const [bars, setBars] = useState(false);
    const [btn, setBtn] = useState('');
+   const btnStyle = cn('styles.button', { 'styles.show': bars });
 
    useEffect(() => {
       if (bars) {
-         setBtn(`${s.button}`);
-         setWatcher(`${s.nav} `);
+         setBtn(`${styles.button}`);
+         setWatcher(`${styles.nav} `);
          return;
       }
 
-      setBtn(`${s.button} ${s.show}`);
-      setWatcher(`${s.head} ${s.nav}`);
+      setBtn(`${styles.button} ${styles.show}`);
+      setWatcher(`${styles.head} ${styles.nav}`);
       return;
    }, [bars, setWatcher]);
 
