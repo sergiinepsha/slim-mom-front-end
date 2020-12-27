@@ -5,28 +5,19 @@ import Item from './Item';
 import s from './ListItems.module.css';
 
 const ListItems = ({ items, name, time }) => {
-   const [itemsValue, setItemsValue] = useState([
-      { name: 'Здесь будет отображаться Ваш рацион', value: null },
-   ]);
-   const [nameList, setNameList] = useState(null);
-   const [date, setDate] = useState(null);
-
+   const [itemsValue, setItemsValue] = useState(
+      items || [{ name: 'Здесь будет отображаться Ваш рацион', value: null }],
+   );
    useEffect(() => {
-      if (time) {
-         setDate(time);
-      }
       if (items) {
          setItemsValue(items);
       }
-      if (name) {
-         setNameList(name);
-      }
-   }, [time, items, name]);
+   }, [items]);
 
    return (
       <>
          <h2 className={s.titleThisTime}>
-            {nameList} {date}
+            {name} {time || null}
          </h2>
          <ul className={s.listCcal}>
             {itemsValue.map(item => (
