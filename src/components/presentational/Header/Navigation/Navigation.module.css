@@ -21,10 +21,6 @@
 .column {
    flex-direction: column;
 }
-.headAuth,
-.head {
-   display: none;
-}
 
 .button {
    display: block;
@@ -56,6 +52,10 @@
 }
 
 @media screen and (max-width: 1279.9px) {
+   .headAuth,
+   .head {
+      display: none;
+   }
    .navAuth {
       position: absolute;
       width: 100%;
