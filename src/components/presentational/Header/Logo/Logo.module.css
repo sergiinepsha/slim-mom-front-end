@@ -1,0 +1,95 @@
+@font-face {
+   font-family: 'Gothic A1';
+   font-style: normal;
+   font-weight: 300;
+   src: local(''), url('../../../../fonts/gothic-a1-v8-latin-regular.woff2') format('woff2'),
+      /* Chrome 26+, Opera 23+, Firefox 39+ */
+         url('../../../../fonts/gothic-a1-v8-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* gothic-a1-700 - latin */
+@font-face {
+   font-family: 'Gothic A1';
+   font-style: normal;
+   font-weight: 700;
+   src: local(''), url('../../../../fonts/gothic-a1-v8-latin-700.woff2') format('woff2'),
+      /* Chrome 26+, Opera 23+, Firefox 39+ */ url('../../../../fonts/gothic-a1-v8-latin-700.woff')
+         format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+.logoContainer {
+   display: flex;
+   flex-direction: row;
+   justify-content: center;
+   align-items: flex-end;
+}
+.logo {
+   display: flex;
+   font-family: 'Gothic A1';
+   font-style: normal;
+   font-weight: 300;
+   font-size: 22px;
+   line-height: 1.2;
+   letter-spacing: 0.08em;
+
+   color: #212121;
+   text-transform: capitalize;
+}
+.logoMom {
+   width: 53.41px;
+   height: 15.67px;
+   text-transform: capitalize;
+   color: #fc842d;
+}
+
+.icon {
+   display: block;
+   width: 46.67px;
+   height: 44px;
+}
+
+/*table*/
+@media screen and (max-width: 767.9px) {
+   .logo {
+      display: none;
+   }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279.9px) {
+   .logoContainer {
+      align-items: center;
+   }
+   .logo {
+      font-size: 22px;
+      line-height: 1;
+   }
+   .logoMom {
+      width: 52.51px;
+      height: 15.41px;
+      text-transform: capitalize;
+   }
+}
+
+/*desktop*/
+@media screen and (min-width: 1280px) {
+   .logoContainer {
+      align-items: flex-end;
+   }
+   .logo {
+      font-size: 22px;
+      line-height: 1.1;
+
+      padding-right: 21.59px;
+      border-right: 2px solid#e0e0e0;
+   }
+   .logoMom {
+      width: 53.41px;
+      height: 15.67px;
+   }
+
+   .icon {
+      display: block;
+      width: 70px;
+      height: 66px;
+   }
+}

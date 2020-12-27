@@ -18,7 +18,7 @@ import { productReducer } from '../redux/product';
 import { loaderReducer } from '../redux/loader';
 import dailyRateReducer from './dailyRate/dailyRateReducer';
 import { errorReducer } from './error';
-import modalReducers from './modal/modalReducers';
+import { modalReducers } from './modal';
 import { dayReducers } from './day';
 
 const defMidd = getDefaultMiddleware({
