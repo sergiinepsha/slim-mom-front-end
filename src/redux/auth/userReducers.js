@@ -10,15 +10,15 @@ const INITIAL_USER_STATE = {
 };
 
 const userLogged = (_, { payload }) => {
-   const { email, name, id, userData } = payload.user;
+   const { email, name, _id } = payload.user;
    // const { notAllowedProducts } = userData;
-   return { email, name, id };
+   return { email, name, _id };
 };
 
 const getCurrentUser = (_, { payload }) => {
-   const { email, name, id, userData } = payload;
+   const { email, name, _id } = payload;
    // const { notAllowedProducts } = userData;
-   return { email, name, id };
+   return { email, name, _id };
 };
 
 const user = createReducer(INITIAL_USER_STATE, {
