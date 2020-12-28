@@ -10,6 +10,7 @@ const INITIAL_DAILY_RATE = {
 
 const dailyRate = createReducer(INITIAL_DAILY_RATE, {
    [dailyRateActions.getDailyIntakeSuccess]: (_, { payload }) => payload,
+   [dailyRateActions.clearDailyIntake]: () => INITIAL_DAILY_RATE,
 });
 
 export default combineReducers({

@@ -4,6 +4,7 @@ import { loaderActions } from '../redux/loader';
 
 const errorState = ({ dispatch }) => next => async action => {
    try {
+      console.log('action >>>', action);
       const item = await action.payload;
 
       if (item === undefined) {
