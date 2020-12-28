@@ -23,17 +23,17 @@ const loginUser = async (credentials, dispatch) => {
 
    try {
       const data = await fetchDB.post(`/auth/login`, credentials);
-
+      console.log(data);
       const { accessToken, todaySummary } = data;
 
-      const { id, date } = todaySummary;
+      // const { id, date } = todaySummary;
 
       tokenToHeader.set(accessToken);
 
       await dispatch(userActions.loginUserSuccess(data));
-      await dispatch(dayActions.daySummary(todaySummary));
-      await dispatch(dayActions.getDate(date));
-      await dispatch(dayActions.dayId(id));
+      // await dispatch(dayActions.daySummary(todaySummary));
+      // await dispatch(dayActions.getDate(date));
+      // await dispatch(dayActions.dayId(id));
    } catch (error) {
       dispatch(userActions.loginUserError(error));
    }

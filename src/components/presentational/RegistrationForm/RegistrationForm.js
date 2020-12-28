@@ -12,8 +12,8 @@ import validatorRegistrationForm from '../../../validators/validatorRegistration
 import style from './RegistrationForm.module.css';
 
 const RegistrationForm = () => {
-   const [name, setUsername] = useState('');
-   const changeUsername = ({ value }) => setUsername(value);
+   const [name, setName] = useState('');
+   const changeUsername = ({ value }) => setName(value);
 
    const [email, setEmail] = useState('');
    const changeEmail = ({ value }) => setEmail(value);
@@ -41,7 +41,7 @@ const RegistrationForm = () => {
    };
 
    const clearForm = () => {
-      setUsername('');
+      setName('');
       setEmail('');
       setPassword('');
       setPasswordDuplicate('');
