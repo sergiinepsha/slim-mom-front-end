@@ -11,7 +11,7 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-import { isErrorAlert } from '../middleware';
+import { isErrorAlert, loginState } from '../middleware';
 
 import { userReducers } from '../redux/auth';
 import { productReducer } from '../redux/product';
@@ -44,6 +44,6 @@ export const store = configureStore({
       isError: errorReducer,
       loader: loaderReducer,
    },
-   middleware: [...defMidd, isErrorAlert],
+   middleware: [...defMidd, loginState, isErrorAlert],
 });
 export const persistor = persistStore(store);

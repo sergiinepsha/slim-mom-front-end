@@ -8,8 +8,6 @@ const getDailyIntake = async (userCharacteristics, dispatch) => {
 
    try {
       const date = await fetchDB.post('/daily-rate', userCharacteristics);
-      console.log(date);
-
       dispatch(dailyRateActions.getDailyIntakeSuccess(date));
    } catch (error) {
       dispatch(dailyRateActions.getDailyIntakeError(error));
@@ -21,8 +19,6 @@ const getDailyIntakeById = async (userCharacteristics, userId, dispatch) => {
 
    try {
       const date = await fetchDB.post(`/daily-rate/${userId}`, userCharacteristics);
-      console.log(date);
-
       dispatch(dailyRateActions.getDailyIntake_ID_Success(date));
    } catch (error) {
       dispatch(dailyRateActions.getDailyIntake_ID_Error(error));
