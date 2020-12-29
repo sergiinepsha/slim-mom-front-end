@@ -40,20 +40,23 @@ const getInfoForDay = async (date, dispatch) => {
 
    try {
       const data = await fetchDB.post('/day/info', { date });
-      const { id, eatenProducts, daySummary } = data;
-
-      if (!id) {
-         daySummarySetState({ ...data }, dispatch);
+      const { _id, eatenProducts, daySummary } = data;
+      console.log(data);
+      console.log(daySummary);
+      dispatch(dayActions.daySummary(daySummary));
+      dispatch(dayActions.dayId(_id));
+      // refact --v
+      if (!_id) {
+         // daySummarySetState({ ...data }, dispatch);
          dispatch(dayActions.emptyEatenProducts());
          dispatch(loaderActions.endLoader());
          return;
       }
 
-      dispatch(dayActions.dayId(id));
-
-      daySummarySetState(daySummary, dispatch);
+      // daySummarySetState(daySummary, dispatch);
 
       eatenProductsSetState(eatenProducts, dispatch);
+      // ----^
    } catch (error) {
       dispatch(dayActions.infoForDayError(error));
    }

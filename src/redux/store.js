@@ -44,6 +44,6 @@ export const store = configureStore({
       isError: errorReducer,
       loader: loaderReducer,
    },
-   middleware: [...defMidd, loginState, isErrorAlert],
+   middleware: [...defMidd], // loginState, isErrorAlert
 });
 export const persistor = persistStore(store);
