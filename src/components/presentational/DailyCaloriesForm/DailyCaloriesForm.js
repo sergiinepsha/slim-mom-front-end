@@ -11,6 +11,7 @@ import { userSelector } from '../../../redux/auth';
 import validatorDailyCaloriesForm from '../../../validators/validatorDailyCaloriesForm';
 
 import style from './DailyCaloriesForm.module.css';
+import { useHistory } from 'react-router-dom';
 
 const DailyCaloriesForm = ({ title }) => {
    const [height, setHeight] = useState('');
@@ -29,6 +30,7 @@ const DailyCaloriesForm = ({ title }) => {
    const onBloodGroupChange = ({ value }) => setBloodGroup(value);
 
    const dispatch = useDispatch();
+   const history = useHistory();
 
    const userCharacteristics = { weight, height, age, desiredWeight, bloodType };
 
@@ -44,6 +46,7 @@ const DailyCaloriesForm = ({ title }) => {
 
       if (isAuth) {
          dailyRateOperations.getDailyIntakeById(userCharacteristics, userId, dispatch);
+         history.push('/diary');
       } else {
          dailyRateOperations.getDailyIntake(userCharacteristics, dispatch);
       }

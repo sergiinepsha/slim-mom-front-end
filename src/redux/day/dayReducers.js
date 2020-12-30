@@ -11,11 +11,12 @@ const INITIAL_DAY_SUMMARY = {
 };
 
 const getDaySummary = (_, { payload }) => {
+   console.log(payload);
    const { kcalLeft, kcalConsumed, dailyRate, percentsOfDailyRate } = payload;
    return { kcalLeft, kcalConsumed, dailyRate, percentsOfDailyRate };
 };
 
-const deleteEatenProduct = (state, { payload }) => state.filter(({ id }) => id !== payload);
+const deleteEatenProduct = (state, { payload }) => state.filter(({ _id }) => _id !== payload);
 
 const date = createReducer('', {
    [dayActions.getDate]: (_, { payload }) => payload,

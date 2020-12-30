@@ -40,7 +40,7 @@ const DiaryAddProductForm = () => {
 
       const productId = products[0]._id;
 
-      dayOperations.postEatenProduct({ date, productId, weight }, dispatch);
+      await dayOperations.postEatenProduct({ date, productId, weight }, dispatch);
       clearForm();
       setHidden(true);
    };

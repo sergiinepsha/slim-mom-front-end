@@ -11,7 +11,7 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-import { isErrorAlert, loginState } from '../middleware';
+// import { isErrorAlert, loginState } from '../middleware';
 
 import { userReducers } from '../redux/auth';
 import { productReducer } from '../redux/product';
