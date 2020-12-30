@@ -4,7 +4,7 @@ import { dayOperations, daySelectors } from '../../../../redux/day';
 import s from './DiaryProductListItem.module.css';
 
 export default function ContactListItem({ product }) {
-   const { id, title, weight, kcal } = product;
+   const { _id, title, weight, kcal } = product;
 
    const dispatch = useDispatch();
 
@@ -13,7 +13,7 @@ export default function ContactListItem({ product }) {
    const onDelete = () => {
       const productAndDayIds = {
          dayId,
-         eatenProductId: id,
+         eatenProductId: _id,
       };
 
       dayOperations.deleteProduct(productAndDayIds, dispatch);

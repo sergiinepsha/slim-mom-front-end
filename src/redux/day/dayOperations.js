@@ -8,9 +8,10 @@ const postEatenProduct = async (reqBody, dispatch) => {
 
    try {
       const data = await fetchDB.post(`/day`, reqBody);
-      const { day, daySummary } = data;
 
-      dispatch(dayActions.eatenProductSuccess(day.eatenProducts));
+      const { eatenProducts, daySummary } = data;
+
+      dispatch(dayActions.eatenProductSuccess(eatenProducts));
       dispatch(dayActions.daySummary(daySummary));
    } catch (error) {
       dispatch(dayActions.eatenProductError(error));
@@ -19,16 +20,17 @@ const postEatenProduct = async (reqBody, dispatch) => {
 
 const deleteProduct = async (productAndDayIds, dispatch) => {
    const { eatenProductId } = productAndDayIds;
+
    dispatch(dayActions.deleteEatenProductRequest());
 
    try {
       const data = await fetchDB.del('/day', productAndDayIds);
-
+      console.log(data);
       if (data) {
          const daySummary = currentDaySummary(data);
 
          dispatch(dayActions.deleteEatenProductSuccess(eatenProductId));
-         dispatch(dayActions.daySummary(daySummary));
+         dispatch(dayActions.daySummary(data));
       }
    } catch (error) {
       dispatch(dayActions.deleteEatenProductError(error));
@@ -41,8 +43,8 @@ const getInfoForDay = async (date, dispatch) => {
    try {
       const data = await fetchDB.post('/day/info', { date });
       const { _id, eatenProducts, daySummary } = data;
-      console.log(data);
-      console.log(daySummary);
+      // console.log(data);
+      // console.log(daySummary);
       dispatch(dayActions.daySummary(daySummary));
       dispatch(dayActions.dayId(_id));
       // refact --v
@@ -79,13 +81,13 @@ function eatenProductsSetState(eatenProducts, dispatch) {
    }
 }
 
-function daySummarySetState(daySummary, dispatch) {
-   if (daySummary) {
-      dispatch(dayActions.daySummary(daySummary));
-   } else {
-      dispatch(dayActions.emptyDaySummary());
-   }
-}
+// function daySummarySetState(daySummary, dispatch) {
+//    if (daySummary) {
+//       dispatch(dayActions.daySummary(daySummary));
+//    } else {
+//       dispatch(dayActions.emptyDaySummary());
+//    }
+// }
 
 export default {
    postEatenProduct,
