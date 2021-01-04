@@ -6,6 +6,7 @@
    margin-bottom: 30px;
    padding-top: 80px;
    position: relative;
+   
 }
 
 .container {
@@ -62,6 +63,7 @@
    .form {
       align-items: start;
       flex-direction: row;
+      padding-top: 80px;
    }
 
    .container {

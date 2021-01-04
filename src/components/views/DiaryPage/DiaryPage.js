@@ -10,21 +10,32 @@ import style from './DiaryPage.module.css';
 export default function DiaryPage() {
    const [isClick, setClick] = useState(false);
 
-   const isMobile = false;
+   const doc = document.documentElement.clientWidth;
+
    const openMenuAdd = () => {
       setClick(true);
    };
-
+   console.dir(document.getElementById('btn'));
    return (
       <div className={style.wrapper}>
-         {isClick && <DiaryAddProductForm />}
+         {isClick && (
+            <div>
+               <DiaryAddProductForm />
+               <div
+                  className={style.buttonBack}
+                  onClick={() => {
+                     setClick(false);
+                  }}
+               ></div>
+            </div>
+         )}
          {!isClick && (
             <div className={style.container}>
                <div className={style.main}>
                   <DiaryDateCalendar />
-                  {!isMobile && <DiaryAddProductForm />}
+                  {doc >= 768 && <DiaryAddProductForm />}
                   <DiaryProductList />
-                  {isMobile && <AddButton type="button" openMenuAdd={openMenuAdd} />}
+                  <AddButton type="button" openMenuAdd={openMenuAdd} />
                </div>
                <UserInfo />
             </div>
