@@ -9,7 +9,7 @@
    align-items: center;
 
    margin: 0 auto;
-   padding-top: 30px;
+   /* padding-top: 30px; */
    width: 100%;
 }
 .main {
@@ -18,13 +18,28 @@
    justify-content: flex-end;
    align-items: baseline;
 }
+.buttonBack{
+   display: block;
+   position: absolute;
+   top: 76px;
+   width: 30px;
+   height: 30px;
+   
+}
+.buttonBack::after{
+   padding-left: 10px;
+   content: "\21A9";
+   font-size: 30px;
+   cursor: pointer;
+}
 
-@media screen and (max-width: 768.1px) {
+
+@media screen and (min-width: 319.9px) and (max-width: 768.1px) {
    .container {
       justify-content: space-between;
       align-items: baseline;
       height: 100%;
-      padding-top: 100px;
+      /* padding-top: 100px; */
    }
    .main {
       justify-content: center;

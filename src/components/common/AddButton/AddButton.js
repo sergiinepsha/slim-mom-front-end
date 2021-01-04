@@ -1,15 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import s from './AddButton.module.css';
+import style from './AddButton.module.css';
 
 const AddButton = ({ type, openMenuAdd }) => {
    return (
-      <button className={s.button} type={type} onClick={openMenuAdd}>
+      <button className={style.button} id="btn" type={type} onClick={openMenuAdd}>
          +
       </button>
    );
 };
+
 AddButton.propTypes = {
    type: PropTypes.string.isRequired,
 };
