@@ -1,13 +1,7 @@
-.wrapper {
-   position: relative;
-   width: 100vw;
-   height: 100vh;
-}
-
 .container {
    position: absolute;
    margin: 0 auto;
-   padding-top: 120px;
+   padding-top: 40px;
    display: flex;
    justify-content: center;
    width: 100vw;
@@ -21,7 +15,7 @@
 
 @media screen and (min-width: 768.1px) {
    .container {
-      padding-top: 270px;
+      padding-top: 190px;
       padding-left: 92px;
       justify-content: start;
    }
@@ -39,7 +33,7 @@
 
 @media screen and (min-width: 1280.1px) {
    .container {
-      padding-top: 362px;
+      padding-top: 212px;
       padding-left: 114px;
    }
 

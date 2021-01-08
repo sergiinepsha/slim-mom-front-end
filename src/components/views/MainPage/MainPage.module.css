@@ -1,13 +1,7 @@
-.wrapper {
-   position: relative;
-   width: 100vw;
-   height: 100vh;
-}
-
 .container {
    position: absolute;
    margin: 0 auto;
-   padding-top: 110px;
+   padding-top: 40px;
    display: flex;
    justify-content: center;
    width: 100vw;
@@ -21,7 +15,7 @@
 
 @media screen and (min-width: 768.1px) {
    .container {
-      padding-top: 180px;
+      padding-top: 100px;
       padding-left: 86px;
       justify-content: start;
    }
@@ -39,10 +33,11 @@
 
 @media screen and (min-width: 1280.1px) {
    .container {
-      padding-top: 292px;
+      padding-top: 146px;
       padding-left: 114px;
       background-position: 100% 100%;
       background-repeat: no-repeat;
+      position: relative;
    }
 
    .desctop_img {

@@ -12,11 +12,13 @@
 .navAuth {
    justify-content: flex-start;
    align-items: center;
-   width: 100%;
+   top: 72px;
+   right: 0;
 }
 
 .row {
    flex-direction: row;
+   padding-top: 0.8em;
 }
 .column {
    flex-direction: column;
@@ -29,8 +31,8 @@
    height: 3em;
    background-color: transparent;
    border: none;
-   top: 0.5em;
-   right: 1em;
+   top: 34px;
+   right: 21px;
    cursor: pointer;
    z-index: 1111;
 }
@@ -51,17 +53,22 @@
    content: '\2630';
 }
 
+@media screen and (min-width: 768px) {
+   .navAuth {
+      top: 86px;
+   }
+}
+
 @media screen and (max-width: 1279.9px) {
    .headAuth,
    .head {
       display: none;
    }
    .navAuth {
-      position: absolute;
       width: 100%;
-      min-height: 110px;
-      top: 0;
-      right: 0;
+      position: absolute;
+      z-index: 10;
+      height: 100%;
       overflow: hidden;
       border-radius: 5px;
       background-color: #add8e6;
@@ -98,17 +105,8 @@
 
 /*table*/
 @media screen and (min-width: 768px) and (max-width: 1279.9px) {
-   .row {
-      width: 300px;
-      padding-top: 1.15em;
-   }
    .navAuth {
-      position: absolute;
-      right: 0;
-      width: 300px;
-      min-height: 100px;
       overflow: hidden;
-
       background-color: #add8e6;
    }
 }
