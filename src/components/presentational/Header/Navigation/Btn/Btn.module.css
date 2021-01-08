@@ -26,8 +26,8 @@
    height: 3em;
    background-color: transparent;
    border: none;
-   top: 0.5em;
-   right: 1em;
+   top: 14px;
+   right: 20px;
    cursor: pointer;
    z-index: 1111;
 }
@@ -97,6 +97,11 @@
       overflow: hidden;
 
       background-color: #add8e6;
+   }
+
+   .button {
+      top: 22px;
+      right: 90px;
    }
 }
 

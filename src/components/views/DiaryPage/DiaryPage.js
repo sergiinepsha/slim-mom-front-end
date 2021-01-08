@@ -15,7 +15,7 @@ export default function DiaryPage() {
    const openMenuAdd = () => {
       setClick(true);
    };
-   console.dir(document.getElementById('btn'));
+
    return (
       <div className={style.wrapper}>
          {isClick && (

@@ -12,7 +12,7 @@
 }
 
 .container {
-   width: 320px;
+   position: relative;
    background-color: #fff;
 }
 .backButton {
@@ -35,10 +35,17 @@
    display: none;
 }
 
+@media (max-width: 767.9px) {
+   .container {
+      width: 100%;
+      top: 74px;
+      height: 90%;
+   }
+}
+
 @media (min-width: 768px) {
    .container {
       width: 594px;
-      position: relative;
    }
    .backButton {
       display: none;
