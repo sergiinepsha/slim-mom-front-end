@@ -1,5 +1,6 @@
 /* eslint-disable import/no-anonymous-default-export */
 import { dayActions } from './';
+import { userActions } from '../auth';
 import fetchDB from '../../services/fetchDB';
 import loaderActions from '../loader/loaderActions';
 
@@ -14,6 +15,9 @@ const postEatenProduct = async (reqBody, dispatch) => {
       dispatch(dayActions.eatenProductSuccess(eatenProducts));
       dispatch(dayActions.daySummary(daySummary));
    } catch (error) {
+      if (error.response.status === 401) {
+         dispatch(userActions.logoutUserSuccess());
+      }
       dispatch(dayActions.eatenProductError(error));
    }
 };
@@ -33,6 +37,9 @@ const deleteProduct = async (productAndDayIds, dispatch) => {
          dispatch(dayActions.daySummary(data));
       }
    } catch (error) {
+      if (error.response.status === 401) {
+         dispatch(userActions.logoutUserSuccess());
+      }
       dispatch(dayActions.deleteEatenProductError(error));
    }
 };
@@ -60,6 +67,9 @@ const getInfoForDay = async (date, dispatch) => {
       eatenProductsSetState(eatenProducts, dispatch);
       // ----^
    } catch (error) {
+      if (error.response.status === 401) {
+         dispatch(userActions.logoutUserSuccess());
+      }
       dispatch(dayActions.infoForDayError(error));
    }
 };
