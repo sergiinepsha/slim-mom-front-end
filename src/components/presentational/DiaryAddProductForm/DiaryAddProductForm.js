@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useDebounce } from 'react-use';
 
 import 'react-dropdown/style.css';
 
@@ -16,9 +17,8 @@ const SIZE_OF_SELECTOR = '10';
 
 const DiaryAddProductForm = () => {
    const [productName, setProductName] = useState('');
-   const changeProductName = ({ value }) => {
-      setProductName(value);
-   };
+
+   const [debouncedProductName, setDebouncedProductName] = useState('');
 
    const [weight, setWeight] = useState('');
    const changeWeight = ({ value }) => setWeight(value);
@@ -30,11 +30,19 @@ const DiaryAddProductForm = () => {
 
    const dispatch = useDispatch();
 
+   const [, cancel] = useDebounce(() => setDebouncedProductName(productName), 500, [productName]);
+
    useEffect(() => {
-      if (productName) {
-         productOperations.getProductByQuery(productName, dispatch);
+      if (debouncedProductName) {
+         productOperations.getProductByQuery(debouncedProductName, dispatch);
       }
-   }, [dispatch, productName]);
+      console.log(debouncedProductName);
+      if (!debouncedProductName) {
+         dispatch(productActions.emptyProduct());
+      }
+
+      return cancel;
+   }, [cancel, debouncedProductName, dispatch]);
 
    const handlerSubmit = async e => {
       e.preventDefault();
@@ -66,7 +74,7 @@ const DiaryAddProductForm = () => {
                   value={productName}
                   type="text"
                   placeholder="Введите продукт"
-                  onChange={changeProductName}
+                  onChange={({ value }) => setProductName(value)}
                />
 
                {products.length > 0 && isHidden && (
