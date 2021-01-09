@@ -3,7 +3,7 @@ import { createReducer } from '@reduxjs/toolkit';
 import cleanError, { readingInError } from './errorActions';
 
 const isError = createReducer(
-   { error: '' },
+   { error: null },
    {
       [cleanError]: (state, { payload }) => ({
          ...state,
