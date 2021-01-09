@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 
 import s from './Alert.module.css';
 
-function Alert() {
+function Alert({ children }) {
    const errorText = useSelector(state => state.isError.error);
    return (
       <>
@@ -11,6 +11,7 @@ function Alert() {
                <span className={s.text}>{errorText}</span>
             </div>
          )}
+         {children}
       </>
    );
 }

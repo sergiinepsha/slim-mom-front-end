@@ -1,6 +1,6 @@
 const loginState = ({ dispatch }) => next => action => {
    if (action.payload) {
-      console.log('middle >>>', action);
+      // console.log('middle >>>', action);
    }
    return next(action);
 };
