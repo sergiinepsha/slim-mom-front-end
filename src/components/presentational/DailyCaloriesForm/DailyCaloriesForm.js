@@ -12,6 +12,7 @@ import validatorDailyCaloriesForm from '../../../validators/validatorDailyCalori
 
 import style from './DailyCaloriesForm.module.css';
 import { useHistory } from 'react-router-dom';
+import Alert from '../Alert';
 
 const DailyCaloriesForm = ({ title }) => {
    const [height, setHeight] = useState('');
@@ -65,40 +66,42 @@ const DailyCaloriesForm = ({ title }) => {
    return (
       <div className={style.container}>
          <h2 className={style.title}>{title}</h2>
-         <form className={style.form} onSubmit={handlerSubmit}>
-            <div className={style.inp_wrapper}>
-               <PrimaryInput
-                  value={height}
-                  type="number"
-                  placeholder="Рост *"
-                  onChange={onHeightChange}
-               />
-               <PrimaryInput
-                  value={age}
-                  type="number"
-                  placeholder="Возраст *"
-                  onChange={onAgeChange}
-               />
-               <PrimaryInput
-                  value={weight}
-                  type="number"
-                  placeholder="Текущий вес *"
-                  onChange={onCurrentWeightChange}
-               />
-               <PrimaryInput
-                  value={desiredWeight}
-                  type="number"
-                  placeholder="Желаемый вес *"
-                  onChange={onDesiredWeightChange}
-               />
+         <Alert>
+            <form className={style.form} onSubmit={handlerSubmit}>
+               <div className={style.inp_wrapper}>
+                  <PrimaryInput
+                     value={height}
+                     type="number"
+                     placeholder="Рост *"
+                     onChange={onHeightChange}
+                  />
+                  <PrimaryInput
+                     value={age}
+                     type="number"
+                     placeholder="Возраст *"
+                     onChange={onAgeChange}
+                  />
+                  <PrimaryInput
+                     value={weight}
+                     type="number"
+                     placeholder="Текущий вес *"
+                     onChange={onCurrentWeightChange}
+                  />
+                  <PrimaryInput
+                     value={desiredWeight}
+                     type="number"
+                     placeholder="Желаемый вес *"
+                     onChange={onDesiredWeightChange}
+                  />
 
-               <BloodGroup bloodGroup={bloodType} onChange={onBloodGroupChange} />
-            </div>
+                  <BloodGroup bloodGroup={bloodType} onChange={onBloodGroupChange} />
+               </div>
 
-            <div className={style.btn_wrapper}>
-               <BasicButton type="submit">Похудеть</BasicButton>
-            </div>
-         </form>
+               <div className={style.btn_wrapper}>
+                  <BasicButton type="submit">Похудеть</BasicButton>
+               </div>
+            </form>
+         </Alert>
       </div>
    );
 };
