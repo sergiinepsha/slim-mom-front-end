@@ -10,6 +10,7 @@ import PrimaryInput from '../../common/PrimaryInput/PrimaryInput';
 import BasicButton from '../../common/BasicButton/BasicButton';
 
 import style from './DiaryAddProductForm.module.css';
+import Alert from '../Alert';
 
 const SIZE_OF_SELECTOR = '10';
 
@@ -58,44 +59,46 @@ const DiaryAddProductForm = () => {
    }
 
    return (
-      <form className={style.form} onSubmit={handlerSubmit}>
-         <div className={style.container}>
-            <PrimaryInput
-               value={productName}
-               type="text"
-               placeholder="Введите продукт"
-               onChange={changeProductName}
-            />
+      <Alert>
+         <form className={style.form} onSubmit={handlerSubmit}>
+            <div className={style.container}>
+               <PrimaryInput
+                  value={productName}
+                  type="text"
+                  placeholder="Введите продукт"
+                  onChange={changeProductName}
+               />
 
-            {products.length > 0 && isHidden && (
-               <select className={style.products} id="products" required size={size}>
-                  {products.map(({ _id, title }) => (
-                     <option
-                        key={_id}
-                        className={style.optionClass}
-                        value={title.ru}
-                        onClick={e => {
-                           setHidden(false);
-                           setProductName(e.target.outerText);
-                        }}
-                     >
-                        {title.ru}
-                     </option>
-                  ))}
-               </select>
-            )}
+               {products.length > 0 && isHidden && (
+                  <select className={style.products} id="products" required size={size}>
+                     {products.map(({ _id, title }) => (
+                        <option
+                           key={_id}
+                           className={style.optionClass}
+                           value={title.ru}
+                           onClick={e => {
+                              setHidden(false);
+                              setProductName(e.target.outerText);
+                           }}
+                        >
+                           {title.ru}
+                        </option>
+                     ))}
+                  </select>
+               )}
 
-            <PrimaryInput
-               value={weight}
-               type="number"
-               placeholder="Граммы"
-               onChange={changeWeight}
-            />
-         </div>
-         <div className={style.btn_wrapper}>
-            <BasicButton type="submit">Добавить</BasicButton>
-         </div>
-      </form>
+               <PrimaryInput
+                  value={weight}
+                  type="number"
+                  placeholder="Граммы"
+                  onChange={changeWeight}
+               />
+            </div>
+            <div className={style.btn_wrapper}>
+               <BasicButton type="submit">Добавить</BasicButton>
+            </div>
+         </form>
+      </Alert>
    );
 };
 
