@@ -47,9 +47,15 @@ const DiaryAddProductForm = () => {
    const handlerSubmit = async e => {
       e.preventDefault();
 
-      const productId = products[0]._id;
+      try {
+         const productId = products[0]._id;
 
-      await dayOperations.postEatenProduct({ date, productId, weight }, dispatch);
+         await dayOperations.postEatenProduct({ date, productId, weight }, dispatch);
+      } catch (error) {
+         error.message = 'В базе данных нет такого продукта, выберите продукт из списка';
+         dispatch(productActions.getProductError(error));
+      }
+
       clearForm();
       setHidden(true);
    };

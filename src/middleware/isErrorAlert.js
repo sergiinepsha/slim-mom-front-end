@@ -1,5 +1,6 @@
 import cleanError, { readingInError } from '../redux/error/errorActions';
 import { userActions } from '../redux/auth';
+import { productActions } from '../redux/product';
 import { loaderActions } from '../redux/loader';
 
 const errorState = ({ dispatch }) => next => async action => {
@@ -7,6 +8,12 @@ const errorState = ({ dispatch }) => next => async action => {
       const item = await action.payload;
       if (item === undefined) {
          return next();
+      }
+
+      if (action.type === productActions.getProductError.type) {
+         await readError(action.payload, action, dispatch);
+         clear(dispatch);
+         return;
       }
 
       if (action.type === userActions.validateFormError.type) {
