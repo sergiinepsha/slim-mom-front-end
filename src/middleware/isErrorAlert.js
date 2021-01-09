@@ -5,23 +5,22 @@ import { loaderActions } from '../redux/loader';
 const errorState = ({ dispatch }) => next => async action => {
    try {
       const item = await action.payload;
-
       if (item === undefined) {
          return next();
       }
 
       if (action.type === userActions.validateFormError.type) {
          await readError(action.payload, action, dispatch);
-         await clear(dispatch);
+         clear(dispatch);
          return;
       }
 
-      const found = await Object.entries(item).find(v => v[0] === 'isAxiosError');
+      const found = Object.entries(item).find(v => v[0] === 'isAxiosError');
 
       if (found.length) {
          const errorText = await JSON.parse(item.request.responseText);
          await readError(errorText, action, dispatch);
-         await clear(dispatch);
+         clear(dispatch);
          return;
       }
 
@@ -45,9 +44,9 @@ async function readError(errorText, action, dispatch) {
    }
 }
 
-async function clear(dispatch) {
+export function clear(dispatch) {
    try {
-      await setTimeout(() => {
+      setTimeout(() => {
          dispatch(loaderActions.endLoader());
          dispatch(cleanError());
       }, 2000);

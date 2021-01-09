@@ -24,7 +24,6 @@ const loginUser = async (credentials, dispatch) => {
 
    try {
       const data = await fetchDB.post(`/auth/login`, credentials);
-
       const {
          accessToken,
          // todaySummary
