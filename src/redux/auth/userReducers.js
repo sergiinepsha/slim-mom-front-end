@@ -6,18 +6,15 @@ const INITIAL_USER_STATE = {
    email: null,
    name: null,
    id: null,
-   // notAllowedProducts: [],
 };
 
 const userLogged = (_, { payload }) => {
    const { email, name, _id } = payload.user;
-   // const { notAllowedProducts } = userData;
    return { email, name, _id };
 };
 
 const getCurrentUser = (_, { payload }) => {
    const { email, name, _id } = payload;
-   // const { notAllowedProducts } = userData;
    return { email, name, _id };
 };
 

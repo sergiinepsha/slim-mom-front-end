@@ -2,12 +2,12 @@ import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import {
    persistStore,
    persistReducer,
-   FLUSH,
-   REGISTER,
-   PERSIST,
-   PURGE,
-   PAUSE,
-   REHYDRATE,
+   // FLUSH,
+   // PERSIST,
+   // PURGE,
+   // PAUSE,
+   // REHYDRATE,
+   // REGISTER,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
@@ -22,9 +22,10 @@ import { modalReducers } from './modal';
 import { dayReducers } from './day';
 
 const defMidd = getDefaultMiddleware({
-   serializableCheck: {
-      ignoredActions: [FLUSH, REGISTER, PAUSE, PERSIST, PURGE, REHYDRATE],
-   },
+   serializableCheck: false,
+   // serializableCheck: {
+   //    ignoredActions: [FLUSH, PAUSE, PERSIST, PURGE, REHYDRATE, REGISTER],
+   // },
 });
 
 const authUserPersistConfig = {
