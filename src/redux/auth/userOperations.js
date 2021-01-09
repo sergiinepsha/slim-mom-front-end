@@ -65,6 +65,9 @@ const getCurrentUser = async (persistedToken, dispatch) => {
       const data = await fetchDB.get(`/user`);
       dispatch(userActions.currentUserSuccess(data));
    } catch (error) {
+      if (error.response.status === 401) {
+         dispatch(userActions.logoutUserSuccess());
+      }
       dispatch(userActions.currentUserError(error));
    }
 };

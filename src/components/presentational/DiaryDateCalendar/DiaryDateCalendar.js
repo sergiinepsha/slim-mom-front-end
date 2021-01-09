@@ -27,12 +27,24 @@ function DiaryDateCalendar() {
    const currentDate = formattedDate(date);
 
    return (
-      <div className={s.container}>
+      <div
+         className={s.container}
+         onClick={e => {
+            // console.dir(e.target);
+            if ((isClick && e.target.id === 'openCalendar') || e.target.id === 'calendar') {
+               setClick(false);
+            }
+         }}
+      >
          <div className={s.calendarMenu}>
-            <div className={s.date}> {currentDate} </div>
+            <div className={s.date} id="calendar">
+               {' '}
+               {currentDate}{' '}
+            </div>
             <button
                className={s.buttonCalendar}
                type="button"
+               id="openCalendar"
                onClick={() => setClick(true)}
             ></button>
          </div>

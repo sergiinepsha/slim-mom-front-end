@@ -1,5 +1,6 @@
 /* eslint-disable import/no-anonymous-default-export */
 import { productActions } from './';
+import { userActions } from '../auth';
 import fetchDB from '../../services/fetchDB';
 
 const getProductByQuery = async (query, dispatch) => {
@@ -10,6 +11,9 @@ const getProductByQuery = async (query, dispatch) => {
 
       dispatch(productActions.getProductSuccess(products));
    } catch (error) {
+      if (error.response.status === 401) {
+         dispatch(userActions.logoutUserSuccess());
+      }
       dispatch(productActions.getProductError(error));
    }
 };
