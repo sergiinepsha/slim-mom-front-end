@@ -10,8 +10,8 @@ import style from './DiaryPage.module.css';
 export default function DiaryPage() {
    const [isClick, setClick] = useState(false);
 
-   const doc = document.documentElement.clientWidth;
-
+   const widthOfScreen = document.documentElement.clientWidth;
+   console.log(widthOfScreen); ///
    const openMenuAdd = () => {
       setClick(true);
    };
@@ -33,7 +33,7 @@ export default function DiaryPage() {
             <div className={style.container}>
                <div className={style.main}>
                   <DiaryDateCalendar />
-                  {doc >= 768 && <DiaryAddProductForm />}
+                  {widthOfScreen >= 768 && <DiaryAddProductForm />}
                   <DiaryProductList />
                   <AddButton type="button" openMenuAdd={openMenuAdd} />
                </div>
