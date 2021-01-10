@@ -1,14 +1,5 @@
 import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
-import {
-   persistStore,
-   persistReducer,
-   // FLUSH,
-   // PERSIST,
-   // PURGE,
-   // PAUSE,
-   // REHYDRATE,
-   // REGISTER,
-} from 'redux-persist';
+import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
 import { isErrorAlert } from '../middleware';
@@ -23,16 +14,12 @@ import { dayReducers } from './day';
 
 const defMidd = getDefaultMiddleware({
    serializableCheck: false,
-   // serializableCheck: {
-   //    ignoredActions: [FLUSH, PAUSE, PERSIST, PURGE, REHYDRATE, REGISTER],
-   // },
 });
 
 const authUserPersistConfig = {
    key: 'authUser',
    storage,
    whitelist: ['accessToken'],
-   // blacklist: ['', '', ''],// -- сохраняет всё кроме этих
 };
 
 export const store = configureStore({
