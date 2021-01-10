@@ -7,9 +7,8 @@
    margin: 0;
    padding: 0;
    list-style: none;
-   height: 200px;
+   max-height: 200px;
    overflow-y: scroll;
-   margin-bottom: 60px;
    position: relative;
 }
 
@@ -31,13 +30,19 @@
    height: 40px;
 }
 
+@media (max-width: 767.9px) {
+   .list_products {
+      margin-bottom: 60px;
+   }
+}
+
 @media (min-width: 768px) {
    .container {
       width: 585px;
    }
    .list_products {
       width: 100%;
-      height: 300px;
+      max-height: 300px;
       color: red;
    }
 }
