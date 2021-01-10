@@ -54,6 +54,9 @@
    .info {
       padding-right: 150px;
    }
+   .nav {
+      align-items: center;
+   }
 }
 @media screen and (min-width: 1280px) {
    .header {
