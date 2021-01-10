@@ -18,7 +18,6 @@
 
 .row {
    flex-direction: row;
-   padding-top: 0.8em;
 }
 .column {
    flex-direction: column;

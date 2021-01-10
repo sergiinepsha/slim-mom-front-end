@@ -1,6 +1,6 @@
 .wrapper {
    width: 100%;
-   height: 100%;
+   height: 100vh;
 }
 
 .container {
@@ -11,6 +11,7 @@
    margin: 0 auto;
    /* padding-top: 30px; */
    width: 100%;
+   height: 100%;
 }
 .main {
    display: flex;
@@ -18,27 +19,26 @@
    justify-content: flex-end;
    align-items: baseline;
 }
-.buttonBack{
+.buttonBack {
    display: block;
    position: absolute;
    top: 76px;
    width: 30px;
    height: 30px;
-   
 }
-.buttonBack::after{
+.buttonBack::after {
    padding-left: 10px;
-   content: "\21A9";
+   content: '\21A9';
    font-size: 30px;
    cursor: pointer;
 }
-
 
 @media screen and (min-width: 319.9px) and (max-width: 768.1px) {
    .container {
       justify-content: space-between;
       align-items: baseline;
-      height: 100%;
+
+      height: 100vh;
       /* padding-top: 100px; */
    }
    .main {
