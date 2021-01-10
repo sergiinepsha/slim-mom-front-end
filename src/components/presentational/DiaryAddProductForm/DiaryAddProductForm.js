@@ -16,9 +16,7 @@ const SIZE_OF_SELECTOR = '10';
 
 const DiaryAddProductForm = () => {
    const [productName, setProductName] = useState('');
-   const changeProductName = ({ value }) => {
-      setProductName(value);
-   };
+   const changeProductName = ({ value }) => setProductName(value);
 
    const [weight, setWeight] = useState('');
    const changeWeight = ({ value }) => setWeight(value);
