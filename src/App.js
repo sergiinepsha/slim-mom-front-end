@@ -8,7 +8,6 @@ import { userOperations, userSelector } from './redux/auth';
 
 import Header from './components/presentational/Header';
 import Loader from './components/presentational/Loader';
-// import Alert from './components/presentational/Alert';
 
 const App = () => {
    const token = useSelector(userSelector.isAuth);
@@ -20,10 +19,8 @@ const App = () => {
 
    return (
       <>
-         {/* <Alert /> */}
          <Router>
             <Header />
-
             <Suspense fallback={<Loader />}>
                <Switch>
                   {routes.map(route =>

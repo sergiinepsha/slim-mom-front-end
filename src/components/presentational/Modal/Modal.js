@@ -12,7 +12,6 @@ function Modal() {
 
    const closeModal = e => {
       e.preventDefault();
-      console.dir(e.target);
       if (e.target.type === 'button' || e.target.tabIndex === -2) {
          dispatch(modalActions.modalClose());
       }
