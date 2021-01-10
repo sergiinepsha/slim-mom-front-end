@@ -8,7 +8,7 @@ const getProductByQuery = async (query, dispatch) => {
 
    try {
       const products = await fetchDB.get(`/product?search=${query}`);
-
+      console.log(products); ///
       dispatch(productActions.getProductSuccess(products));
    } catch (error) {
       if (error.response.status === 401) {
