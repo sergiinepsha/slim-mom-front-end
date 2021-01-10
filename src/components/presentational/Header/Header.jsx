@@ -1,14 +1,14 @@
-import React, { createContext } from 'react';
+import React from 'react';
 
 import { useSelector } from 'react-redux';
 import cn from 'classnames';
 
+import { NavProvider } from './Navigation/NavContext/NavContext';
 import Logo from './Logo';
 import Navigation from './Navigation';
 import UserMenu from './UserMenu';
 
 import styles from './Header.module.css';
-import { NavProvider } from './Navigation/NavContext/NavContext';
 
 function Header() {
    const isAuth = useSelector(state => state.authUser.accessToken);

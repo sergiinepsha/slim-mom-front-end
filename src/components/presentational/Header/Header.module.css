@@ -48,6 +48,9 @@
       width: 100vw;
       padding-left: 62px;
    }
+   .logo {
+      align-items: center;
+   }
    .info {
       padding-right: 150px;
    }
