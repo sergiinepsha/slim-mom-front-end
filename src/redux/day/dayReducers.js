@@ -11,7 +11,6 @@ const INITIAL_DAY_SUMMARY = {
 };
 
 const getDaySummary = (_, { payload }) => {
-   console.log(payload);
    const { kcalLeft, kcalConsumed, dailyRate, percentsOfDailyRate } = payload;
    return { kcalLeft, kcalConsumed, dailyRate, percentsOfDailyRate };
 };

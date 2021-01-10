@@ -7,10 +7,11 @@ import UserNav from './UserNav';
 import Btn from './Btn';
 
 import styles from './Navigation.module.css';
+import { useNav } from './NavContext/NavContext';
 
 const Navigation = () => {
    const isAuth = useSelector(state => state.authUser.accessToken);
-   const [watcher, setWatcher] = useState('');
+   const { watch, handlerButton } = useNav();
 
    const authStyle = cn(styles.navBar, {
       [styles.row]: !isAuth,
@@ -19,16 +20,18 @@ const Navigation = () => {
 
    const navStyle = cn({
       [styles.nav]: !isAuth,
-      [styles.navAuth]: watcher && isAuth,
-      [styles.headAuth]: !watcher && isAuth,
+      [styles.navAuth]: watch && isAuth,
+      [styles.headAuth]: !watch && isAuth,
    });
 
    return (
       <>
-         {isAuth && <Btn setWatcher={setWatcher}></Btn>}
+         {isAuth && <Btn></Btn>}
 
          <nav className={navStyle}>
-            <ul className={authStyle}>{isAuth ? <UserNav /> : <AuthNav />}</ul>
+            <ul className={authStyle} onClick={() => handlerButton()}>
+               {isAuth ? <UserNav /> : <AuthNav />}
+            </ul>
          </nav>
       </>
    );

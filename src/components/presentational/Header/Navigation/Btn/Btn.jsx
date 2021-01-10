@@ -1,16 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import cn from 'classnames';
 
 import styles from './Btn.module.css';
+import { useNav } from '../NavContext/NavContext';
 
-const Btn = ({ setWatcher }) => {
-   const [bars, setBars] = useState(false);
-   const btnStyle = cn(styles.button, { [styles.show]: !bars });
-
-   function handlerButton() {
-      setBars(!bars);
-      setWatcher(!bars);
-   }
+const Btn = () => {
+   const { btn, handlerButton } = useNav();
+   const btnStyle = cn(styles.button, { [styles.show]: !btn });
 
    return (
       <>

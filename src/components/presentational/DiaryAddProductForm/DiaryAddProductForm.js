@@ -36,7 +36,6 @@ const DiaryAddProductForm = () => {
       if (debouncedProductName) {
          productOperations.getProductByQuery(debouncedProductName, dispatch);
       }
-      console.log(debouncedProductName);
       if (!debouncedProductName) {
          dispatch(productActions.emptyProduct());
       }
