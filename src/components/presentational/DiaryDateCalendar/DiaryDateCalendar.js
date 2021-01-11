@@ -12,6 +12,10 @@ function DiaryDateCalendar() {
 
    const dispatch = useDispatch();
 
+   const formattedDate = date => date.toLocaleDateString('fr-ca');
+
+   const currentDate = formattedDate(date);
+
    useEffect(() => {
       dispatch(dayActions.getDate(formattedDate(date)));
    }, [dispatch, date]);
@@ -22,15 +26,10 @@ function DiaryDateCalendar() {
       // dispatch(dayActions.dayId);
    };
 
-   const formattedDate = date => date.toLocaleDateString('fr-ca');
-
-   const currentDate = formattedDate(date);
-
    return (
       <div
          className={s.container}
          onClick={e => {
-            // console.dir(e.target);
             if ((isClick && e.target.id === 'openCalendar') || e.target.id === 'calendar') {
                setClick(false);
             }

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import DailyCaloriesForm from '../../presentational/DailyCaloriesForm/DailyCaloriesForm';
 import UserInfo from '../../presentational/UserInfo/UserInfo';
@@ -11,9 +11,12 @@ const CalculatorPage = () => {
    const title = 'Узнай свою суточную норму калорий';
 
    const dispatch = useDispatch();
+   const dateNeeded = useSelector(state=>state.day.date)
 
+   // dispatch(dayActions.getDate(dateNeeded));
    useEffect(() => {
       dispatch(dayActions.getDate(new Date().toLocaleDateString('fr-ca')));
+     
    }, [dispatch]);
 
    return (
