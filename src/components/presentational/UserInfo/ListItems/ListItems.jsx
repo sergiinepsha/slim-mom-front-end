@@ -6,7 +6,12 @@ import s from './ListItems.module.css';
 
 const ListItems = ({ items, name, time }) => {
    const [itemsValue, setItemsValue] = useState(
-      items || [{ name: 'Здесь будет отображаться Ваш рацион', value: null }],
+      items || [
+         {
+            name: 'Здесь будут отображаться продукты, которые Вам не рекомендуеться употреблять',
+            value: null,
+         },
+      ],
    );
    useEffect(() => {
       if (items) {

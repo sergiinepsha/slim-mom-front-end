@@ -10,10 +10,11 @@ const postEatenProduct = async (reqBody, dispatch) => {
    try {
       const data = await fetchDB.post(`/day`, reqBody);
 
-      const { eatenProducts, daySummary } = data;
+      const { eatenProducts, daySummary, notAllowedProducts } = data;
 
       dispatch(dayActions.eatenProductSuccess(eatenProducts));
       dispatch(dayActions.daySummary(daySummary));
+      dispatch(dayActions.notAllowedProducts(notAllowedProducts));
    } catch (error) {
       if (error.response.status === 401) {
          dispatch(userActions.logoutUserSuccess());
@@ -49,10 +50,12 @@ const getInfoForDay = async (date, dispatch) => {
 
    try {
       const data = await fetchDB.post('/day/info', { date });
-      const { _id, eatenProducts, daySummary } = data;
+      const { _id, eatenProducts, daySummary, notAllowedProducts } = data;
 
       // console.log(daySummary);
-
+      dispatch(dayActions.daySummary(daySummary));
+      dispatch(dayActions.dayId(_id));
+      dispatch(dayActions.notAllowedProducts(notAllowedProducts));
       // refact --v
       if (!_id) {
          // daySummarySetState({ ...data }, dispatch);

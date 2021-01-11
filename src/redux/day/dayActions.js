@@ -21,6 +21,8 @@ const emptyEatenProducts = createAction('day/emptyEatenProducts');
 const daySummary = createAction('day/daySummary');
 const emptyDaySummary = createAction('day/emptyDaySummary');
 
+const notAllowedProducts = createAction('day/notAllowedProducts');
+
 export default {
    dayId,
    getDate,
@@ -41,4 +43,6 @@ export default {
 
    daySummary,
    emptyDaySummary,
+
+   notAllowedProducts,
 };
