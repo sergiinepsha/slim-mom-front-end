@@ -33,6 +33,37 @@
 
    width: 320px;
 }
+
+.cart2_title {
+   margin: 0;
+   padding: 0;
+   font-family: Verdana;
+   font-style: normal;
+   font-weight: bold;
+   font-size: 14px;
+   line-height: 17px;
+   letter-spacing: 0.04em;
+   color: rgb(33, 33, 33);
+   padding-bottom: 20px;
+}
+
+.cart2_p {
+   width: 290px;
+   height: 100%;
+   display: flex;
+   align-items: flex-start;
+   justify-content: space-between;
+
+   font-family: Verdana;
+   font-style: normal;
+   font-weight: normal;
+   font-size: 14px;
+   line-height: 27px;
+   letter-spacing: 0.04em;
+
+   color: rgb(155, 159, 170);
+}
+
 @media screen and (max-width: 767.9px) {
    .container {
       position: relative;

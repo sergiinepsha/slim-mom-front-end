@@ -9,7 +9,6 @@
    align-items: center;
 
    margin: 0 auto;
-   /* padding-top: 30px; */
    width: 100%;
    height: 100%;
 }
@@ -39,7 +38,6 @@
       align-items: baseline;
 
       height: 100vh;
-      /* padding-top: 100px; */
    }
    .main {
       justify-content: center;
@@ -60,7 +58,6 @@
       justify-content: center;
       align-items: center;
       width: 100%;
-      min-height: 426px;
       padding-bottom: 51px;
    }
 }
