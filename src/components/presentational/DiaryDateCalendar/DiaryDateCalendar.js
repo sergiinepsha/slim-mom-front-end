@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import Calendar from 'react-calendar';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { dayActions } from '../../../redux/day';
 import s from './DiaryDateCalendar.module.css';
 
 function DiaryDateCalendar() {
    const dateNow = new Date();
 
-   const [date, setDate] = useState(dateNow);
+   const dateState = new Date(useSelector(state => state.day.date));
+
+   const [date, setDate] = useState(dateState ? dateState : dateNow);
+
    const [isClick, setClick] = useState(false);
 
    const dispatch = useDispatch();

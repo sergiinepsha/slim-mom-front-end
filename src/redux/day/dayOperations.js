@@ -30,7 +30,7 @@ const deleteProduct = async (productAndDayIds, dispatch) => {
 
    try {
       const data = await fetchDB.del('/day', productAndDayIds);
-      console.log(data);
+
       if (data) {
          currentDaySummary(data);
 

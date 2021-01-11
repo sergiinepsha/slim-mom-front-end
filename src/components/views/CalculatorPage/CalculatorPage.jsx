@@ -12,10 +12,13 @@ const CalculatorPage = () => {
 
    const dispatch = useDispatch();
    const dateNeeded = useSelector(state=>state.day.date)
-
-   // dispatch(dayActions.getDate(dateNeeded));
+     
    useEffect(() => {
-      dispatch(dayActions.getDate(new Date().toLocaleDateString('fr-ca')));
+      if (dateNeeded) {
+         dispatch(dayActions.getDate(dateNeeded));
+      }else{
+         dispatch(dayActions.getDate(new Date().toLocaleDateString('fr-ca')));
+      }
      
    }, [dispatch]);
 
