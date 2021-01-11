@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import { daySelectors } from '../../../redux/day';
 import ListItems from './ListItems';
 
 import s from './UserInfo.module.css';
@@ -7,6 +8,8 @@ import s from './UserInfo.module.css';
 export default function UserInfo() {
    const date = useSelector(state => state.day.date);
    const items = useSelector(state => state.day.daySummary);
+   const notAllowedProducts = useSelector(daySelectors.notAllowedProducts);
+
    const [itemList, setItemList] = useState([]);
 
    useEffect(() => {
@@ -41,7 +44,12 @@ export default function UserInfo() {
                <ListItems items={itemList} time={date} name={'Сводка за'} />
             </div>
             <div className={s.cart2}>
-               <ListItems name={'Нерекомендуемые продукты'} />
+               <h2 className={s.cart2_title}>Нерекомендуемые продукты</h2>
+               <p className={s.cart2_p}>
+                  {notAllowedProducts.length > 0
+                     ? notAllowedProducts.join(', ')
+                     : 'Здесь будут отображаться продукты, которые Вам не рекомендуеться употреблять'}
+               </p>
             </div>
          </div>
       </div>
