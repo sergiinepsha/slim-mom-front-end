@@ -19,7 +19,7 @@ const CalculatorPage = () => {
       } else {
          dispatch(dayActions.getDate(new Date().toLocaleDateString('fr-ca')));
       }
-   }, [dispatch]);
+   }, [dateNeeded, dispatch]);
 
    return (
       <div className={s.wrapper}>
