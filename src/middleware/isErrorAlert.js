@@ -1,24 +1,23 @@
-import cleanError, { readingInError } from '../redux/error/errorActions';
+import cleanError, { writingInError } from '../redux/error/errorActions';
 import { userActions } from '../redux/auth';
 import { productActions } from '../redux/product';
 import { loaderActions } from '../redux/loader';
 
 const errorState = ({ dispatch }) => next => async action => {
    try {
-      // console.log('middle >>>', action);
       const item = await action.payload;
       if (item === undefined) {
          return next();
       }
 
       if (action.type === productActions.getProductError.type) {
-         await readError(action.payload, action, dispatch);
+         await writeError(action.payload, action, dispatch);
          clear(dispatch);
          return;
       }
 
       if (action.type === userActions.validateFormError.type) {
-         await readError(action.payload, action, dispatch);
+         await writeError(action.payload, action, dispatch);
          clear(dispatch);
          return;
       }
@@ -27,7 +26,7 @@ const errorState = ({ dispatch }) => next => async action => {
 
       if (found.length) {
          const errorText = await JSON.parse(item.request.responseText);
-         await readError(errorText, action, dispatch);
+         await writeError(errorText, action, dispatch);
          clear(dispatch);
          return;
       }
@@ -38,10 +37,10 @@ const errorState = ({ dispatch }) => next => async action => {
    }
 };
 
-async function readError(errorText, action, dispatch) {
+async function writeError(errorText, action, dispatch) {
    try {
       await dispatch(
-         readingInError({
+         writingInError({
             error: errorText.message || 'Not message',
             name: action.type,
             message: action.payload.message,
