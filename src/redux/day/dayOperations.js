@@ -57,6 +57,7 @@ const getInfoForDay = async (date, dispatch) => {
       if (error.response.status === 401) {
          dispatch(userActions.logoutUserSuccess());
       }
+
       dispatch(dayActions.infoForDayError(error));
    }
 };
