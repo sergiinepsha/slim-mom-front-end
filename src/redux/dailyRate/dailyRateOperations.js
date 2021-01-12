@@ -23,7 +23,7 @@ const getDailyIntakeById = async (userCharacteristics, userId, dispatch) => {
    try {
       const data = await fetchDB.post(`/daily-rate/${userId}`, userCharacteristics);
       dispatch(dayActions.daySummary(data.daySummary));
-      dispatch(dailyRateActions.getDailyIntake_ID_Success(data)); // TODO:  !?
+      dispatch(dailyRateActions.getDailyIntake_ID_Success(data));
    } catch (error) {
       if (error.response.status === 401) {
          dispatch(userActions.logoutUserSuccess());
