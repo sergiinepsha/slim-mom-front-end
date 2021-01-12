@@ -23,13 +23,30 @@ const loginUser = async (credentials, dispatch) => {
 
    try {
       const data = await fetchDB.post(`/auth/login`, credentials);
-      const { accessToken } = data;
+      const { accessToken, refreshToken } = data;
 
-      tokenToHeader.set(accessToken);
+      // const { id, date } = todaySummary;
+
+      tokenToHeader.setToken(accessToken, refreshToken);
 
       await dispatch(userActions.loginUserSuccess(data));
    } catch (error) {
       dispatch(userActions.loginUserError(error));
+   }
+};
+
+const refreshUser = async dispatch => {
+   dispatch(userActions.refreshUserRequest());
+
+   try {
+      const data = await fetchDB.post(`/auth/refresh`);
+      const { accessToken, refreshToken } = data;
+
+      tokenToHeader.setToken(accessToken, refreshToken);
+
+      await dispatch(userActions.refreshUserSuccess(data));
+   } catch (error) {
+      dispatch(userActions.refreshUserError(error));
    }
 };
 
@@ -54,6 +71,8 @@ const getCurrentUser = async (persistedToken, dispatch) => {
 
    try {
       const data = await fetchDB.get(`/user`);
+      console.dir(data);
+
       dispatch(userActions.currentUserSuccess(data));
    } catch (error) {
       if (error.response.status === 401) {
@@ -67,5 +86,6 @@ export default {
    registerAndLoginUser,
    loginUser,
    logoutUser,
+   refreshUser,
    getCurrentUser,
 };

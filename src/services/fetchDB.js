@@ -2,6 +2,7 @@
 import axios from 'axios';
 
 axios.defaults.baseURL = 'https://slimmom-backend-node-2-kh.herokuapp.com';
+//axios.defaults.baseURL = 'http://localhost:3100';
 axios.defaults.headers.get['Accept'] = 'application/json';
 
 export const tokenToHeader = {
@@ -10,6 +11,11 @@ export const tokenToHeader = {
    },
    unset() {
       axios.defaults.headers.common['Authorization'] = '';
+      axios.defaults.headers.common['Refresh-Authorization'] = '';
+   },
+   setToken(token, refresh) {
+      axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+      axios.defaults.headers.common['Refresh-Authorization'] = `Bearer ${refresh}`;
    },
 };
 

@@ -26,11 +26,13 @@ const user = createReducer(INITIAL_USER_STATE, {
 
 const accessToken = createReducer(null, {
    [userAction.loginUserSuccess]: (_, { payload }) => payload.accessToken,
+   [userAction.refreshUserSuccess]: (_, { payload }) => payload.accessToken,
    [userAction.logoutUserSuccess]: () => null,
 });
 
 const refreshToken = createReducer(null, {
    [userAction.loginUserSuccess]: (_, { payload }) => payload.refreshToken,
+   [userAction.refreshUserSuccess]: (_, { payload }) => payload.refreshToken,
    [userAction.logoutUserSuccess]: () => null,
 });
 

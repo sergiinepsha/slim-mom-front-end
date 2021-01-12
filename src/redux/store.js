@@ -2,7 +2,7 @@ import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
-import { isErrorAlert } from '../middleware';
+import { isErrorAlert, isRefresh } from '../middleware';
 
 import { userReducers } from '../redux/auth';
 import { productReducer } from '../redux/product';
@@ -32,6 +32,6 @@ export const store = configureStore({
       isError: errorReducer,
       loader: loaderReducer,
    },
-   middleware: [...defMidd, isErrorAlert],
+   middleware: [...defMidd, isRefresh, isErrorAlert],
 });
 export const persistor = persistStore(store);

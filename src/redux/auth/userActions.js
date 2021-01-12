@@ -19,6 +19,10 @@ const currentUserRequest = createAction('GET/currentUserRequest');
 const currentUserSuccess = createAction('GET/currentUserSuccess');
 const currentUserError = createAction('GET/currentUserError');
 
+const refreshUserRequest = createAction('POST/refreshUserRequest');
+const refreshUserSuccess = createAction('POST/refreshUserSuccess');
+const refreshUserError = createAction('POST/refreshUserError');
+
 export default {
    loginUserRequest,
    loginUserSuccess,
@@ -37,4 +41,8 @@ export default {
    currentUserRequest,
    currentUserSuccess,
    currentUserError,
+
+   refreshUserRequest,
+   refreshUserSuccess,
+   refreshUserError,
 };
