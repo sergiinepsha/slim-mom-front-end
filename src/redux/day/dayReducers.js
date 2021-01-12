@@ -36,9 +36,14 @@ const daySummary = createReducer(INITIAL_DAY_SUMMARY, {
    [dayActions.emptyDaySummary]: () => INITIAL_DAY_SUMMARY,
 });
 
+const notAllowedProducts = createReducer([], {
+   [dayActions.notAllowedProducts]: (_, { payload }) => payload,
+});
+
 export default combineReducers({
    dayId,
    date,
    eatenProducts,
    daySummary,
+   notAllowedProducts,
 });

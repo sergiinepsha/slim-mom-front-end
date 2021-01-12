@@ -1,6 +1,5 @@
 /* eslint-disable import/no-anonymous-default-export */
 import { userActions } from './';
-// import { dayActions } from '../day';
 
 import fetchDB, { tokenToHeader } from '../../services/fetchDB';
 import { dailyRateActions } from '../dailyRate';
@@ -31,9 +30,6 @@ const loginUser = async (credentials, dispatch) => {
       tokenToHeader.setToken(accessToken, refreshToken);
 
       await dispatch(userActions.loginUserSuccess(data));
-      // await dispatch(dayActions.daySummary(todaySummary));
-      // await dispatch(dayActions.getDate(date));
-      // await dispatch(dayActions.dayId(id));
    } catch (error) {
       dispatch(userActions.loginUserError(error));
    }

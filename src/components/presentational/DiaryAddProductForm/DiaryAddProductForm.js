@@ -78,7 +78,7 @@ const DiaryAddProductForm = () => {
                <PrimaryInput
                   value={productName}
                   type="text"
-                  placeholder="Введите продукт"
+                  placeholder="Введите название продукта"
                   onChange={({ value }) => setProductName(value)}
                />
 
