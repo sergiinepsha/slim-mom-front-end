@@ -11,15 +11,14 @@ const CalculatorPage = () => {
    const title = 'Узнай свою суточную норму калорий';
 
    const dispatch = useDispatch();
-   const dateNeeded = useSelector(state=>state.day.date)
-     
+   const dateNeeded = useSelector(state => state.day.date);
+
    useEffect(() => {
       if (dateNeeded) {
          dispatch(dayActions.getDate(dateNeeded));
-      }else{
+      } else {
          dispatch(dayActions.getDate(new Date().toLocaleDateString('fr-ca')));
       }
-     
    }, [dispatch]);
 
    return (
