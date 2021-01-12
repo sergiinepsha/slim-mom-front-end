@@ -1,16 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import Calendar from 'react-calendar';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { dayActions } from '../../../redux/day';
 import s from './DiaryDateCalendar.module.css';
 
 function DiaryDateCalendar() {
    const dateNow = new Date();
 
-   const [date, setDate] = useState(dateNow);
+   const dateState = new Date(useSelector(state => state.day.date));
+
+   const [date, setDate] = useState(dateState ? dateState : dateNow);
+
    const [isClick, setClick] = useState(false);
 
    const dispatch = useDispatch();
+
+   const formattedDate = date => date.toLocaleDateString('fr-ca');
+
+   const currentDate = formattedDate(date);
 
    useEffect(() => {
       dispatch(dayActions.getDate(formattedDate(date)));
@@ -22,15 +29,10 @@ function DiaryDateCalendar() {
       // dispatch(dayActions.dayId);
    };
 
-   const formattedDate = date => date.toLocaleDateString('fr-ca');
-
-   const currentDate = formattedDate(date);
-
    return (
       <div
          className={s.container}
          onClick={e => {
-            // console.dir(e.target);
             if ((isClick && e.target.id === 'openCalendar') || e.target.id === 'calendar') {
                setClick(false);
             }
