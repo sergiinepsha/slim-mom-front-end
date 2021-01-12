@@ -1,0 +1,39 @@
+.item {
+   padding-left: 21.59px;
+}
+
+.link {
+   font-family: Gotham Pro;
+   font-style: normal;
+   font-weight: 700;
+   font-size: 14px;
+   line-height: 1.5;
+   letter-spacing: 0.04em;
+   text-transform: uppercase;
+
+   color: #9b9faa;
+}
+.activeLink {
+   color: #212121;
+}
+@media screen and (max-width: 767.9px) {
+   .bars {
+      font-size: 1.3em;
+      line-height: 2;
+   }
+}
+
+/*table*/
+@media screen and (min-width: 768px) and (max-width: 1279.9px) {
+   .bars {
+      font-size: 1.5em;
+      line-height: 2.5;
+   }
+}
+
+/*desktop*/
+@media screen and (min-width: 1280px) {
+   .link {
+      font-size: 14px;
+   }
+}

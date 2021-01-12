@@ -1,0 +1,30 @@
+{
+   "short_name": "Slim Mom",
+   "name": "Slim Mom",
+   "icons": [
+      {
+         "src": "favicon.ico",
+         "sizes": "64x64 32x32 24x24 16x16",
+         "type": "image/x-icon"
+      },
+      {
+         "src": "images/logo.png",
+         "type": "image/png",
+         "sizes": "70x66"
+      },
+      {
+         "src": "desctop_min.png",
+         "type": "image/png",
+         "sizes": "904x850"
+      },
+      {
+         "src": "tablet_min.png",
+         "type": "image/png",
+         "sizes": "768x512"
+      }
+   ],
+   "start_url": ".",
+   "display": "standalone",
+   "theme_color": "#000000",
+   "background_color": "#ffffff"
+}

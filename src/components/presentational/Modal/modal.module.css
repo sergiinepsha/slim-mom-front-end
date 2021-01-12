@@ -1,0 +1,73 @@
+.overlay {
+   display: flex;
+   justify-content: center;
+   align-items: flex-start;
+   width: 100%;
+   height: 100%;
+   background: rgba(33, 33, 33, 0.12);
+   position: absolute;
+   top: 0;
+   left: 0;
+   z-index: 1000;
+}
+
+.container {
+   position: relative;
+   background-color: #fff;
+}
+.backButton {
+   margin: 0;
+   padding: 0;
+   width: 100%;
+   height: 40px;
+   font-size: 25px;
+   background-color: rgba(239, 241, 243, 1);
+   border: none;
+   text-align: start;
+   padding-left: 10px;
+   margin-bottom: 40px;
+}
+.backButton::before {
+   content: '\21A9';
+   cursor: pointer;
+}
+.closeButton {
+   display: none;
+}
+
+@media (max-width: 767.9px) {
+   .container {
+      width: 100%;
+      top: 74px;
+      height: 90%;
+   }
+}
+
+@media (min-width: 768px) {
+   .container {
+      width: 594px;
+   }
+   .backButton {
+      display: none;
+   }
+   .closeButton {
+      display: block;
+      margin: 0;
+      padding: 0;
+      background: none;
+      font-size: 50px;
+      border: none;
+      text-align: end;
+      padding-right: 24px;
+      position: absolute;
+      right: 0;
+   }
+
+   .closeButton::before {
+      content: '\00D7';
+      cursor: pointer;
+   }
+   .overlay {
+      align-items: center;
+   }
+}

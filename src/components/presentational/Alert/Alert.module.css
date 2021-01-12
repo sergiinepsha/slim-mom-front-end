@@ -1,0 +1,16 @@
+.container {
+   display: flex;
+   border-radius: 3px;
+   padding: 3px;
+   z-index: 2;
+   background-color: rgba(247, 155, 144, 0.514);
+   z-index: 1;
+   -webkit-border-radius: 3px;
+   -moz-border-radius: 3px;
+   -ms-border-radius: 3px;
+   -o-border-radius: 3px;
+}
+.text {
+   font-size: 1em;
+   line-height: 1.5;
+}

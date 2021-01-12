@@ -1,0 +1,47 @@
+.container {
+   position: absolute;
+   margin: 0 auto;
+   padding-top: 40px;
+   display: flex;
+   justify-content: center;
+   width: 100vw;
+   z-index: 1;
+}
+
+.desctop_img,
+.tablet_img {
+   display: none;
+}
+
+@media screen and (min-width: 768.1px) {
+   .container {
+      padding-top: 156px;
+      padding-left: 92px;
+      justify-content: start;
+   }
+}
+
+@media screen and (min-width: 768.1px) and (max-width: 1280px) {
+   .tablet_img {
+      display: block;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      z-index: 0;
+   }
+}
+
+@media screen and (min-width: 1280.1px) {
+   .container {
+      padding-top: 95px;
+      padding-left: 114px;
+   }
+
+   .desctop_img {
+      display: block;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      z-index: 0;
+   }
+}

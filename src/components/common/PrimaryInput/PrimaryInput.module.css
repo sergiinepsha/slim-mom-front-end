@@ -1,0 +1,19 @@
+.primary_input {
+   margin: 0;
+   padding: 0;
+   width: 239px;
+   height: 35px;
+   border: none;
+   border-bottom: 1px solid #e0e0e0;
+   margin-bottom: 20px;
+}
+
+.primary_input::placeholder {
+   font-family: Verdana;
+   font-style: normal;
+   font-weight: bold;
+   font-size: 14px;
+   line-height: 17px;
+   letter-spacing: 0.04em;
+   color: #9b9faa;
+}

@@ -1,0 +1,117 @@
+.container {
+   margin: 0 auto;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   margin-bottom: 30px;
+   width: 300px;
+}
+
+.title {
+   margin-bottom: 30px;
+   font-family: Verdana;
+   font-style: normal;
+   font-weight: bold;
+   font-size: 18px;
+   line-height: 26px;
+   color: #212121;
+}
+
+.form {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   margin-bottom: 30px;
+   width: 100%;
+}
+
+.inp_wrapper {
+   margin: 0 auto;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   margin-bottom: 40px;
+}
+
+.btn_wrapper {
+   display: flex;
+   width: 100%;
+   justify-content: center;
+}
+
+@media screen and (min-width: 768px) {
+   .container {
+      margin: 0;
+      width: 700px;
+      align-items: flex-start;
+   }
+
+   .title {
+      margin-bottom: 60px;
+      font-size: 30px;
+      line-height: 36px;
+   }
+
+   .form {
+      width: 540px;
+      align-items: flex-start;
+   }
+
+   .inp_wrapper {
+      flex-direction: row;
+      flex-wrap: wrap;
+      width: 100%;
+      margin-bottom: 40px;
+   }
+
+   .inp_wrapper > input {
+      margin-right: 30px;
+   }
+
+   .inp_wrapper input:nth-child(1) {
+      order: 1;
+   }
+
+   .inp_wrapper input:nth-child(2) {
+      order: 3;
+   }
+
+   .inp_wrapper input:nth-child(3) {
+      order: 5;
+   }
+
+   .inp_wrapper input:nth-child(4) {
+      order: 2;
+   }
+
+   .inp_wrapper div {
+      order: 4;
+   }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1280px) {
+   .btn_wrapper {
+      justify-content: flex-start;
+   }
+   .container {
+      margin: 0;
+      width: 570px;
+      align-items: flex-start;
+   }
+}
+
+@media screen and (min-width: 1280.1px) {
+   .container {
+      margin: 0;
+   }
+
+   .title {
+      margin-bottom: 68px;
+      font-size: 34px;
+      line-height: 41px;
+   }
+
+   .btn_wrapper {
+      justify-content: flex-end;
+   }
+}
