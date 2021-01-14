@@ -14,10 +14,12 @@ const postEatenProduct = async (reqBody, dispatch) => {
       dispatch(dayActions.eatenProductSuccess(eatenProducts));
       dispatch(dayActions.daySummary(daySummary));
       dispatch(dayActions.notAllowedProducts(notAllowedProducts));
+      dispatch(userActions.refreshUserRequest());
    } catch (error) {
       if (error.response.status === 401) {
          dispatch(userActions.logoutUserSuccess());
       }
+
       dispatch(dayActions.eatenProductError(error));
    }
 };

@@ -28,6 +28,7 @@ const getDailyIntakeById = async (userCharacteristics, userId, dispatch) => {
       if (error.response.status === 401) {
          dispatch(userActions.logoutUserSuccess());
       }
+
       dispatch(dailyRateActions.getDailyIntake_ID_Error(error));
    }
 };
