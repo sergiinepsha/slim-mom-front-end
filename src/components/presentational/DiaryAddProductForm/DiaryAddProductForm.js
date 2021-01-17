@@ -30,7 +30,7 @@ const DiaryAddProductForm = () => {
 
    const dispatch = useDispatch();
 
-   const [, cancel] = useDebounce(() => setDebouncedProductName(productName), 500, [productName]);
+   const [, cancel] = useDebounce(() => setDebouncedProductName(productName), 100, [productName]);
 
    useEffect(() => {
       if (debouncedProductName) {
