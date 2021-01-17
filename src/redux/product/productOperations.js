@@ -14,6 +14,7 @@ const getProductByQuery = async (query, dispatch) => {
       if (error.response.status === 401) {
          dispatch(userActions.logoutUserSuccess());
       }
+
       dispatch(productActions.getProductError(error));
    }
 };

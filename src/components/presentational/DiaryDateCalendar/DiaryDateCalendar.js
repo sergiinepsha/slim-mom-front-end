@@ -26,7 +26,6 @@ function DiaryDateCalendar() {
    const changeDate = selectedDate => {
       setDate(selectedDate);
       setClick(false);
-      // dispatch(dayActions.dayId);
    };
 
    return (

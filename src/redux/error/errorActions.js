@@ -1,6 +1,6 @@
 import { createAction } from '@reduxjs/toolkit';
 
-const cleanError = createAction('error/clearIsError');
-export const readingInError = createAction('error/readIsError');
+const cleanError = createAction('error/clearError');
+export const writingInError = createAction('error/writeThisError');
 
 export default cleanError;

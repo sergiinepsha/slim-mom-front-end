@@ -1,6 +1,6 @@
 import { createReducer } from '@reduxjs/toolkit';
 
-import cleanError, { readingInError } from './errorActions';
+import cleanError, { writingInError } from './errorActions';
 
 const isError = createReducer(
    { error: null },
@@ -10,7 +10,7 @@ const isError = createReducer(
          error: '',
       }),
 
-      [readingInError]: (state, { payload }) => ({
+      [writingInError]: (state, { payload }) => ({
          ...state,
          error: payload.error,
          [payload.name]: [

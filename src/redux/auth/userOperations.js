@@ -1,6 +1,5 @@
 /* eslint-disable import/no-anonymous-default-export */
 import { userActions } from './';
-// import { dayActions } from '../day';
 
 import fetchDB, { tokenToHeader } from '../../services/fetchDB';
 import { dailyRateActions } from '../dailyRate';
@@ -24,21 +23,26 @@ const loginUser = async (credentials, dispatch) => {
 
    try {
       const data = await fetchDB.post(`/auth/login`, credentials);
-      const {
-         accessToken,
-         // todaySummary
-      } = data;
+      const { accessToken, refreshToken } = data;
 
-      // const { id, date } = todaySummary;
-
-      tokenToHeader.set(accessToken);
+      tokenToHeader.setToken(accessToken, refreshToken);
 
       await dispatch(userActions.loginUserSuccess(data));
-      // await dispatch(dayActions.daySummary(todaySummary));
-      // await dispatch(dayActions.getDate(date));
-      // await dispatch(dayActions.dayId(id));
    } catch (error) {
       dispatch(userActions.loginUserError(error));
+   }
+};
+
+const refreshUser = async dispatch => {
+   try {
+      const data = await fetchDB.post(`/auth/refresh`);
+      const { accessToken, refreshToken } = data;
+
+      tokenToHeader.setToken(accessToken, refreshToken);
+
+      dispatch(userActions.refreshUserSuccess(data));
+   } catch (error) {
+      dispatch(userActions.refreshUserError(error));
    }
 };
 
@@ -63,11 +67,14 @@ const getCurrentUser = async (persistedToken, dispatch) => {
 
    try {
       const data = await fetchDB.get(`/user`);
+
       dispatch(userActions.currentUserSuccess(data));
+      dispatch(userActions.refreshUserRequest());
    } catch (error) {
       if (error.response.status === 401) {
          dispatch(userActions.logoutUserSuccess());
       }
+
       dispatch(userActions.currentUserError(error));
    }
 };
@@ -76,5 +83,6 @@ export default {
    registerAndLoginUser,
    loginUser,
    logoutUser,
+   refreshUser,
    getCurrentUser,
 };
